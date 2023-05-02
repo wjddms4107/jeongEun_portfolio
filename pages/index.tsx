@@ -1,118 +1,101 @@
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
+import Header from '@/components/header'
+import Image from 'next/image';
+// import html from '@/public/html5.svg';
+import html from '@/public/html.svg';
+// import css from '@/public/css3.svg';
+import css from '@/public/css.svg';
+import js from '@/public/js.svg';
+import ts from '@/public/ts.svg';
+import react from '@/public/react.svg';
+import next from '@/public/nextjsIcon.svg';
+import sass from '@/public/sass.svg';
+import tailwind from '@/public/tailwind.svg';
+import redux from '@/public/redux.svg';
+// import recoil from '@/public/recoil.svg';
+import recoil from '@/public/recoil-js.svg';
+import reactQuery from '@/public/reactQuery.svg';
+import SkillBox from '@/components/skillBox';
 
-const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   return (
-    <main
-      className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
-    >
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">pages/index.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <>    
+      <Header />
+      <main className="w-full flex flex-col items-center justify-center">
+        <div className="w-[1440px] h-auto flex flex-col p-7">
+          <div className='flex align-middle justify-between'>
+            <h1 className="w-3/5 items-center text-[50px] leading-[1.3] font-semibold text-[#2f3c49] font-Josefin m-auto">이쁘게 개발하는 걸 좋아하는<br />프론트엔드 개발자 노정은입니다.</h1>
+            <div className="w-2/5 bg-white h-[500px] rounded-2xl shadow-lg">이미지 둥글게</div>
+          </div>
+
+          <div className='flex flex-col mt-10 mb-14'>
+            <h2 className='text-4xl font-medium mb-4 text-center'>About me<span className="absolute left-[55%] text-sm p-2 text-[#FCFCFC] bg-[#FD7FD4] rounded-[4px] cursor-pointer hover:bg-[#f151bc]">이력서 다운로드</span></h2>
+            <div className='flex align-middle justify-center space-x-8 text-[#585d63]'>
+              <div><span className='border-r-2 border-[#B680F9] mr-2 pr-2'>연락처</span>010 7704 4107</div>
+              <div><span className='border-r-2 border-[#B680F9] mr-2 pr-2'>이메일</span> wjddms4107@gmail.com</div>
+              <div><span className='border-r-2 border-[#B680F9] mr-2 pr-2'>블로그</span> www.naver.com</div>
+              <div><span className='border-r-2 border-[#B680F9] mr-2 pr-2'>깃허브</span> www.naver.com</div>
+            </div>
+          </div>    
+
+          <div className='h-[400px] flex flex-col mt-10 p-7 bg-[#e9eaeb] rounded-2xl shadow-lg'>
+            <h2 className='text-4xl font-medium mb-8'>Skill</h2>
+
+            <div className='mb-12'>
+              <h3 className='w-[80px] text-xl font-medium mb-4 bg-[#D2DAE0] text-center rounded-full'>Front</h3>
+              <div className='grid grid-cols-6 gap-1 gap-y-8 divide-x-[1px] divide-[#c1c5cb] divide-dashed'>
+                <SkillBox src={html} alt="html 아이콘" lang='HTML'/>
+                <SkillBox src={css} alt="css 아이콘" lang='CSS'/>
+                <SkillBox src={js} alt="js 아이콘" lang='Javascript'/>
+                <SkillBox src={ts} alt="ts 아이콘" lang='Typescript'/>
+                <SkillBox src={react} alt="react 아이콘" lang='React'/>
+                <SkillBox src={next} alt="next 아이콘" lang='Next.js'/>
+                <SkillBox src={sass} alt="sass 아이콘" lang='Sass' isBorderNone/>
+                <SkillBox lang='Styled-component' isImg={false}/>
+                <SkillBox src={tailwind} alt="tailwind 아이콘" lang='Tailwild CSS'/>
+                <SkillBox src={redux} alt="redux 아이콘" lang='Redux'/>
+                <SkillBox src={recoil} alt="recoil 아이콘" lang='Recoil'/>
+                <SkillBox src={reactQuery} alt="reactQuery 아이콘" lang='React-query'/>
+              </div>
+            </div>
+
+            <div>
+            <h3 className='w-[80px] text-xl font-medium mb-4 bg-[#D2DAE0] text-center rounded-full'>Back</h3>
+              <div className='grid grid-cols-6 gap-1 gap-y-6 divide-x-[1px] divide-[#c1c5cb] divide-dashed'>
+                <SkillBox src={redux} alt="redux 아이콘" lang='Redux'/>
+                <SkillBox src={recoil} alt="recoil 아이콘" lang='Recoil'/>
+                <SkillBox src={reactQuery} alt="reactQuery 아이콘" lang='React-query'/>
+              </div>
+            </div>
+          </div>     
         </div>
-      </div>
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700/10 after:dark:from-sky-900 after:dark:via-[#0141ff]/40 before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
 
-      <div className="mb-32 grid text-center lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
+        {/* <div className="p-7">
+          <h2 className='text-3xl mb-7'>Skill</h2>
+          <div>
+            front
+          </div>
+          <div>
+            back
+          </div>
+        </div>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Discover and deploy boilerplate example Next.js&nbsp;projects.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+        <div className="p-7">
+          <h2 className='text-3xl mb-7'>Project</h2>
+          <div className='w-[550px] h-[500px] p-5 bg-white rounded-2xl shadow-lg'>
+            <div className='w-full h-[280px] bg-sky-50' />
+            <div>
+              <div>제목</div>
+              <div>기간</div>
+              <div>기술</div>
+            </div>
+          </div>
+          <div>
+            back
+          </div>
+        </div> */}
+      </main>
+    </>
   )
 }
