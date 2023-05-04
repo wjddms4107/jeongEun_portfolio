@@ -1,5 +1,4 @@
 import SkillBox from '@/components/skillBox';
-
 import html from '@/public/html.svg';
 import css from '@/public/css.svg';
 import js from '@/public/js.svg';
@@ -14,6 +13,9 @@ import reactQuery from '@/public/reactQuery.svg';
 import firebase from '@/public/firebase.svg';
 import mongodb from '@/public/mongodb.svg';
 import prisma from '@/public/prisma.svg';
+
+
+
 
 export default function SkillSection(){
   return (

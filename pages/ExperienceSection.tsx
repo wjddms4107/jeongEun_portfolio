@@ -6,7 +6,7 @@ import mrpLogo from '@/public/mrpLogo.png';
 
 export default function ExperienceSection(){
   return (
-    <div>
+    <div className='mb-20'>
       <h2 className="text-5xl font-extrabold mb-12">Experience</h2>
 
       <div className="flex w-full">

@@ -1,8 +1,10 @@
 import Image from 'next/image';
-import Header from '@/components/header'
+import Header from '@/components/Header'
 import HomeSection from './HomeSection';
 import SkillSection from './SkillSection';
 import ExperienceSection from './ExperienceSection';
+import Projects from './Projects';
+
 
 export default function Home() {
   return (
@@ -11,6 +13,7 @@ export default function Home() {
           <HomeSection />
           <SkillSection />
           <ExperienceSection />
+          <Projects />
         </div>
 
 
