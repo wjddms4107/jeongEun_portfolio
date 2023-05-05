@@ -1,4 +1,4 @@
-import SkillBox from '@/components/skillBox';
+import SkillBox from '@/components/SkillBox';
 import html from '@/public/html.svg';
 import css from '@/public/css.svg';
 import js from '@/public/js.svg';
@@ -14,15 +14,12 @@ import firebase from '@/public/firebase.svg';
 import mongodb from '@/public/mongodb.svg';
 import prisma from '@/public/prisma.svg';
 
-
-
-
 export default function SkillSection(){
   return (
-    <div className="h-[400px] flex flex-col mt-10 mb-20 p-7 bg-[#e9eaeb] rounded-2xl shadow-lg">
-      <h2 className="text-5xl font-extrabold mb-8">Skill</h2>
+    <div className="h-[450px] flex flex-col mt-10 mb-20 p-7 bg-[#e9eaeb] rounded-2xl shadow-lg">
+      <h2 className="text-5xl font-extrabold mb-10">Skill</h2>
 
-      <div className="mb-12">
+      <div className="mb-14">
         <h3 className="w-[80px] text-xl font-medium mb-4 bg-[#D2DAE0] text-center rounded-full">
           Front
         </h3>

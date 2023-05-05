@@ -17,7 +17,6 @@ export default function Home() {
         </div>
 
 
-
         {/* <div className="p-7">
           <h2 className='text-3xl mb-7'>Skill</h2>
           <div>

@@ -1,6 +1,7 @@
 import Image from 'next/image';
+
 import CompanyDscrWrapper from '@/components/CompanyDscrWrapper';
-import ProjectSkill from '@/components/projectSkill'
+import ProjectSkill from '@/components/ProjectSkill';
 import mrpLogo from '@/public/mrpLogo.png';
 
 
@@ -121,7 +122,6 @@ export default function ExperienceSection(){
               <div className="leading-7">
                 - 메인페이지, 자산페이지, 등에 기여
               </div>
-              <div className="leading-7" />
             </div>
           </div>
         </div>
