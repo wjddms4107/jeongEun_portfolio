@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -30,4 +29,15 @@ li {
 html {
   overflow-x: hidden;
   scroll-behavior: smooth; 
+}
+
+.slick-dots li button:before {
+  font-family: "" !important;
+  font-size: 0 !important;
+  line-height: 0 !important;
+  content: '' !important;
+  width: 24px !important;
+  height: 3px !important;
+  margin-top: 10px;
+  background-color: #B680F9;
 }

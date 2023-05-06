@@ -1,11 +1,13 @@
 import { useState } from "react"
-import ProjectBox from "@/components/ProjectBox";
+import { StaticImageData } from "next/image";
+
 import hairShop from '@/public/hairShop.png';
 import rock from '@/public/rock.png';
 import myWeb from '@/public/myWeb.png';
-import { StaticImageData } from "next/image";
 
-interface Project {
+import ProjectBox from "./components/ProjectBox";
+
+export interface IProject {
   id: number;
   state:boolean;
   title: string;
@@ -17,9 +19,8 @@ interface Project {
   alt:string;
 }
 
-
 export default function ProjectSection() {
-  const [projectBoxStates, setProjectBoxStates] = useState<Project[]>([
+  const [projectBoxStates, setProjectBoxStates] = useState<IProject[]>([
     {
       id: 1,
       state: true,

@@ -1,28 +1,16 @@
 import { cls } from "@/libs/client/utils"
 import Image from "next/image";
-import { StaticImageData } from "next/image";
-import ProjectSkill from "./ProjectSkill";
+import ProjectSkill from "@/components/ProjectSkill";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
+import BigProjectBox from "./BigProjectBox";
+import { IProject } from '@/pages/ProjectSection'
 
-
-
-interface Project {
-  id: number;
-  state:boolean;
-  title: string;
-  period: string;
-  dscr: string;
-  sort: string;
-  src: StaticImageData;
-  alt:string;
-  skill: string;
-}
 
 interface IProjectBoxProps {
   isClicked: boolean;
   onClick: () => void;
-  infos: Project;
+  infos: IProject;
   layoutId: number;
 }
 
@@ -81,13 +69,13 @@ export default function ProjectBox({isClicked, onClick,infos, layoutId}: IProjec
     <AnimatePresence>
       {currentId ? (
             <motion.div
-              className="fixed z-[3] top-0 right-0 left-0 w-[100vx] h-full flex items-center justify-center m-auto"
-              onClick={() => setCurrnetId(null)}
+              className="fixed z-[3] top-0 right-0 left-0 w-[100vx] h-full flex items-center justify-center m-auto cursor-pointer"
+              onClick={(e) => e.target === e.currentTarget && setCurrnetId(null)}
               initial={{ backgroundColor: "rgba(0, 0, 0, 0)" }}
               animate={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}
               exit={{ backgroundColor: "rgba(0, 0, 0, 0)" }}
             >
-              <motion.div className="relative h-[840px] min-w-[740px] mr-6 rounded-2xl  bg-neutral-100" layoutId={currentId+""}>안녕하세요~</motion.div>
+              <BigProjectBox currentId={currentId} infos={infos} />
             </motion.div>
           ) : null}
     </AnimatePresence> 
