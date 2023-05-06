@@ -18,7 +18,7 @@ interface Project {
 }
 
 
-export default function Projects() {
+export default function ProjectSection() {
   const [projectBoxStates, setProjectBoxStates] = useState<Project[]>([
     {
       id: 1,
@@ -118,15 +118,13 @@ export default function Projects() {
   ));
   
   return (
-    <>
-    <div className="bg-white rounded-2xl shadow-lg py-[30px] pl-[30px]">
+    <div className="bg-white rounded-2xl shadow-lg py-[30px] pl-[30px] my-12">
       <h2 className="text-5xl font-extrabold mb-6">Projects</h2>
-      <h3 className="text-xl text-[#6C6C6C]">제가 한 프로젝트들을 보여드리겠습니다 프로젝트 설명 프로젝트 설명</h3>
+      <h3 className="text-xl text-deepGray">제가 한 프로젝트들을 보여드리겠습니다 프로젝트 설명 프로젝트 설명</h3>
 
       <div className="h-[640px] pt-20 flex snap-mandatory snap-x overflow-x-scroll scrollbar-hide">
         {projectBoxes} 
       </div>
     </div>
-    </>
   )
 }

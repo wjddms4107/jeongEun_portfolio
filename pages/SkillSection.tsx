@@ -15,15 +15,18 @@ import mongodb from '@/public/mongodb.svg';
 import prisma from '@/public/prisma.svg';
 
 export default function SkillSection(){
+  const skillSortRoundBox = "w-[80px] text-xl font-medium mb-4 bg-LightGray text-center rounded-full";
+  const skillBorder = "grid grid-cols-6 gap-1 gap-y-8 divide-x-[1px] divide-middleGray200 divide-dashed";
+
   return (
-    <div className="h-[450px] flex flex-col mt-10 mb-20 p-7 bg-[#e9eaeb] rounded-2xl shadow-lg">
+    <div className="h-[450px] flex flex-col mt-10 mb-20 p-7 bg-gray-50 rounded-2xl shadow-lg">
       <h2 className="text-5xl font-extrabold mb-10">Skill</h2>
 
       <div className="mb-14">
-        <h3 className="w-[80px] text-xl font-medium mb-4 bg-[#D2DAE0] text-center rounded-full">
+        <h3 className={skillSortRoundBox}>
           Front
         </h3>
-        <div className="grid grid-cols-6 gap-1 gap-y-8 divide-x-[1px] divide-[#c1c5cb] divide-dashed">
+        <div className={skillBorder}>
           <SkillBox src={html} alt="html 아이콘" lang="HTML" />
           <SkillBox src={css} alt="css 아이콘" lang="CSS" />
           <SkillBox src={js} alt="js 아이콘" lang="Javascript" />
@@ -44,10 +47,10 @@ export default function SkillSection(){
       </div>
 
       <div>
-        <h3 className="w-[80px] text-xl font-medium mb-4 bg-[#D2DAE0] text-center rounded-full">
+        <h3 className={skillSortRoundBox}>
           Back
         </h3>
-        <div className="grid grid-cols-6 gap-1 gap-y-6 divide-x-[1px] divide-[#c1c5cb] divide-dashed">
+        <div className={skillBorder}>
           <SkillBox src={firebase} alt="firebase 아이콘" lang="Firebase" />
           <SkillBox src={mongodb} alt="mongodb 아이콘" lang="Mongodb" />
           <SkillBox src={prisma} alt="prisma 아이콘" lang="Prisma" />

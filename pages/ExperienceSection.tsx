@@ -4,11 +4,12 @@ import CompanyDscrWrapper from '@/components/CompanyDscrWrapper';
 import ProjectSkill from '@/components/ProjectSkill';
 import mrpLogo from '@/public/mrpLogo.png';
 
-
 export default function ExperienceSection(){
+  const PurpleTitle = "relative right-[1px] text-2xl font-semibold text-bluePurple border-l-[2px] border-bluePurple pl-4 mt-4 mb-2.5"
+
   return (
-    <div className='mb-20'>
-      <h2 className="text-5xl font-extrabold mb-12">Experience</h2>
+    <div className='w-[1440px] mb-20 p-8'>
+      <h2 className="text-5xl font-extrabold my-12">Experience</h2>
 
       <div className="flex w-full">
         <div className="w-[41%] pr-6">
@@ -20,7 +21,7 @@ export default function ExperienceSection(){
             className="rounded-[100%]"
           />
         </div>
-        <div className="border-l border-[#C1C5CB] border-dashed">
+        <div className="border-l border-middleGray100 border-dashed">
           <CompanyDscrWrapper
             company="(주) MRP Soft"
             period="2023.11 ~ 현재"
@@ -29,18 +30,16 @@ export default function ExperienceSection(){
           />
 
           <div className="mb-8">
-            <h4 className="text-2xl font-semibold text-[#645BFF] border-l-[3px] border-[#645BFF] pl-4 mt-4 mb-2.5">
-              UBPEX 코인 거래소
-            </h4>
+            <h4 className={PurpleTitle}>UBPEX 코인 거래소</h4>
             <div className="ml-6">
               <div className="mb-2 ">
-                <ProjectSkill skill="react" />
-                <ProjectSkill skill="typescript" />
-                <ProjectSkill skill="styled-component" />
-                <ProjectSkill skill="material-ui" />
-                <ProjectSkill skill="react-query" />
+                <ProjectSkill skill="react" bgColor="bg-lightGrayWhite" />
+                <ProjectSkill skill="typescript" bgColor="bg-lightGrayWhite"  />
+                <ProjectSkill skill="styled-component" bgColor="bg-lightGrayWhite" />
+                <ProjectSkill skill="material-ui" bgColor="bg-lightGrayWhite" />
+                <ProjectSkill skill="react-query" bgColor="bg-lightGrayWhite" />
               </div>
-              <div className="text-xl text-[#808D9A] mb-2">
+              <div className="text-xl text-middleGray200 mb-2">
                 2023.02 ~ 2023.06
               </div>
 
@@ -69,11 +68,9 @@ export default function ExperienceSection(){
           </div>
 
           <div>
-            <h4 className="text-2xl font-semibold text-[#645BFF] border-l-[3px] border-[#645BFF] pl-4 my-4">
-              인플루언서 페이지
-            </h4>
+            <h4 className={PurpleTitle}>인플루언서 페이지</h4>
             <div className="ml-6">
-              <div className="text-xl text-[#808D9A] mb-2">
+              <div className="text-xl text-middleGray200 mb-2">
                 2023.02 ~ 2023.06
               </div>
               <div className="mb-4">
@@ -99,11 +96,9 @@ export default function ExperienceSection(){
           </div>
 
           <div>
-            <h4 className="text-2xl font-semibold text-[#645BFF] border-l-[3px] border-[#645BFF] pl-4 my-4">
-              각종 랜딩페이지
-            </h4>
+            <h4 className={PurpleTitle}>각종 랜딩페이지</h4>
             <div className="ml-6">
-              <div className="text-xl text-[#808D9A] mb-2">
+              <div className="text-xl text-middleGray200 mb-2">
                 2023.02 ~ 2023.06
               </div>
               <div className="mb-4">

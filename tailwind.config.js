@@ -15,7 +15,21 @@ module.exports = {
       fontFamily: {
         Flower: ['Indie Flower', "cursive"],
         Josefin: ['Josefin Sans', "sans-serif"],
-      }
+      },
+      colors: {
+        black: "#0E0E0E",
+        white: "#ffffff",
+        lightGrayWhite: "#F2F2F2",
+        deepGray: "#2f3c49",
+        middleGray200: "#808D9A", //period
+        middleGray100: "#D2DAE0",
+        LightGray: "#e9eaeb",
+        purple: "#B680F9",
+        lightBluePurple: "#9793ed",
+        bluePurple: "#645BFF",
+        pink: "#FD7FD4",
+        deepPink: "#f151bc",
+      },
     },
   },
   plugins: [require("tailwind-scrollbar-hide")],

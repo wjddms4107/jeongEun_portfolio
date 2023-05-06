@@ -20,8 +20,13 @@
 body {
   color: #0E0E0E;
   background: #F2F2F2;
+  box-sizing: border-box;
 }
 
 li {
   cursor: pointer;
+}
+
+html {
+  overflow-x: hidden;
 }

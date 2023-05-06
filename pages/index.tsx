@@ -3,44 +3,32 @@ import Header from '@/components/Header'
 import HomeSection from './HomeSection';
 import SkillSection from './SkillSection';
 import ExperienceSection from './ExperienceSection';
-import Projects from './Projects';
-
+import ProjectSection from './ProjectSection';
+import EducationSection from './EducationSection';
+import EtcSection from './EtcSection';
 
 export default function Home() {
   return (
-      <main className="w-full flex flex-col items-center justify-center">
-        <div className="w-[1440px] h-auto flex flex-col p-7 pt-12">
+      <main className="w-[100vw] flex flex-col items-center justify-center mt-[60px]">
+        <div className="w-[1440px] h-auto flex flex-col p-8">
           <HomeSection />
           <SkillSection />
+        </div>
+
+        <div className='w-[100vw] flex items-center justify-center bg-white'>
           <ExperienceSection />
-          <Projects />
         </div>
 
-
-        {/* <div className="p-7">
-          <h2 className='text-3xl mb-7'>Skill</h2>
-          <div>
-            front
-          </div>
-          <div>
-            back
-          </div>
+        <div className="w-[1440px] h-auto flex flex-col p-8">
+          <ProjectSection />
         </div>
 
-        <div className="p-7">
-          <h2 className='text-3xl mb-7'>Project</h2>
-          <div className='w-[550px] h-[500px] p-5 bg-white rounded-2xl shadow-lg'>
-            <div className='w-full h-[280px] bg-sky-50' />
-            <div>
-              <div>제목</div>
-              <div>기간</div>
-              <div>기술</div>
-            </div>
+        <div className='w-[100vw] flex items-center justify-center bg-white'>
+          <div className='w-[1440px] mb-20 p-8'>
+            <EducationSection />
+            <EtcSection />
           </div>
-          <div>
-            back
-          </div>
-        </div> */}
+        </div>
       </main>
   )
 }
