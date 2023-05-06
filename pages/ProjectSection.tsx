@@ -118,7 +118,7 @@ export default function ProjectSection() {
   ));
   
   return (
-    <div className="bg-white rounded-2xl shadow-lg py-[30px] pl-[30px] my-12">
+    <div id="project" className="bg-white rounded-2xl shadow-lg py-[30px] pl-[30px] my-12">
       <h2 className="text-5xl font-extrabold mb-6">Projects</h2>
       <h3 className="text-xl text-deepGray">제가 한 프로젝트들을 보여드리겠습니다 프로젝트 설명 프로젝트 설명</h3>
 

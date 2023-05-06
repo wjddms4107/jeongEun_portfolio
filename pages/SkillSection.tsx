@@ -1,4 +1,5 @@
-import SkillBox from '@/components/SkillBox';
+import SkillBox from '@/components/skillBox';
+
 import html from '@/public/html.svg';
 import css from '@/public/css.svg';
 import js from '@/public/js.svg';
@@ -14,12 +15,13 @@ import firebase from '@/public/firebase.svg';
 import mongodb from '@/public/mongodb.svg';
 import prisma from '@/public/prisma.svg';
 
+
 export default function SkillSection(){
   const skillSortRoundBox = "w-[80px] text-xl font-medium mb-4 bg-LightGray text-center rounded-full";
   const skillBorder = "grid grid-cols-6 gap-1 gap-y-8 divide-x-[1px] divide-middleGray200 divide-dashed";
 
   return (
-    <div className="h-[450px] flex flex-col mt-10 mb-20 p-7 bg-gray-50 rounded-2xl shadow-lg">
+    <div id="skill" className="flex flex-col mt-20 mb-20 p-7 bg-gray-50 rounded-2xl shadow-lg">
       <h2 className="text-5xl font-extrabold mb-10">Skill</h2>
 
       <div className="mb-14">

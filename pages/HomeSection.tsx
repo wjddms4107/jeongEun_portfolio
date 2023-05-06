@@ -1,7 +1,7 @@
 export default function HomeSection(){
   return (
     <>
-      <div className="flex align-middle justify-between">
+      <div id="home" className="flex align-middle justify-between">
         <h1 className="w-3/5 items-center text-[50px] leading-[1.3] font-semibold text-deepGray font-Josefin m-auto">
           이쁘게 개발하는 걸 좋아하는
           <br />

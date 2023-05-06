@@ -8,7 +8,7 @@ export default function ExperienceSection(){
   const PurpleTitle = "relative right-[1px] text-2xl font-semibold text-bluePurple border-l-[2px] border-bluePurple pl-4 mt-4 mb-2.5"
 
   return (
-    <div className='w-[1440px] mb-20 p-8'>
+    <div id="experience" className='w-[1440px] mb-20 p-8'>
       <h2 className="text-5xl font-extrabold my-12">Experience</h2>
 
       <div className="flex w-full">

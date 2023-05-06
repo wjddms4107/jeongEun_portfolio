@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import Header from '@/components/Header'
 import HomeSection from './HomeSection';
 import SkillSection from './SkillSection';
 import ExperienceSection from './ExperienceSection';

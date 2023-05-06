@@ -5,7 +5,7 @@ import EtcBox from "@/components/EtcBox";
 export default function EducationSection() {
   return (
     <>
-      <h2 className="text-5xl font-extrabold my-12">Education</h2>
+      <h2 id="education" className="text-5xl font-extrabold my-12">Education</h2>
 
       <div className="flex flex-col w-full">
         <EducationBox period="2022.06 ~ 2022.09" title="위코드 프론트엔드과정 수료" dscr={
