@@ -28,7 +28,7 @@ export default function ProjectSection() {
       period: "2022.05.01 ~ 현재",
       skill: "next.js, tailwind CSS, prisma",
       sort: "개인프로젝트",
-      dscr: "도입하고 싶은 기술을 마음껏 시도하면서 포트폴리오 웹사이트를 제작했습니다.",
+      dscr: "회사의 기술스택은 react, styled-component 입니다. 이에 국한되고 싶지 않았고 퇴근 후 개인적으로 next.js, prisma, tailwindCSS를 공부하여 이 기술로 웹사이트를 제작했습니다. ",
       src: myWeb,
       alt: "헤어샵 프로젝트 이미지",
     },

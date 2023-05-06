@@ -59,7 +59,7 @@ export default function ProjectBox({isClicked, onClick,infos, layoutId}: IProjec
             <div className="text-[19px] mb-[8px]">
               <span className="font-medium">주요기능 : </span>실시간 예약 가능
             </div>
-            <div className="text-[19px] mb-[6px]">
+            <div className="text-[17px] mb-[6px]">
               {infos.dscr}
             </div>
           </div>
