@@ -1,16 +1,16 @@
 import { cls } from "@/libs/client/utils"
 import Image from "next/image";
+import { Project } from "@prisma/client";
 import ProjectSkill from "@/components/ProjectSkill";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import BigProjectBox from "./BigProjectBox";
-import { IProject } from '@/pages/ProjectSection'
 
 
 interface IProjectBoxProps {
   isClicked: boolean;
   onClick: () => void;
-  infos: IProject;
+  infos: Project;
   layoutId: number;
 }
 
@@ -37,6 +37,8 @@ export default function ProjectBox({isClicked, onClick,infos, layoutId}: IProjec
             src={infos.src}
             alt={infos.alt}
             className="h-[50%] border-8 rounded-t-2xl border-neutral-200 "
+            width={555}
+            height={400}
           />
           <div className="p-4 pt-2">
             <div className="mb-[4px] flex items-center justify-between">
@@ -60,7 +62,7 @@ export default function ProjectBox({isClicked, onClick,infos, layoutId}: IProjec
               <span className="font-medium">주요기능 : </span>실시간 예약 가능
             </div>
             <div className="text-[17px] mb-[6px]">
-              {infos.dscr}
+              {infos.shortDscr}
             </div>
           </div>
         </div>

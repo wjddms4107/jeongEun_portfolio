@@ -1,5 +1,7 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import { Project } from "@prisma/client";
 import { StaticImageData } from "next/image";
+import axios from "axios";
 
 import hairShop from '@/public/hairShop.png';
 import rock from '@/public/rock.png';
@@ -7,108 +9,18 @@ import myWeb from '@/public/myWeb.png';
 
 import ProjectBox from "./components/ProjectBox";
 
-export interface IProject {
-  id: number;
-  state:boolean;
-  title: string;
-  period: string;
-  skill: string;
-  dscr: string;
-  sort: string;
-  src: StaticImageData;
-  alt:string;
-}
 
 export default function ProjectSection() {
-  const [projectBoxStates, setProjectBoxStates] = useState<IProject[]>([
-    {
-      id: 1,
-      state: true,
-      title: "포트폴리오 웹사이트",
-      period: "2022.05.01 ~ 현재",
-      skill: "next.js, tailwind CSS, prisma",
-      sort: "개인프로젝트",
-      dscr: "회사의 기술스택은 react, styled-component 입니다. 이에 국한되고 싶지 않았고 퇴근 후 개인적으로 next.js, prisma, tailwindCSS를 공부하여 이 기술로 웹사이트를 제작했습니다. ",
-      src: myWeb,
-      alt: "헤어샵 프로젝트 이미지",
-    },
-    {
-      id: 2,
-      state: false,
-      title: "실시간 헤어샵 예약 시스템",
-      period: "2022.10.21 ~ 2022.10.28",
-      dscr: "도입하고 싶은 기술을 마음껏 시도하면서 포트폴리오 웹사이트를 제작했습니다.",
-      sort: "개인프로젝트",
-      src: hairShop,
-      alt: "헤어샵 프로젝트 이미지",
-      skill: "react, styled-component, firebase"
-    },
-    {
-      id: 3,
-      state: false,
-      title: "가위바위보",
-      period: "2022.10.08 ~ 2022.10.10",
-      dscr: "개인프로젝트",
-      sort: "개인프로젝트",
-      src: rock,
-      alt: "헤어샵 프로젝트 이미지",
-      skill: "next.js, tailwind CSS"
-    },
-    {
-      id: 4,
-      state: false,
-      title: "프로젝트 4",
-      period: "2022.03.21 ~ 2022.03.22",
-      dscr: "내가 진짜 열심히 한 프로젝트",
-      sort: "내가 진짜 열심히 한 프로젝트",
-      src: hairShop,
-      alt: "헤어샵 프로젝트 이미지",
-      skill: "next.js, tailwind CSS"
-    },
-    {
-      id: 5,
-      state: false,
-      title: "프로젝트 5",
-      period: "2022.03.21 ~ 2022.03.22",
-      dscr: "내가 진짜 열심히 한 프로젝트",
-      sort: "내가 진짜 열심히 한 프로젝트",
-      src: hairShop,
-      alt: "헤어샵 프로젝트 이미지",
-      skill: "next.js, tailwind CSS"
-    },
-    {
-      id: 6,
-      state: false,
-      title: "프로젝트 6",
-      period: "2022.03.21 ~ 2022.03.22",
-      dscr: "내가 진짜 열심히 한 프로젝트",
-      sort: "내가 진짜 열심히 한 프로젝트",
-      src: hairShop,
-      alt: "헤어샵 프로젝트 이미지",
-      skill: "next.js, tailwind CSS"
-    },
-    {
-      id: 7,
-      state: false,
-      title: "프로젝트 7",
-      period: "2022.03.21 ~ 2022.03.22",
-      dscr: "내가 진짜 열심히 한 프로젝트",
-      sort: "내가 진짜 열심히 한 프로젝트",
-      src: hairShop,
-      alt: "헤어샵 프로젝트 이미지",
-      skill: "next.js, tailwind CSS"
-    },
-  ]);
-
+  const [projectBoxStates, setProjectBoxStates] = useState<Project[]>();
 
   const handleProjectBoxClick = (index: number) => {
-    setProjectBoxStates(projectBoxStates.map((info, i) => ({
+    setProjectBoxStates(projectBoxStates?.map((info, i) => ({
       ...info,
       state: i === index
     })));
   };
   
-  const projectBoxes = projectBoxStates.map((info) => (
+  const projectBoxes = projectBoxStates?.map((info) => (
     <ProjectBox
       key={info.id}
       isClicked={info.state}
@@ -117,6 +29,18 @@ export default function ProjectSection() {
       layoutId={info.id}
     />
   ));
+
+  useEffect(()=>{
+    axios.get('/api/project')
+  .then(function (response:any) {
+    setProjectBoxStates(response.data.data)
+  })
+  .catch(function (error:any) {
+    console.log(error, "project api 연결 에러");
+  })
+  }
+  ,[])
+
   
   return (
     <div id="project" className="bg-white rounded-2xl shadow-lg py-[30px] pl-[30px] my-12">
