@@ -22,6 +22,10 @@ model Project {
   skill String
   github String
   url String
+  team String?
+  myRole String?
+  library String?
+  notes String?
   shortDscr String
   projectDscr String  @db.VarChar(1000)
   featureDscr String  @db.VarChar(1000)
