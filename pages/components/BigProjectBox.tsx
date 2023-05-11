@@ -52,7 +52,7 @@ export default function BigProjectBox({currentId, infos}:IBigProjectBox) {
         <div className="border-l-[1px] border-LightGray border-dashed pl-4 space-y-5">
           <ProjectDscr title="기간" dscr={`${infos.period} (${infos.sort})`} />
 
-          <ProjectDscr title="사용기술" dscr={`${infos.skill} ${infos.library ? `(라이브러리: ${infos.library})` : null}`} />
+          <ProjectDscr title="사용기술" dscr={`${infos.skill} ${infos.library ? `(라이브러리: ${infos.library})` : ""}`} />
 
           <ProjectDscr title="github" dscr={infos.github} />
 

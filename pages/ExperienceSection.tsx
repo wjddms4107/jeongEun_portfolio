@@ -5,7 +5,7 @@ import ProjectSkill from '@/components/ProjectSkill';
 import mrpLogo from '@/public/mrpLogo.png';
 
 export default function ExperienceSection(){
-  const PurpleTitle = "relative right-[1px] text-2xl font-semibold text-bluePurple border-l-[2px] border-bluePurple pl-4 mt-4 mb-2.5"
+  const PurpleTitle = "relative right-[1px] text-2xl font-semibold text-bluePurple border-l-[2px] border-bluePurple pl-4 mt-4 mb-2"
 
   return (
     <div id="experience" className='w-[1440px] mb-20 p-8'>
@@ -32,16 +32,17 @@ export default function ExperienceSection(){
           <div className="mb-8">
             <h4 className={PurpleTitle}>UBPEX 코인 거래소</h4>
             <div className="ml-6">
-              <div className="mb-2 ">
+              <div className="text-xl text-middleGray200 mb-2">
+                2023.02 ~ 2023.06
+              </div>
+              <div className="mb-4">
                 <ProjectSkill skill="react" bgColor="bg-lightGrayWhite" />
                 <ProjectSkill skill="typescript" bgColor="bg-lightGrayWhite"  />
                 <ProjectSkill skill="styled-component" bgColor="bg-lightGrayWhite" />
                 <ProjectSkill skill="material-ui" bgColor="bg-lightGrayWhite" />
                 <ProjectSkill skill="react-query" bgColor="bg-lightGrayWhite" />
               </div>
-              <div className="text-xl text-middleGray200 mb-2">
-                2023.02 ~ 2023.06
-              </div>
+
 
               <div className="mb-4">
                 처음부터 끝까지 함께 한 코인거래소 메인, 어쩌고 저쩌고를 제가
