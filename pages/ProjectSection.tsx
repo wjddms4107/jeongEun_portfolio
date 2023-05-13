@@ -2,13 +2,10 @@ import { useState, useEffect } from "react"
 import { Project } from "@prisma/client";
 import { StaticImageData } from "next/image";
 import axios from "axios";
-
 import hairShop from '@/public/hairShop.png';
 import rock from '@/public/rock.png';
 import myWeb from '@/public/myWeb.png';
-
 import ProjectBox from "./components/ProjectBox";
-
 
 export default function ProjectSection() {
   const [projectBoxStates, setProjectBoxStates] = useState<Project[]>();
@@ -40,7 +37,6 @@ export default function ProjectSection() {
   })
   }
   ,[])
-
   
   return (
     <div id="project" className="bg-white rounded-2xl shadow-lg py-[30px] pl-[30px] my-12">

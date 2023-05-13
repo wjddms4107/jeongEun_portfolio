@@ -25,6 +25,7 @@ module.exports = {
         middleGray300: "#565656",
         middleGray200: "#727272", //period
         middleGray100: "#A7A7A7",
+        lightGray200:"#D7D7D7",
         LightGray: "#e9eaeb",
         purple: "#B680F9",
         lightBluePurple: "#9793ed",

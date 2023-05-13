@@ -42,7 +42,7 @@ export default function ProjectBox({isClicked, onClick, infos, layoutId}: IProje
       {isClicked ? (
         <div onClick={()=>handleOpenBox(infos.id)} className="rounded-2xl h-full bg-neutral-100">
           <Image
-            src={infos.src}
+            src={infos.src[0]}
             alt={infos.alt}
             className="h-[50%] border-8 rounded-t-2xl border-neutral-200 "
             width={555}

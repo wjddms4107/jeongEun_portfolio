@@ -6,19 +6,10 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import ProjectDscr from "@/components/ProjectDscr";
 
-
 interface IBigProjectBox{
   currentId : number;
   infos : Project;
 }
-
-const images = [
-  "https://placekitten.com/600/300",
-  "https://placekitten.com/500/300",
-  "https://placekitten.com/400/300",
-  "https://placekitten.com/300/300",
-  "https://placekitten.com/200/300",
-];
 
 export default function BigProjectBox({currentId, infos}:IBigProjectBox) {
   const settings = {
@@ -32,14 +23,12 @@ export default function BigProjectBox({currentId, infos}:IBigProjectBox) {
 
   const purpleLine = "relative right-[17px] min-w-[130px] h-fit font-semibold border-purple border-l-[2px] pl-4 mr-4"
 
-  console.log('infos:',infos);
-
   return (
     <motion.div className="relative h-[90%] w-[60%] p-8 rounded-2xl bg-white overflow-y-scroll" layoutId={currentId+""} onClick={(e) => e.stopPropagation()}>
       <div className="max-w-screen-sm m-auto mb-10">
         <Slider {...settings}>
-          {images.map((image) => (
-            <div key={image} className="ml-[10px] h-[300px]">
+          {infos.src?.map((image:string) => (
+            <div key={image} className="ml-[10px] h-[auto]">
               <Image src={image} alt="kitten" width={600} height={350}  />
             </div>
           ))}

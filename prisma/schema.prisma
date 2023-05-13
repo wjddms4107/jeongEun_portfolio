@@ -17,7 +17,7 @@ model Project {
   title String
   period String
   sort String
-  src String
+  src String @db.VarChar(3000)
   alt String
   skill String
   github String
