@@ -7,18 +7,22 @@ import EducationSection from './EducationSection';
 import EtcSection from './EtcSection';
 
 export default function Home() {
+
   return (
       <main className="w-[100vw] flex flex-col items-center justify-center mt-[60px]">
         <div className="w-[1440px] h-auto flex flex-col p-8">
           <HomeSection />
-          <SkillSection />
+          <div id="skill" >
+            <SkillSection />
+          </div>
+          
         </div>
 
         <div className='w-[100vw] flex items-center justify-center bg-white'>
           <ExperienceSection />
         </div>
 
-        <div className="w-[1440px] h-auto flex flex-col p-8">
+        <div id="project"  className="w-[1440px] h-auto flex flex-col p-8">
           <ProjectSection />
         </div>
 

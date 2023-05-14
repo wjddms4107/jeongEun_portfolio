@@ -17,15 +17,18 @@ interface IProjectBoxProps {
 export default function ProjectBox({isClicked, onClick, infos, layoutId}: IProjectBoxProps) {
   const [currentId, setCurrentId] = useState<null | number>(null);
 
+  const skills = infos.skill.split(",")
+
   const handleOpenBox = (id:number) => {
     setCurrentId(id);
+    document.documentElement.style.overflow = 'hidden';
   };
-
+  
   const handleCloseBox = () => {
     setCurrentId(null);
+    document.documentElement.style.overflow = 'visible';
   };
 
-  const skills = infos.skill.split(",")
   
   return (
     <>
@@ -71,10 +74,10 @@ export default function ProjectBox({isClicked, onClick, infos, layoutId}: IProje
             
             <div className="overflow-y-scroll">
               <div className="text-[17px] text-middleGray900 mb-[6px]">
-                📌 github : <Link href={infos.github} className="cursor-pointer hover:underline underline-offset-4">{infos.github}</Link>
+                📌 github : <Link href={infos.github} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()} className="cursor-pointer hover:underline underline-offset-4">{infos.github}</Link>
               </div>
               <div className="text-[17px] text-middleGray900">
-                📌 url : <Link href={infos.url} className="cursor-pointer hover:underline underline-offset-4">{infos.url}</Link>
+                📌 url : <Link href={infos.url} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()} className="cursor-pointer hover:underline underline-offset-4">{infos.url}</Link>
               </div>
               <div className="text-[17px] text-middleGray900 mt-3">
                 {infos.shortDscr}
@@ -87,7 +90,7 @@ export default function ProjectBox({isClicked, onClick, infos, layoutId}: IProje
     <AnimatePresence>
       {currentId ? (
             <motion.div
-              className="fixed z-[3] top-0 right-0 left-0 w-[100vx] h-full flex items-center justify-center m-auto"
+              className="fixed z-20 top-0 right-0 left-0 w-[100vx] h-full flex items-center justify-center m-auto"
               onClick={(e) => e.target === e.currentTarget && handleCloseBox()}
               initial={{ backgroundColor: "rgba(0, 0, 0, 0)" }}
               animate={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}

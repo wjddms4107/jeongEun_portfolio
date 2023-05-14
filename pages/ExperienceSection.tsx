@@ -1,5 +1,6 @@
 import Image from 'next/image';
-
+import { motion } from "framer-motion";
+import { variants } from "@/libs/client/utils";
 import CompanyDscrWrapper from '@/components/CompanyDscrWrapper';
 import ProjectSkill from '@/components/ProjectSkill';
 import mrpLogo from '@/public/mrpLogo.png';
@@ -8,8 +9,14 @@ export default function ExperienceSection(){
   const PurpleTitle = "relative right-[1px] text-2xl font-semibold text-bluePurple border-l-[2px] border-bluePurple pl-4 mt-4 mb-2"
 
   return (
-    <div id="experience" className='w-[1440px] mb-20 p-8'>
-      <h2 className="text-5xl font-extrabold my-12">Experience</h2>
+    <motion.div
+      initial="offscreen"
+      whileInView="onscreen"
+      viewport={{ once: false, amount: 0.2 }} 
+      id="experience" 
+      className='w-[1440px] mb-20 p-8'
+    >
+      <motion.h2 variants={variants} className="text-5xl font-extrabold my-12">Experience</motion.h2>
 
       <div className="flex w-full">
         <div className="w-[41%] pr-6">
@@ -122,6 +129,6 @@ export default function ExperienceSection(){
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
