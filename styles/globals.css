@@ -37,16 +37,6 @@
 }
 
 
-@keyframes blink-caret {
-  from, to {
-    border-color: transparent;
-  }
-  50% {
-    border-color: black;
-  }
-}
-
-
 body {
   color: #0E0E0E;
   background: #F2F2F2;
@@ -71,7 +61,7 @@ html {
   line-height: 0 !important;
   content: '' !important;
   width: 24px !important;
-  height: 5px !important;
-  margin-top: 10px;
+  height: 6px !important;
+  margin-top: 25px;
   background-color: #B680F9;
 }

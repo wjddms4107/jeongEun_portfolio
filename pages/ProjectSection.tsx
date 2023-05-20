@@ -1,12 +1,8 @@
 import { useState, useEffect } from "react"
-import { StaticImageData } from "next/image";
 import axios from "axios";
 import { motion } from "framer-motion";
 import { variants } from "@/libs/client/utils";
 import { Project } from "@prisma/client";
-import hairShop from '@/public/hairShop.png';
-import rock from '@/public/rock.png';
-import myWeb from '@/public/myWeb.png';
 import ProjectBox from "./components/ProjectBox";
 
 export default function ProjectSection() {

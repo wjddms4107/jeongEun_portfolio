@@ -29,4 +29,5 @@ model Project {
   shortDscr String
   projectDscr String  @db.VarChar(1000)
   featureDscr String  @db.VarChar(1000)
+  troubleeDscr String  @db.VarChar(1000)
 }

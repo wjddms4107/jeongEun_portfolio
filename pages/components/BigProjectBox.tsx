@@ -4,7 +4,9 @@ import { Project } from "@prisma/client";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import ProjectDscr from "@/components/ProjectDscr";
+import ProjectSkill from "@/components/ProjectSkill";
+import PurpleCheckSvg from "@/components/PurpleCheckSvg";
+import PinkBtn from "@/components/PinkBtn";
 
 interface IBigProjectBox{
   currentId : number;
@@ -13,19 +15,29 @@ interface IBigProjectBox{
 
 export default function BigProjectBox({currentId, infos}:IBigProjectBox) {
   const settings = {
+    arrows: false,
     dots: true,
     infinite: true,
-    speed: 500,
+    autoplay: true,
+    speed: 2000,
+    autoplaySpeed: 2500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    arrows: false,
   };
 
-  const purpleLine = "relative right-[17px] min-w-[130px] h-fit font-semibold border-purple border-l-[2px] pl-4 mr-4"
+  const skills = infos.skill.split(",")
+
+  const projectDscr =  infos.projectDscr.split("+");
+
+  const featureDscr = infos.featureDscr.split("+");
+
+  const troubleeDscr = infos.troubleeDscr.split("+");
+
 
   return (
-    <motion.div className="relative h-[90%] w-[60%] p-8 rounded-2xl bg-white overflow-y-scroll" layoutId={currentId+""} onClick={(e) => e.stopPropagation()}>
-      <div className="max-w-screen-sm m-auto mb-10">
+    <motion.div className="relative h-[90%] w-[60%] p-12 pt-12 rounded-2xl bg-white overflow-y-scroll" layoutId={currentId+""} onClick={(e) => e.stopPropagation()}>
+      
+      <div className="max-w-screen-sm m-auto mb-10 border-8 rounded-2xl border-neutral-200">
         <Slider {...settings}>
           {infos.src?.map((image:string) => (
             <div key={image} className="ml-[10px] h-[auto]">
@@ -34,28 +46,80 @@ export default function BigProjectBox({currentId, infos}:IBigProjectBox) {
           ))}
         </Slider>
       </div>
+      
+      <div className="flex flex-col items-start">
+        <div className="mb-6">
+          {/* 프로젝트 제목, 기간, 기술스택 */}
+          <h1 className="text-[26px] font-semibold mb-[2px]">{infos.title}</h1>
+          <div className="text-middleGray100 mb-3">{`${infos.period} (${infos.sort})`}</div>
+          <div className="mb-6">
+            {skills.map(item => (
+              <ProjectSkill key={item} skill={item} bgColor="bg-lightGrayWhite" />
+            ))}
+          </div>
 
-      <div>
-        <div className="text-center text-[26px] font-medium mb-6">{infos.title}</div>
+          {/* url, github 링크 */}
+          <div className="flex flex-col gap-y-1 mb-4">
+            <div className="flex flex-row items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-5 h-5 mr-3">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244" />
+              </svg>
+              <span className="cursor-pointer underline underline-offset-4">{infos.url}</span>
+            </div>
+            <div className="flex">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" className="mr-2">
+              <path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.75 8.14 6.63 9.55.48.09.65-.21.65-.47v-1.66c-2.69.59-3.26-1.3-3.26-1.3-.44-1.13-1.07-1.43-1.07-1.43-.88-.61.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.89 1.53 2.34 1.09 2.91.83.09-.65.34-1.09.63-1.34-2.2-.25-4.52-1.1-4.52-4.9 0-1.08.39-1.97 1.03-2.67-.1-.25-.45-1.26.1-2.63 0 0 .83-.27 2.7 1.02.78-.22 1.62-.33 2.46-.33s1.68.11 2.46.33c1.87-1.29 2.7-1.02 2.7-1.02.55 1.37.2 2.38.1 2.63.64.7 1.03 1.59 1.03 2.67 0 3.81-2.32 4.65-4.54 4.9.36.31.68.91.68 1.84v2.72c0 .26.17.56.66.47C19.25 20.14 22 16.42 22 12c0-5.52-4.48-10-10-10z"/>
+            </svg>
+              <span className="cursor-pointer underline underline-offset-4">{infos.github}</span>
+            </div>
+          </div>
 
-        <div className="border-l-[1px] border-LightGray border-dashed pl-4 space-y-5">
-          <ProjectDscr title="기간" dscr={`${infos.period} (${infos.sort})`} />
+          {/* 라이브러리, 팀구성, 나의 기여 */}
+          <div className="space-y-1">
+            {infos.library && <div>사용한 라이브러리 : <span>{infos.library}</span></div>}
+            {infos.team && <div>팀구성 : <span>{infos.team}</span></div>}
+            {infos.myRole && <div>나의 기여 : <span>{infos.myRole}</span></div>}
+          </div>
+        </div>
 
-          <ProjectDscr title="사용기술" dscr={`${infos.skill} ${infos.library ? `(라이브러리: ${infos.library})` : ""}`} />
+        {/* 프로젝트 소개 */}
+        <div className="mb-10">
+          <h2 className="text-[22px] font-bold mb-4">프로젝트 소개</h2>
+          <div className="space-y-2 text-deepGray">
+            { projectDscr?.map((item: string, i: number) => (
+              <div key={i}>{item}</div>
+            ))}
+          </div>
+        </div>
 
-          <ProjectDscr title="github" dscr={infos.github} />
+        {/* 개발한 기능 */}
+        <div className="mb-10">
+          <h2 className="text-[22px] font-bold mb-4">개발한 기능</h2>
+          <div className="space-y-1 text-deepGray">
+            { featureDscr?.map((item: string, i: number) => (
+              <div key={i} className="flex items-start">
+                <PurpleCheckSvg />
+                <span className="relative -top-[3px]">{item}</span>
+              </div>
+            ))}
+          </div>
+        </div>
 
-          <ProjectDscr title="url" dscr={infos.url} />
-
-          {infos.team && <ProjectDscr title="팀구성" dscr={infos.team} />}
-
-          <ProjectDscr title="프로젝트 소개" dscr={infos.projectDscr} />
+        {/* 트러블 슈팅 */}
+        <div>
+          <h2 className="text-[22px] font-bold mb-3">
+            트러블 슈팅 <PinkBtn text="깃허브 바로가기" url={infos.github} />
+          </h2>
+          <div className="mb-4">모든 해결과정은 github에 정리해놓았습니다.</div>
           
-          {infos.myRole && <ProjectDscr title="나의 기여" dscr={infos.myRole} />}
-
-          <ProjectDscr title="구현기능 소개" dscr={infos.featureDscr} />
-
-          {infos.notes && <ProjectDscr title="참고사항" dscr={infos.notes} />}         
+          <div className="space-y-1 text-deepGray">
+          { troubleeDscr?.map((item: string, i: number) => (
+              <div key={i} className="flex items-start">
+                <PurpleCheckSvg />
+                <span className="relative -top-[3px]">{item}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 

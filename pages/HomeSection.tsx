@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { useTypingAnimation } from "@/libs/client/useTypingAnimation";
 import { useCursorBlink } from "@/libs/client/useCursorBlink";
-import Link from "next/link";
-import AboutMe from "@/components/AboutMe";
 import { variants } from "@/libs/client/utils";
-
+import AboutMe from "@/components/AboutMe";
+import PinkBtn from "@/components/PinkBtn";
 
 export default function HomeSection(){
   const texts = ['이쁘게 개발하는 것을 좋아하는', '성취 중독자', '적응력이 뛰어나 협업에 자신있는', '노션에 정은표 개발사전을 만든'];
@@ -71,9 +71,7 @@ export default function HomeSection(){
           className="flex items-center justify-center text-5xl font-extrabold mb-6 text-center"
         >
           <motion.span variants={variants}>About me</motion.span>
-          <span className="text-base text-white p-2 ml-4 bg-pink rounded-[4px] cursor-pointer hover:bg-deepPink">
-            이력서 다운로드
-          </span>
+          <PinkBtn text="이력서 다운로드"/> 
         </motion.h2>
 
         <div className="flex flex-wrap gap-y-6 justify-center space-x-8 w-[1150px] text-deepGray">
