@@ -8,8 +8,6 @@ interface IEducationBox {
 }
 
 export default function EducationBox({period, title, dscr, isMargin}:IEducationBox){
-  // const purpleLine = "relative right-[1px] font-bold border-l-2 border-purple border-dashed pl-3";
-  
   return (
     <div className="flex">
       <div className={cls(greyLine, "pr-6 min-w-[150px] lg:min-w-[250px]")}>

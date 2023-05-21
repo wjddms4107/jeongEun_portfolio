@@ -1,8 +1,6 @@
 import { motion } from "framer-motion";
 import { variants } from "@/libs/client/utils";
-import { cls } from "@/libs/client/utils";
 import EducationBox from "@/components/EducationBox";
-import EtcBox from "@/components/EtcBox";
 
 export default function EducationSection() {
   return (
