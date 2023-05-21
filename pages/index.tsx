@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import HomeSection from './HomeSection';
 import SkillSection from './SkillSection';
 import ExperienceSection from './ExperienceSection';
@@ -7,7 +6,6 @@ import EducationSection from './EducationSection';
 import EtcSection from './EtcSection';
 
 export default function Home() {
-
   return (
       <main className="w-[100vw] flex flex-col items-center justify-center mt-[60px]">
         <div className="w-screen h-auto flex flex-col p-8 lg:w-[1440px]">
@@ -15,10 +13,9 @@ export default function Home() {
           <div id="skill" >
             <SkillSection />
           </div>
-          
         </div>
 
-        <div className='w-[100vw] flex items-center justify-center bg-white'>
+        <div className='w-[100vw] flex items-center justify-center bg-white dark:bg-black'>
           <ExperienceSection />
         </div>
 
@@ -26,7 +23,7 @@ export default function Home() {
           <ProjectSection />
         </div>
 
-        <div className='w-[100vw] flex items-center justify-center bg-white'>
+        <div className='w-[100vw] flex items-center justify-center bg-white dark:bg-black'>
           <div className='w-screen mb-20 p-8 lg:w-[1440px]'>
             <EducationSection />
             <EtcSection />

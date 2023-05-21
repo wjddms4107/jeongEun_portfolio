@@ -25,10 +25,10 @@ export default function ExperienceSection(){
             alt="mrp 로고"
             width={200}
             height={200}
-            className="rounded-[100%]"
+            className="rounded-[100%] dark:border-[2px] "
           />
         </div>
-        <div className="border-l border-middleGray100 border-dashed">
+        <div className="border-l border-middleGray100 dark:border-darkMiddleGray100 border-dashed">
           <CompanyDscrWrapper
             company="(주) MRP Soft"
             period="2023.11 ~ 현재"
@@ -39,23 +39,23 @@ export default function ExperienceSection(){
           <div className="mb-8">
             <h4 className={PurpleTitle}>BYBIX 코인 거래소</h4>
             <div className="ml-6">
-              <div className="text-xl text-middleGray200 mb-2">
+              <div className="text-xl text-middleGray200 dark:text-darkMiddleGray200 mb-2">
                 2023.02 ~ 2023.06
               </div>
               <div className="flex flex-wrap gap-y-1 max-w-[900px] mb-4">
-                <ProjectSkill skill="react v18 " bgColor="bg-lightGrayWhite" />
-                <ProjectSkill skill="typescript" bgColor="bg-lightGrayWhite"  />
-                <ProjectSkill skill="react-router-dom 6.4.3" bgColor="bg-lightGrayWhite"  />
-                <ProjectSkill skill="styled-component" bgColor="bg-lightGrayWhite" />
-                <ProjectSkill skill="material-ui" bgColor="bg-lightGrayWhite" />
-                <ProjectSkill skill="storyBook" bgColor="bg-lightGrayWhite" />
-                <ProjectSkill skill="recoil" bgColor="bg-lightGrayWhite" />
-                <ProjectSkill skill="react-query" bgColor="bg-lightGrayWhite" />
-                <ProjectSkill skill="i18next" bgColor="bg-lightGrayWhite" />
-                <ProjectSkill skill="framer-motion" bgColor="bg-lightGrayWhite" />
-                <ProjectSkill skill="apexcharts" bgColor="bg-lightGrayWhite" />
-                <ProjectSkill skill="react-slick" bgColor="bg-lightGrayWhite" />
-                <ProjectSkill skill="react-responsive" bgColor="bg-lightGrayWhite" />
+                <ProjectSkill skill="react v18 " bgColor="bg-lightGrayWhite dark:bg-darkLightGray200" />
+                <ProjectSkill skill="typescript" bgColor="bg-lightGrayWhite dark:bg-darkLightGray200"  />
+                <ProjectSkill skill="react-router-dom 6.4.3" bgColor="bg-lightGrayWhite dark:bg-darkLightGray200"  />
+                <ProjectSkill skill="styled-component" bgColor="bg-lightGrayWhite dark:bg-darkLightGray200" />
+                <ProjectSkill skill="material-ui" bgColor="bg-lightGrayWhite dark:bg-darkLightGray200" />
+                <ProjectSkill skill="storyBook" bgColor="bg-lightGrayWhite dark:bg-darkLightGray200" />
+                <ProjectSkill skill="recoil" bgColor="bg-lightGrayWhite dark:bg-darkLightGray200" />
+                <ProjectSkill skill="react-query" bgColor="bg-lightGrayWhite dark:bg-darkLightGray200" />
+                <ProjectSkill skill="i18next" bgColor="bg-lightGrayWhite dark:bg-darkLightGray200" />
+                <ProjectSkill skill="framer-motion" bgColor="bg-lightGrayWhite dark:bg-darkLightGray200" />
+                <ProjectSkill skill="apexcharts" bgColor="bg-lightGrayWhite dark:bg-darkLightGray200" />
+                <ProjectSkill skill="react-slick" bgColor="bg-lightGrayWhite dark:bg-darkLightGray200" />
+                <ProjectSkill skill="react-responsive" bgColor="bg-lightGrayWhite dark:bg-darkLightGray200" />
               </div>
 
 
@@ -88,7 +88,7 @@ export default function ExperienceSection(){
           <div>
             <h4 className={PurpleTitle}>인플루언서 페이지</h4>
             <div className="ml-6">
-              <div className="text-xl text-middleGray200 mb-2">
+              <div className="text-xl text-middleGray200 dark:text-darkMiddleGray200 mb-2">
                 2023.02 ~ 2023.06
               </div>
               <div className="mb-4">

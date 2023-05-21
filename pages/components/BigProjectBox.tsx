@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { useTheme } from "next-themes";
 import { motion } from "framer-motion";
 import { Project } from "@prisma/client";
 import Slider from "react-slick";
@@ -8,12 +9,15 @@ import ProjectSkill from "@/components/ProjectSkill";
 import PurpleCheckSvg from "@/components/PurpleCheckSvg";
 import PinkBtn from "@/components/PinkBtn";
 
+
 interface IBigProjectBox{
   currentId : number;
   infos : Project;
 }
 
 export default function BigProjectBox({currentId, infos}:IBigProjectBox) {
+  const { theme } = useTheme();
+
   const settings = {
     arrows: false,
     dots: true,
@@ -35,14 +39,12 @@ export default function BigProjectBox({currentId, infos}:IBigProjectBox) {
 
 
   return (
-    <motion.div className="relative h-[90%] p-12 pt-12 rounded-2xl bg-white overflow-y-scroll sm:w-[60%]" layoutId={currentId+""} onClick={(e) => e.stopPropagation()}>
+    <motion.div className="relative h-[90%] p-12 pt-12 rounded-2xl bg-white dark:bg-[#262626] overflow-y-scroll sm:w-[60%]" layoutId={currentId+""} onClick={(e) => e.stopPropagation()}>
       
-      <div className="max-w-screen-sm m-auto mb-10 border-8 rounded-2xl border-neutral-200">
+      <div className="max-w-screen-sm m-auto mb-16">
         <Slider {...settings}>
-          {infos.src?.map((image:string) => (
-            <div key={image} className="ml-[10px] h-[auto]">
-              <Image src={image} alt="kitten" width={600} height={350}  />
-            </div>
+          {(infos.src as unknown as string[])?.map((image:string) => (
+              <Image key={image} src={image} alt="kitten" width={600} height={350} className="m-auto border-neutral-200 dark:border-darkMiddleGray100 border-8 rounded-2xl"  />
           ))}
         </Slider>
       </div>
@@ -51,10 +53,10 @@ export default function BigProjectBox({currentId, infos}:IBigProjectBox) {
         <div className="mb-6">
           {/* 프로젝트 제목, 기간, 기술스택 */}
           <h1 className="text-[26px] font-semibold mb-[2px]">{infos.title}</h1>
-          <div className="text-middleGray100 mb-3">{`${infos.period} (${infos.sort})`}</div>
+          <div className="text-middleGray100 dark:text-darkMiddleGray900 mb-3">{`${infos.period} (${infos.sort})`}</div>
           <div className="mb-6 flex flex-wrap gap-y-1">
             {skills.map(item => (
-              <ProjectSkill key={item} skill={item} bgColor="bg-lightGrayWhite" />
+              <ProjectSkill key={item} skill={item} bgColor={theme === 'dark' ? "dark:bg-darkMiddleGray100" : "bg-lightGrayWhite"} />
             ))}
           </div>
 
@@ -67,9 +69,9 @@ export default function BigProjectBox({currentId, infos}:IBigProjectBox) {
               <span className="cursor-pointer underline underline-offset-4">{infos.url}</span>
             </div>
             <div className="flex">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" className="mr-2">
-              <path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.75 8.14 6.63 9.55.48.09.65-.21.65-.47v-1.66c-2.69.59-3.26-1.3-3.26-1.3-.44-1.13-1.07-1.43-1.07-1.43-.88-.61.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.89 1.53 2.34 1.09 2.91.83.09-.65.34-1.09.63-1.34-2.2-.25-4.52-1.1-4.52-4.9 0-1.08.39-1.97 1.03-2.67-.1-.25-.45-1.26.1-2.63 0 0 .83-.27 2.7 1.02.78-.22 1.62-.33 2.46-.33s1.68.11 2.46.33c1.87-1.29 2.7-1.02 2.7-1.02.55 1.37.2 2.38.1 2.63.64.7 1.03 1.59 1.03 2.67 0 3.81-2.32 4.65-4.54 4.9.36.31.68.91.68 1.84v2.72c0 .26.17.56.66.47C19.25 20.14 22 16.42 22 12c0-5.52-4.48-10-10-10z"/>
-            </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" className="mr-2">
+                <path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.75 8.14 6.63 9.55.48.09.65-.21.65-.47v-1.66c-2.69.59-3.26-1.3-3.26-1.3-.44-1.13-1.07-1.43-1.07-1.43-.88-.61.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.89 1.53 2.34 1.09 2.91.83.09-.65.34-1.09.63-1.34-2.2-.25-4.52-1.1-4.52-4.9 0-1.08.39-1.97 1.03-2.67-.1-.25-.45-1.26.1-2.63 0 0 .83-.27 2.7 1.02.78-.22 1.62-.33 2.46-.33s1.68.11 2.46.33c1.87-1.29 2.7-1.02 2.7-1.02.55 1.37.2 2.38.1 2.63.64.7 1.03 1.59 1.03 2.67 0 3.81-2.32 4.65-4.54 4.9.36.31.68.91.68 1.84v2.72c0 .26.17.56.66.47C19.25 20.14 22 16.42 22 12c0-5.52-4.48-10-10-10z"/>
+              </svg>
               <span className="cursor-pointer underline underline-offset-4">{infos.github}</span>
             </div>
           </div>
@@ -85,7 +87,7 @@ export default function BigProjectBox({currentId, infos}:IBigProjectBox) {
         {/* 프로젝트 소개 */}
         <div className="mb-10">
           <h2 className="text-[22px] font-bold mb-4">프로젝트 소개</h2>
-          <div className="space-y-2 text-deepGray">
+          <div className="space-y-2 text-deepGray dark:text-darkDeepGray">
             { projectDscr?.map((item: string, i: number) => (
               <div key={i}>{item}</div>
             ))}
@@ -95,7 +97,7 @@ export default function BigProjectBox({currentId, infos}:IBigProjectBox) {
         {/* 개발한 기능 */}
         <div className="mb-10">
           <h2 className="text-[22px] font-bold mb-4">개발한 기능</h2>
-          <div className="space-y-1 text-deepGray">
+          <div className="space-y-1 text-deepGray dark:text-darkDeepGray">
             { featureDscr?.map((item: string, i: number) => (
               <div key={i} className="flex items-start">
                 <PurpleCheckSvg />
@@ -112,7 +114,7 @@ export default function BigProjectBox({currentId, infos}:IBigProjectBox) {
           </h2>
           <div className="mb-4">모든 해결과정은 github에 정리해놓았습니다.</div>
           
-          <div className="space-y-1 text-deepGray">
+          <div className="space-y-1 text-deepGray dark:text-darkDeepGray">
           { troubleeDscr?.map((item: string, i: number) => (
               <div key={i} className="flex items-start">
                 <PurpleCheckSvg />

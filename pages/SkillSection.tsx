@@ -19,7 +19,7 @@ import mui from '@/public/mui.png';
 
 
 export default function SkillSection(){
-  const skillSortRoundBox = "w-[80px] text-xl font-medium mb-4 bg-LightGray text-center rounded-full";
+  const skillSortRoundBox = "w-[80px] text-xl font-medium mb-4 bg-LightGray dark:bg-darkLightGrayWhite text-center rounded-full";
   const skillBorder = "flex items-center grid grid-cols-2 gap-1 gap-y-8 sm:grid-cols-6  sm:divide-middleGray200 sm:divide-dashed sm:divide-x-[1px]";
 
   return (
@@ -27,7 +27,7 @@ export default function SkillSection(){
       initial="offscreen"
       whileInView="onscreen"
       viewport={{ once: false, amount: 0.5 }}
-      className="flex flex-col mt-20 mb-20 p-7 bg-gray-50 rounded-2xl shadow-lg"
+      className="flex flex-col mt-20 mb-20 p-7 bg-gray-50 dark:bg-darkLightGray200 rounded-2xl shadow-lg"
     >
       <motion.h2 variants={variants} className="text-5xl font-extrabold mb-10">Skill</motion.h2>
 
@@ -36,7 +36,7 @@ export default function SkillSection(){
           Front
         </h3>
         <div className={skillBorder}>
-          <SkillBox src={html} alt="html 아이콘" lang="HTML/CSS" />
+          <SkillBox src={html} alt="html 아이콘" lang="HTML/CSS"  />
           <SkillBox src={js} alt="js 아이콘" lang="Javascript" />
           <SkillBox src={ts} alt="ts 아이콘" lang="Typescript" />
           <SkillBox src={react} alt="react 아이콘" lang="React" />

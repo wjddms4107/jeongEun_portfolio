@@ -1,3 +1,4 @@
+import { useTheme } from "next-themes";
 import { cls,scrollUp } from "@/libs/client/utils";
 import lightIcon from '@/public/lightIcon.svg';
 import darkIcon from '@/public/darkIcon.svg';
@@ -9,8 +10,10 @@ interface IHeaderUlProps {
 }
 
 export default function HeaderUl({isClickHamberger, serIsClickHamberger}: IHeaderUlProps) {
+  const { theme, setTheme } = useTheme();
+  
   const UlStyle = isClickHamberger ? "flex flex-col items-center w-full" : "flex items-center space-x-10";
-  const liStyle = isClickHamberger ? "w-full h-[50px] flex items-center justify-center hover:text-middleGray200 hover:bg-lightGrayWhite" : "hover:text-middleGray200";
+  const liStyle = isClickHamberger ? "w-full h-[50px] flex items-center justify-center hover:text-middleGray200 hover:bg-lightGrayWhite" : "hover:text-middleGray200 hover:dark:text-darkLightGray";
 
   return (
     <ul className={UlStyle} onClick={() => serIsClickHamberger?.()}>
@@ -32,8 +35,8 @@ export default function HeaderUl({isClickHamberger, serIsClickHamberger}: IHeade
       <li className={liStyle}>
         <a href="#etc">Etc</a>
       </li>
-      <li className={liStyle}>
-        {true ? <Image src={lightIcon} alt="lightIcon" /> : <Image src={darkIcon} alt="darkIcon" />}
+      <li className={liStyle} onClick={() => setTheme(theme === "dark" ? "light" : "dark")}>
+        {theme === "light" ? <Image src={darkIcon} alt="darkIcon" /> : <Image src={lightIcon} alt="lightIcon" />}
       </li>
   </ul>
   )

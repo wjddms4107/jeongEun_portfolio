@@ -18,7 +18,7 @@ export default function SkillBox({src, lang, alt,isBorderNone = false, isImg=tru
         {isImg ? 
           <Image src={src!} alt={alt!} width={20} /> 
           : <div className='h-[20px] w-[20px] flex items-center lg:text-[20px]'>💅</div>}
-        <div className='ml-2 mr-2 font-medium lg:text-[20px]'>{lang}</div>
+        <div className='ml-2 mr-2 font-medium lg:text-[20px] dark:text-darkMiddleGray900'>{lang}</div>
       </motion.div>
     </div>
   )

@@ -2,27 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
-@font-face {
-  font-family: 'SUITE-Regular';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/SUITE-Regular.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-}
-
 @font-face {
   font-family: 'IBMPlexSansKR-Regular';
   src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/IBMPlexSansKR-Regular.woff') format('woff');
@@ -30,20 +9,21 @@
   font-style: normal;
 }
 
-@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
-
-.notosanskr * { 
-  font-family: 'Noto Sans KR', sans-serif;
+:root {
+  --bg-color: #F2F2F2;
+  --text-color: #0E0E0E;
 }
 
+:root.dark {
+  --bg-color: #0E0E0E;
+  --text-color: #FFFFFF;
+}
 
 body {
-  color: #0E0E0E;
-  background: #F2F2F2;
+  color: var(--text-color);
+  background: var(--bg-color);
   box-sizing: border-box;
-  /* font-family: 'Noto Sans KR', sans-serif; */
   font-family: 'IBMPlexSansKR-Regular';
-  /* font-family: 'SUITE-Regular'; */
 }
 
 li {
