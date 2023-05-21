@@ -1,5 +1,9 @@
 import { useState, useEffect } from "react";
 import { cls,scrollUp } from "@/libs/client/utils";
+import Image from "next/image";
+import lightIcon from '@/public/lightIcon.svg';
+import darkIcon from '@/public/darkIcon.svg';
+
 
 export default function Header() {
   const liHover = "hover:text-middleGray200"
@@ -31,6 +35,9 @@ export default function Header() {
           <li className={liHover}><a href="#project">Project</a></li>
           <li className={liHover}><a href="#education">Education</a></li>
           <li className={liHover}><a href="#etc">Etc</a></li>
+          <li>
+        {true ? <Image src={lightIcon} alt="lightIcon"></Image> : <Image src={darkIcon} alt="darkIcon"></Image>}
+        </li>
         </ul>
       </div>
     </div>

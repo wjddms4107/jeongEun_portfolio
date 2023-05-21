@@ -35,7 +35,7 @@ export default function BigProjectBox({currentId, infos}:IBigProjectBox) {
 
 
   return (
-    <motion.div className="relative h-[90%] w-[60%] p-12 pt-12 rounded-2xl bg-white overflow-y-scroll" layoutId={currentId+""} onClick={(e) => e.stopPropagation()}>
+    <motion.div className="relative h-[90%] p-12 pt-12 rounded-2xl bg-white overflow-y-scroll sm:w-[60%]" layoutId={currentId+""} onClick={(e) => e.stopPropagation()}>
       
       <div className="max-w-screen-sm m-auto mb-10 border-8 rounded-2xl border-neutral-200">
         <Slider {...settings}>
@@ -52,7 +52,7 @@ export default function BigProjectBox({currentId, infos}:IBigProjectBox) {
           {/* 프로젝트 제목, 기간, 기술스택 */}
           <h1 className="text-[26px] font-semibold mb-[2px]">{infos.title}</h1>
           <div className="text-middleGray100 mb-3">{`${infos.period} (${infos.sort})`}</div>
-          <div className="mb-6">
+          <div className="mb-6 flex flex-wrap gap-y-1">
             {skills.map(item => (
               <ProjectSkill key={item} skill={item} bgColor="bg-lightGrayWhite" />
             ))}

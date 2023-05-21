@@ -17,8 +17,8 @@ export default function SkillBox({src, lang, alt,isBorderNone = false, isImg=tru
       <motion.div whileHover={{ scale: 1.2 }} className='flex items-center justify-center cursor-pointer'>
         {isImg ? 
           <Image src={src!} alt={alt!} width={20} /> 
-          : <div className='text-[20px] h-[20px] w-[20px] flex items-center'>💅</div>}
-        <div className='ml-2 mr-2 text-[20px] font-medium'>{lang}</div>
+          : <div className='h-[20px] w-[20px] flex items-center lg:text-[20px]'>💅</div>}
+        <div className='ml-2 mr-2 font-medium lg:text-[20px]'>{lang}</div>
       </motion.div>
     </div>
   )

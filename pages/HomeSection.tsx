@@ -15,8 +15,8 @@ export default function HomeSection(){
 
   return (
     <>
-      <div className="relative flex align-middle justify-between">
-        <div className="w-3/5 items-center text-[50px] leading-[1.3] font-semibold text-deepGray m-auto">
+      <div className="relative flex flex-col items-center justify-between lg:flex-row">
+        <div className="w-full items-center text-[50px] leading-[1.3] font-semibold text-deepGray m-auto pt-10 lg:pt-0 lg:w-3/5">
           <h1>
             {currentText} <span className={`mx-1 text-purple ${isCursorVisible ? 'opacity-100' : 'opacity-0'}`}>|</span>
             <br />
@@ -30,7 +30,7 @@ export default function HomeSection(){
             </div>  
           </div>
 
-          <div className="absolute text-base cursor-pointer mt-2">
+          <div className="relative text-base cursor-pointer mt-2 lg:absolute">
               <details>
                 <summary>소개글 더 자세히보기</summary>
                 <div className="grid grid-cols-2 gap-3 max-h-[200px] w-[800px] mt-2 space-y-2 overflow-y-scroll">
@@ -58,7 +58,7 @@ export default function HomeSection(){
             </div> 
         </div>
         
-        <div className="w-2/5 bg-white h-[500px] rounded-2xl shadow-lg">
+        <div className="w-full bg-white h-[500px] rounded-2xl shadow-lg mt-12 lg:w-2/5">
           이미지 둥글게
         </div>
       </div>
@@ -74,7 +74,7 @@ export default function HomeSection(){
           <PinkBtn text="이력서 다운로드"/> 
         </motion.h2>
 
-        <div className="flex flex-wrap gap-y-6 justify-center space-x-8 w-[1150px] text-deepGray">
+        <div className="w-screen flex flex-wrap gap-y-6 justify-center  space-x-8 text-deepGray lg:w-[1150px]">
           <AboutMe about="이름" me="노정은" />
           <AboutMe about="연락처" me="010 7704 4107" />
           <AboutMe about="나이" me="97.03.15" />

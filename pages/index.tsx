@@ -10,7 +10,7 @@ export default function Home() {
 
   return (
       <main className="w-[100vw] flex flex-col items-center justify-center mt-[60px]">
-        <div className="w-[1440px] h-auto flex flex-col p-8">
+        <div className="w-screen h-auto flex flex-col p-8 lg:w-[1440px]">
           <HomeSection />
           <div id="skill" >
             <SkillSection />
@@ -22,12 +22,12 @@ export default function Home() {
           <ExperienceSection />
         </div>
 
-        <div id="project"  className="w-[1440px] h-auto flex flex-col p-8">
+        <div id="project" className="w-screen h-auto flex flex-col p-8 lg:w-[1440px]">
           <ProjectSection />
         </div>
 
         <div className='w-[100vw] flex items-center justify-center bg-white'>
-          <div className='w-[1440px] mb-20 p-8'>
+          <div className='w-screen mb-20 p-8 lg:w-[1440px]'>
             <EducationSection />
             <EtcSection />
           </div>

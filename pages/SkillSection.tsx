@@ -20,7 +20,7 @@ import mui from '@/public/mui.png';
 
 export default function SkillSection(){
   const skillSortRoundBox = "w-[80px] text-xl font-medium mb-4 bg-LightGray text-center rounded-full";
-  const skillBorder = "flex items-center grid grid-cols-6 gap-1 gap-y-8 divide-x-[1px] divide-middleGray200 divide-dashed";
+  const skillBorder = "flex items-center grid grid-cols-2 gap-1 gap-y-8 sm:grid-cols-6  sm:divide-middleGray200 sm:divide-dashed sm:divide-x-[1px]";
 
   return (
     <motion.div 

@@ -36,8 +36,8 @@ export default function ProjectBox({isClicked, onClick, infos, layoutId}: IProje
       className={cls(
         'h-full mr-6 bg-gray-50 rounded-2xl transition-all duration-[900ms] ease-in-out cursor-pointer',
         isClicked
-          ? 'min-w-[540px]'
-          : 'min-w-[130px] hover:min-w-[150px]'
+          ? 'sm:min-w-[540px]'
+          : 'sm:min-w-[130px] sm:hover:min-w-[150px]'
       )}
       onClick={onClick}
       layoutId={layoutId+ ""}
@@ -51,10 +51,10 @@ export default function ProjectBox({isClicked, onClick, infos, layoutId}: IProje
             width={555}
             height={400}
           />
-          <div className="p-4 pt-2 h-[50%] flex flex-col justify-between">
+          <div className="overflow-y-scroll p-4 pt-2 h-[50%] flex flex-col justify-between sm:overflow-y-hidden">
             <div className="">
               <div className="flex items-center justify-between">
-                <span className="text-[25px] font-bold">{infos.title}</span>
+                <h1 className="text-[20px] font-bold sm:text-[25px]">{infos.title}</h1>
                 <button onClick={()=>handleOpenBox(infos.id)} className="text-base text-[#727272] hover:text-[#565656] flex items-center">
                   <span>자세히보기</span>
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 ml-[3px]">
@@ -62,24 +62,24 @@ export default function ProjectBox({isClicked, onClick, infos, layoutId}: IProje
                   </svg>
                 </button>
               </div>
-              <div className="text-[17px] font-normal text-middleGray100 mb-[4px]">
+              <div className="text-[14px] font-normal text-middleGray100 mb-[4px] sm:text-[17px]">
                 {infos.period} ({infos.sort})
               </div>
-              <div className="text-[16px] font-medium mb-[16px] w-full flex flex-wrap gap-y-1">
+              <div className="text-[13px] font-medium mb-[16px] w-full flex flex-wrap gap-y-1 sm:text-[16px]">
                 {skills.map(item => (
                   <ProjectSkill key={item} skill={item} />
                 ))}
               </div>
             </div>
             
-            <div className="overflow-y-scroll">
-              <div className="text-[17px] text-middleGray900 mb-[6px]">
+            <div className="sm:overflow-y-scroll">
+              <div className="text-[13px] text-middleGray900 mb-[6px] sm:text-[17px]">
                 📌 github : <Link href={infos.github} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()} className="cursor-pointer hover:underline underline-offset-4">{infos.github}</Link>
               </div>
-              <div className="text-[17px] text-middleGray900">
+              <div className="text-[13px] text-middleGray900 sm:text-[17px]">
                 📌 url : <Link href={infos.url} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()} className="cursor-pointer hover:underline underline-offset-4">{infos.url}</Link>
               </div>
-              <div className="text-[17px] text-middleGray900 mt-3">
+              <div className="text-[13px] text-middleGray900 mt-3 sm:text-[17px]">
                 {infos.shortDscr}
               </div>
             </div>
@@ -90,7 +90,7 @@ export default function ProjectBox({isClicked, onClick, infos, layoutId}: IProje
     <AnimatePresence>
       {currentId ? (
             <motion.div
-              className="fixed z-20 top-0 right-0 left-0 w-[100vx] h-full flex items-center justify-center m-auto"
+              className="fixed z-20 top-0 right-0 left-0 w-[100vw] h-full flex items-center justify-center m-auto"
               onClick={(e) => e.target === e.currentTarget && handleCloseBox()}
               initial={{ backgroundColor: "rgba(0, 0, 0, 0)" }}
               animate={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}

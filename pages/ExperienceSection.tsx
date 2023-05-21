@@ -14,12 +14,12 @@ export default function ExperienceSection(){
       whileInView="onscreen"
       viewport={{ once: false, amount: 0.2 }} 
       id="experience" 
-      className='w-[1440px] mb-20 p-8'
+      className='w-full mb-20 p-8 lg:w-[1440px]'
     >
       <motion.h2 variants={variants} className="text-5xl font-extrabold my-12">Experience</motion.h2>
 
-      <div className="flex w-full">
-        <div className="w-[41%] pr-6">
+      <div className="flex flex-col w-full lg:flex-row">
+        <div className="m-auto min-w-[200px] mb-16 lg:pr-5 lg:m-0">
           <Image
             src={mrpLogo}
             alt="mrp 로고"
@@ -42,7 +42,7 @@ export default function ExperienceSection(){
               <div className="text-xl text-middleGray200 mb-2">
                 2023.02 ~ 2023.06
               </div>
-              <div className="flex flex-wrap gap-y-1 w-[800px] mb-4">
+              <div className="flex flex-wrap gap-y-1 max-w-[900px] mb-4">
                 <ProjectSkill skill="react v18 " bgColor="bg-lightGrayWhite" />
                 <ProjectSkill skill="typescript" bgColor="bg-lightGrayWhite"  />
                 <ProjectSkill skill="react-router-dom 6.4.3" bgColor="bg-lightGrayWhite"  />
