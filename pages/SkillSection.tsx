@@ -1,8 +1,7 @@
 import { motion } from "framer-motion";
-import { cls, variants } from "@/libs/client/utils";
+import { variants } from "@/libs/client/utils";
 import SkillBox from '@/components/skillBox';
 import html from '@/public/html.svg';
-import css from '@/public/css.svg';
 import js from '@/public/js.svg';
 import ts from '@/public/ts.svg';
 import react from '@/public/react.svg';

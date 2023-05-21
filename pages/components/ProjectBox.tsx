@@ -17,8 +17,7 @@ interface IProjectBoxProps {
 
 export default function ProjectBox({isClicked, onClick, infos, layoutId}: IProjectBoxProps) {
   const { theme } = useTheme();
-
-  console.log('theme:',theme)
+  
   const [currentId, setCurrentId] = useState<null | number>(null);
 
   const skills = infos.skill.split(",")

@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import Link from "next/link";
 import { useTypingAnimation } from "@/libs/client/useTypingAnimation";
 import { useCursorBlink } from "@/libs/client/useCursorBlink";
 import { variants } from "@/libs/client/utils";
@@ -16,7 +15,7 @@ export default function HomeSection(){
   return (
     <>
       <div className="relative flex flex-col items-center justify-between lg:flex-row">
-        <div className="w-full items-center text-[50px] leading-[1.3] font-semibold text-deepGray m-auto pt-10 lg:pt-0 lg:w-3/5 dark:text-darkDeepGray ">
+        <div className="w-full items-center text-[50px] leading-[1.3] font-semibold text-deepGray m-auto pt-10 lg:pt-0 lg:w-3/5 dark:text-darkLightGray ">
           <h1>
             {currentText} <span className={`mx-1 text-purple dark:text-darkPurple ${isCursorVisible ? 'opacity-100' : 'opacity-0'}`}>|</span>
             <br />
@@ -64,15 +63,16 @@ export default function HomeSection(){
       </div>
 
       <div className="flex flex-col items-center mt-32 mb-14">
-        <motion.h2
+        <motion.div
           initial="offscreen"
           whileInView="onscreen"
           viewport={{ once: true, amount: 0.6 }}
-          className="flex items-center justify-center text-5xl font-extrabold mb-6 text-center"
+          className="flex items-center justify-center m-auto mb-6"
         >
-          <motion.span variants={variants}>About me</motion.span>
-          <PinkBtn text="이력서 다운로드"/> 
-        </motion.h2>
+          <motion.h2 variants={variants} className="text-5xl font-extrabold ">About me</motion.h2>
+          <div><PinkBtn text="이력서 다운로드"/></div>
+          
+        </motion.div>
 
         <div className="w-screen flex flex-wrap gap-y-6 justify-center space-x-8 text-deepGray dark:text-darkDeepGray lg:w-[1150px]">
           <AboutMe about="이름" me="노정은" />

@@ -21,7 +21,7 @@
 
 body {
   color: var(--text-color);
-  background: var(--bg-color);
+  background-color: var(--bg-color);
   box-sizing: border-box;
   font-family: 'IBMPlexSansKR-Regular';
 }

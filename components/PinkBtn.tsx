@@ -5,11 +5,12 @@ interface IPinkBtnProps  {
   url?: string;
 }
 
-export default function PinkBtn({text,url}:IPinkBtnProps) {
+export default function PinkBtn({text, url}:IPinkBtnProps) {
   return (
-    <Link href={url ? url : ""} target="_blank" >
-      <span className="w-fit text-base text-white p-2 ml-4 bg-pink rounded-[4px] cursor-pointer hover:bg-deepPink">{text}</span>
-    </Link>
-    
+      <span className="text-base text-white p-2 ml-4 bg-pink rounded-[4px] cursor-pointer hover:bg-deepPink"> 
+        <Link href={url ? url : ""} target="_blank">
+          {text}
+        </Link>
+      </span>
   )
 }
