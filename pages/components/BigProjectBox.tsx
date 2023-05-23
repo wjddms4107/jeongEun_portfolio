@@ -41,10 +41,10 @@ export default function BigProjectBox({currentId, infos}:IBigProjectBox) {
   return (
     <motion.div className="relative h-[90%] p-12 pt-12 rounded-2xl bg-white dark:bg-[#262626] overflow-y-scroll sm:w-[60%]" layoutId={currentId+""} onClick={(e) => e.stopPropagation()}>
       
-      <div className="max-w-screen-sm m-auto mb-16">
+      <div className="max-w-screen-sm m-auto mb-16 border-neutral-200 dark:border-darkMiddleGray100 border-8 rounded-2xl">
         <Slider {...settings}>
           {(infos.src as unknown as string[])?.map((image:string) => (
-              <Image key={image} src={image} alt="kitten" width={600} height={350} className="m-auto border-neutral-200 dark:border-darkMiddleGray100 border-8 rounded-2xl"  />
+              <Image key={image} src={image} alt="kitten" width={600} height={350} className="m-auto"  />
           ))}
         </Slider>
       </div>

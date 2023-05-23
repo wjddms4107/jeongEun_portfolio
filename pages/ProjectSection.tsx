@@ -1,14 +1,17 @@
-import { useState, useEffect } from "react"
-import axios from "axios";
+import { useState } from "react"
 import { motion } from "framer-motion";
 import { variants } from "@/libs/client/utils";
 import { Project } from "@prisma/client";
 import ProjectBox from "./components/ProjectBox";
 
-export default function ProjectSection() {
-  const [projectBoxStates, setProjectBoxStates] = useState<Project[]>();
+interface IProps {
+  projects: Project[];
+}
 
-  const handleProjectBoxClick = (index: number) => {
+export default function ProjectSection({projects}:IProps) {
+  const [projectBoxStates, setProjectBoxStates] = useState<Project[]>(projects);
+
+  const ClickProjectBox = (index: number) => {
     setProjectBoxStates(projectBoxStates?.map((info, i) => ({
       ...info,
       state: i === index
@@ -20,21 +23,10 @@ export default function ProjectSection() {
       key={info.id}
       isClicked={info.state}
       infos={info}
-      onClick={() => handleProjectBoxClick(info.id - 1)}
+      onClick={() => ClickProjectBox(info.id - 1)}
       layoutId={info.id}
     />
   ));
-
-  useEffect(()=>{
-    axios.get('/api/project')
-  .then(function (response:any) {
-    setProjectBoxStates(response.data.data)
-  })
-  .catch(function (error:any) {
-    console.log(error, "project api 연결 에러");
-  })
-  }
-  ,[])
   
   return (
     <motion.div 
