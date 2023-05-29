@@ -13,7 +13,7 @@ interface IProps {
 
 export default function Home({projects}:IProps) {
   return (
-      <main className="w-[100vw] flex flex-col items-center justify-center mt-[60px]">
+      <main className="w-[100vw] flex flex-col items-center justify-center mt-[70px]">
         <div className="w-screen h-auto flex flex-col p-8 lg:w-[1440px]">
           <HomeSection />
           <div id="skill" >

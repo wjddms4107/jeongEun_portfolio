@@ -54,7 +54,7 @@ export default function ProjectBox({isClicked, onClick, infos, layoutId}: IProje
             width={555}
             height={400}
           />
-          <div className="overflow-y-scroll p-4 pt-2 h-[50%] flex flex-col justify-between sm:overflow-y-hidden">
+          <div className="h-[auto] flex flex-col justify-between p-4 pt-2 overflow-y-scroll  sm:overflow-y-hidden">
             <div className="">
               <div className="flex items-center justify-between">
                 <h1 className="text-[20px] font-bold sm:text-[25px]">{infos.title}</h1>
@@ -75,7 +75,7 @@ export default function ProjectBox({isClicked, onClick, infos, layoutId}: IProje
               </div>
             </div>
             
-            <div className="sm:overflow-y-scroll">
+            <div className="sm:overflow-y-auto">
               <div className="text-[13px] text-middleGray900 dark:text-darkMiddleGray900 mb-[6px] sm:text-[17px]">
                 📌 github : <Link href={infos.github} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()} className="cursor-pointer hover:underline underline-offset-4">{infos.github}</Link>
               </div>
