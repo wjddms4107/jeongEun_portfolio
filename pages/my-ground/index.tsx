@@ -1,6 +1,8 @@
 import type { NextPage } from "next";
 import { ReactElement } from "react";
 import ReactHookForm from "./component/ReactHookForm";
+import ReactQuill from "./component/ReactQuill";
+
 
 
 const MyGround: NextPage = (): ReactElement => {
@@ -12,8 +14,14 @@ const MyGround: NextPage = (): ReactElement => {
           MyGround는 사용해보고 싶은 라이브러리나 기술 등을 연습하고 정리하는 공간으로 사용하고 있습니다.
         </span>
       </div>
+      <div className="space-y-3">
+        <ReactQuill />
 
-      <ReactHookForm />
+        <ReactHookForm />
+
+      </div>
+
+      
     </main>
     )
 };
