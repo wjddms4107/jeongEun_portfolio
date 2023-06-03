@@ -2,13 +2,10 @@ import Image from "next/image";
 import { useTheme } from "next-themes";
 import { motion } from "framer-motion";
 import { Project } from "@prisma/client";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import ImgSlide from "@/components/ImgSlide";
 import ProjectSkill from "@/components/ProjectSkill";
 import PurpleCheckSvg from "@/components/PurpleCheckSvg";
 import PinkBtn from "@/components/PinkBtn";
-
 
 interface IBigProjectBox{
   currentId : number;
@@ -17,6 +14,11 @@ interface IBigProjectBox{
 
 export default function BigProjectBox({currentId, infos}:IBigProjectBox) {
   const { theme } = useTheme();
+
+  const skills = infos.skill.split(",")
+  const projectDscr =  infos.projectDscr.split("+");
+  const featureDscr = infos.featureDscr.split("+");
+  const troubleeDscr = infos.troubleeDscr.split("+");
 
   const settings = {
     arrows: false,
@@ -29,24 +31,11 @@ export default function BigProjectBox({currentId, infos}:IBigProjectBox) {
     slidesToScroll: 1,
   };
 
-  const skills = infos.skill.split(",")
-
-  const projectDscr =  infos.projectDscr.split("+");
-
-  const featureDscr = infos.featureDscr.split("+");
-
-  const troubleeDscr = infos.troubleeDscr.split("+");
-
-
   return (
     <motion.div className="relative h-[90%] p-12 pt-12 rounded-2xl bg-white dark:bg-[#262626] overflow-y-scroll sm:w-[60%]" layoutId={currentId+""} onClick={(e) => e.stopPropagation()}>
       
       <div className="max-w-screen-sm m-auto mb-16 border-neutral-200 dark:border-darkMiddleGray100 border-8 rounded-2xl">
-        <Slider {...settings}>
-          {(infos.src as unknown as string[])?.map((image:string) => (
-              <Image key={image} src={image} alt="kitten" width={600} height={350} className="m-auto"  />
-          ))}
-        </Slider>
+        <ImgSlide settings={settings} imgArray={infos.src as unknown as string[]} alt="projectImg" width={600} height={350} className="m-auto"/>
       </div>
       
       <div className="flex flex-col items-start">

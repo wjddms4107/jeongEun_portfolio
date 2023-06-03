@@ -1,10 +1,14 @@
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { useTypingAnimation } from "@/libs/client/useTypingAnimation";
 import { useCursorBlink } from "@/libs/client/useCursorBlink";
 import { variants } from "@/libs/client/utils";
 import AboutMe from "@/components/AboutMe";
 import PinkBtn from "@/components/PinkBtn";
+import jeongeun2 from '@/public/jeongeun.jpg';
+import jeongeun1 from '@/public/jeongeun1.jpg';
+
 
 export default function HomeSection(){
   const texts = ['전체적인 아름다움을 중요시하는', '성취 중독자', '적응력이 뛰어나 협업에 자신있는', '나만의 개발사전을 만든'];
@@ -15,7 +19,7 @@ export default function HomeSection(){
   return (
     <>
       <div className="relative flex flex-col items-center justify-between lg:flex-row">
-        <div className="w-full items-center text-[50px] leading-[1.3] font-semibold text-deepGray m-auto pt-10 lg:pt-0 lg:w-3/5 dark:text-darkLightGray ">
+        <div className="w-[max-content] items-center text-[50px] leading-[1.3] font-semibold text-deepGray m-auto pt-10 lg:pt-0 lg:w-3/5 dark:text-darkLightGray ">
           <h1>
             {currentText} <span className={`mx-1 text-purple dark:text-darkPurple ${isCursorVisible ? 'opacity-100' : 'opacity-0'}`}>|</span>
             <br />
@@ -56,10 +60,7 @@ export default function HomeSection(){
               </details>
             </div> 
         </div>
-        
-        <div className="w-full bg-white h-[500px] rounded-2xl shadow-lg mt-12 lg:w-2/5">
-          이미지 둥글게
-        </div>
+        <Image src={jeongeun1} alt="jeongeun" width={500} className="rounded-2xl shadow-lg mt-12 lg:w-2/5 lg:ml-10 lg:mt-0" />
       </div>
 
       <div className="flex flex-col items-center mt-32 mb-14">

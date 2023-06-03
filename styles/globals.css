@@ -44,4 +44,5 @@ html {
   height: 6px !important;
   margin-top: 25px;
   background-color: #B680F9;
+  z-index: 4; 
 }
