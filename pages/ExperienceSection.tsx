@@ -1,10 +1,9 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from "framer-motion";
-import { cls, variants } from "@/libs/client/utils";
+import { variants } from "@/libs/client/utils";
 import CompanyDscrWrapper from '@/components/CompanyDscrWrapper';
 import ProjectSkill from '@/components/ProjectSkill';
-import ImgSlide from '@/components/ImgSlide';
 import MyRoleDscr from '@/components/MyRoleDscr';
 import mrpLogo from '@/public/mrpLogo.png';
 import main1 from '@/public/main1.png';

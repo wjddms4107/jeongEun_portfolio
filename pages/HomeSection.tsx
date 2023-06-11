@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useTypingAnimation } from "@/libs/client/useTypingAnimation";
@@ -6,12 +5,6 @@ import { useCursorBlink } from "@/libs/client/useCursorBlink";
 import { variants } from "@/libs/client/utils";
 import AboutMe from "@/components/AboutMe";
 import PinkBtn from "@/components/PinkBtn";
-import IntroduceSection from "./IntroduceSection";
-import jeongeun2 from '@/public/jeongeun.jpg';
-import jeongeun1 from '@/public/jeongeun1.jpg';
-
-
-
 
 export default function HomeSection(){
   const texts = ['전체적인 아름다움을 중요시하는', '성취 중독자', '적응력이 뛰어나 협업에 자신있는'];
@@ -37,7 +30,7 @@ export default function HomeSection(){
           </div>
         </div>
 
-        <Image src={jeongeun1} alt="jeongeun" width={500} className="rounded-2xl shadow-lg mt-12 lg:w-2/5 lg:ml-10 lg:mt-0" />
+        <Image src="/jeongeun1.jpg" alt="jeongeun" width={500} height={500} className="rounded-2xl shadow-lg mt-12 lg:w-2/5 lg:ml-10 lg:mt-0" />
       </div>
 
       <div className="flex flex-col items-center mt-32 mb-14">

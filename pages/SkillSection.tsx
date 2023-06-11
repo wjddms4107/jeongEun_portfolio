@@ -1,21 +1,6 @@
 import { motion } from "framer-motion";
 import { variants } from "@/libs/client/utils";
 import SkillBox from '@/components/skillBox';
-import html from '@/public/html.svg';
-import js from '@/public/js.svg';
-import ts from '@/public/ts.svg';
-import react from '@/public/react.svg';
-import next from '@/public/next.svg';
-import sass from '@/public/sass.svg';
-import tailwind from '@/public/tailwind.svg';
-import redux from '@/public/redux.svg';
-import recoil from '@/public/recoil-js.svg';
-import reactQuery from '@/public/reactQuery.svg';
-import firebase from '@/public/firebase.svg';
-import mongodb from '@/public/mongodb.svg';
-import prisma from '@/public/prisma.svg';
-import mui from '@/public/mui.png';
-
 
 export default function SkillSection(){
   const skillSortRoundBox = "w-[80px] text-xl font-medium mb-4 bg-LightGray dark:bg-darkLightGrayWhite text-center rounded-full";
@@ -35,19 +20,19 @@ export default function SkillSection(){
           Front
         </h3>
         <div className={skillBorder}>
-          <SkillBox src={html} alt="html 아이콘" lang="HTML/CSS"  />
-          <SkillBox src={js} alt="js 아이콘" lang="Javascript" />
-          <SkillBox src={ts} alt="ts 아이콘" lang="Typescript" />
-          <SkillBox src={react} alt="react 아이콘" lang="React" />
-          <SkillBox src={next} alt="next 아이콘" lang="Next.js" />
-          <SkillBox src={sass} alt="sass 아이콘" lang="Sass" />
+          <SkillBox src="/html.svg" alt="html 아이콘" lang="HTML/CSS"  />
+          <SkillBox src="/js.svg" alt="js 아이콘" lang="Javascript" />
+          <SkillBox src="/ts.svg" alt="ts 아이콘" lang="Typescript" />
+          <SkillBox src="/react.svg" alt="react 아이콘" lang="React" />
+          <SkillBox src="/next.svg" alt="next 아이콘" lang="Next.js" />
+          <SkillBox src="/sass.svg" alt="sass 아이콘" lang="Sass" width={35} />
           <SkillBox lang="Styled-component" isImg={false} isBorderNone />
-          <SkillBox src={tailwind} alt="tailwind 아이콘" lang="Tailwild CSS" />
-          <SkillBox src={mui} alt="mui 아이콘" lang="Material UI" />
-          <SkillBox src={redux} alt="redux 아이콘" lang="Redux" />
-          <SkillBox src={recoil} alt="recoil 아이콘" lang="Recoil" />
+          <SkillBox src="/tailwind.svg" alt="tailwind 아이콘" lang="Tailwild CSS" />
+          <SkillBox src="/mui.png" alt="mui 아이콘" lang="Material UI" />
+          <SkillBox src="/redux.svg" alt="redux 아이콘" lang="Redux" />
+          <SkillBox src="/recoil.svg" alt="recoil 아이콘" lang="Recoil" width={50} />
           <SkillBox
-            src={reactQuery}
+            src="/reactQuery.svg"
             alt="reactQuery 아이콘"
             lang="React-query"
           />
@@ -59,9 +44,9 @@ export default function SkillSection(){
           Back
         </h3>
         <div className={skillBorder}>
-          <SkillBox src={prisma} alt="prisma 아이콘" lang="Prisma" />
-          <SkillBox src={firebase} alt="firebase 아이콘" lang="Firebase" />
-          <SkillBox src={mongodb} alt="mongodb 아이콘" lang="Mongodb" />
+          <SkillBox src="/prisma.svg" alt="prisma 아이콘" lang="Prisma" />
+          <SkillBox src="/firebase.svg" alt="firebase 아이콘" lang="Firebase" />
+          <SkillBox src="/mongodb.svg" alt="mongodb 아이콘" lang="Mongodb" />
         </div>
       </div>
     </motion.div>

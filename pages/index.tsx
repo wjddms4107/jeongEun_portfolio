@@ -9,8 +9,6 @@ import EtcSection from './EtcSection';
 import { Project } from "@prisma/client";
 import client from "@/libs/server/client";
 
-
-
 interface IProps {
   projects: Project[];
 }
@@ -47,9 +45,6 @@ export default function Home({projects}:IProps) {
 
 export async function getStaticProps() {
   const projects = await client.project.findMany();
-
-
-  console.log('projects:',projects)
 
   const newData = projects.map((project) => {
     const srcArray: string[] = project.src.split(',');

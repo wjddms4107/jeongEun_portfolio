@@ -19,11 +19,7 @@ export default function ImgSlide({settings, imgArray, alt, width, height, classN
     <Slider {...settings}>
       {imgArray.map((image, index) => (
         <div key={index}>
-          {typeof image === "string" ? (
-            <Image src={image} alt={alt} layout="responsive"  width={width} height={height} className={className} priority={index === 0}/>
-          ) : (
-            <Image src={image.src} alt={alt} layout="responsive" width={width} height={height} className={className} priority={index === 0} />
-          )}
+          <Image src={image} alt={alt}  width={width} height={height} className={className} priority={index === 0}/>
         </div>
       ))}
     </Slider>

@@ -1,3 +1,5 @@
+'use client'
+
 import { cls } from "@/libs/client/utils"
 import Image from "next/image";
 import { Project } from "@prisma/client";

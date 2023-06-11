@@ -38,15 +38,15 @@ export default function MyRoleDscr({Roletitle, RoleUrl, RoleUrlDscr, imgArray, t
         <Link href={RoleUrl} target="_blank" className='w-[fit-content]'>📣 {RoleUrlDscr}</Link>
       </div>
     
-      <div className="my-3 overflow-y-hidden lg:w-[950px]">
-        <ImgSlide settings={settings} imgArray={imgArray} alt="mainImg" width={600} height={350} className="m-auto"/> 
+      <div className="my-3 overflow-y-hidden lg:w-[1000px]">
+        <ImgSlide settings={settings} imgArray={imgArray} alt="mainImg" width={600} className="m-auto"/> 
       </div>
 
       <details className='mb-5'>
         <summary className='text-[1.2rem] mb-2 cursor-pointer'>{troubleTitle}</summary>
         <div className='space-y-4'>
           {troubleDscrArray.map(({title, dscr, code}) => (
-            <div className='text-lg'>
+            <div className='text-lg' key={title}>
               <div className='font-bold mb-1'>📌 {title}</div>
               <div className='text-middleGray300 dark:text-darkMiddleGray200 break-all whitespace-pre-line' >
                 {dscr}

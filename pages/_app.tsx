@@ -1,6 +1,5 @@
 import type { AppProps } from 'next/app'
 import { ThemeProvider }from "next-themes";
-import Header from '@/components/Header';
 import Layout from '@/components/Layout';
 import '@/styles/globals.css'
 
