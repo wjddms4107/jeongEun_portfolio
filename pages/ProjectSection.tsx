@@ -6,7 +6,6 @@ import ProjectBox from "./components/ProjectBox";
 
 interface IProps {
   projects: Project[];
-  imgArray: Array<string | StaticImageData>;
 }
 
 export default function ProjectSection({projects}:IProps) {

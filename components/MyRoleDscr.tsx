@@ -5,6 +5,7 @@ import ImgSlide from '@/components/ImgSlide';
 interface troubleDscrArray {
   title : string;
   dscr: string;
+  code?: string;
 }
 
 interface IMyRoleDscrProps {
@@ -14,12 +15,14 @@ interface IMyRoleDscrProps {
   imgArray: StaticImageData[];
   troubleTitle: string;
   troubleDscrArray: troubleDscrArray[];
+  isBorder?: boolean
 }
 
-export default function MyRoleDscr({Roletitle, RoleUrl, RoleUrlDscr, imgArray, troubleTitle, troubleDscrArray} : IMyRoleDscrProps){
+export default function MyRoleDscr({Roletitle, RoleUrl, RoleUrlDscr, imgArray, troubleTitle, troubleDscrArray, isBorder = true} : IMyRoleDscrProps){
 
   const settings = {
     arrows: false,
+    dot: true,
     infinite: true,
     autoplay: true,
     speed: 2000,
@@ -35,27 +38,31 @@ export default function MyRoleDscr({Roletitle, RoleUrl, RoleUrlDscr, imgArray, t
         <Link href={RoleUrl} target="_blank" className='w-[fit-content]'>📣 {RoleUrlDscr}</Link>
       </div>
     
-      <div className="my-3 lg:w-[1000px]">
+      <div className="my-3 overflow-y-hidden lg:w-[950px]">
         <ImgSlide settings={settings} imgArray={imgArray} alt="mainImg" width={600} height={350} className="m-auto"/> 
       </div>
 
-      <details>
-        <summary className='text-[1.2rem] mb-2'>{troubleTitle}</summary>
+      <details className='mb-5'>
+        <summary className='text-[1.2rem] mb-2 cursor-pointer'>{troubleTitle}</summary>
         <div className='space-y-4'>
-          {troubleDscrArray.map(({title, dscr}) => (
+          {troubleDscrArray.map(({title, dscr, code}) => (
             <div className='text-lg'>
               <div className='font-bold mb-1'>📌 {title}</div>
               <div className='text-middleGray300 dark:text-darkMiddleGray200 break-all whitespace-pre-line' >
                 {dscr}
-                <div className='mt-2'>
-                  <code>console.log()</code>
-                </div>
+                {code && 
+                  <div className='mt-2'>
+                    <code>{code}</code>
+                  </div>
+                }
+                
               </div>
             </div>
           ))}
         </div>
       </details>
-  </div>
 
+      {isBorder && <div className='w-full h-[1px] border-t-[1px] border-middleGray100 border-dashed dark:border-darkMiddleGray100 relative right-[22px]'  />}
+  </div>
   )
 }

@@ -1,4 +1,5 @@
 import HomeSection from './HomeSection';
+import IntroduceSection from './IntroduceSection';
 import SkillSection from './SkillSection';
 import ExperienceSection from './ExperienceSection';
 import ProjectSection from './ProjectSection';
@@ -6,6 +7,7 @@ import EducationSection from './EducationSection';
 import EtcSection from './EtcSection';
 import { Project } from "@prisma/client";
 import client from "@/libs/server/client";
+
 
 interface IProps {
   projects: Project[];
@@ -16,6 +18,7 @@ export default function Home({projects}:IProps) {
       <main className="w-[100vw] flex flex-col items-center justify-center mt-[70px]">
         <div className="w-screen h-auto flex flex-col p-8 lg:w-[1440px]">
           <HomeSection />
+          <IntroduceSection />
           <div id="skill" >
             <SkillSection />
           </div>
