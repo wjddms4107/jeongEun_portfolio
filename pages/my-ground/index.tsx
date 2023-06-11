@@ -1,13 +1,16 @@
 import type { NextPage } from "next";
 import { ReactElement } from "react";
+import Seo from "@/components/Seo";
 import ReactHookForm from "./component/ReactHookForm";
 import ReactQuill from "./component/ReactQuill";
 
 
 
+
 const MyGround: NextPage = (): ReactElement => {
   return ( 
-    <main className="mt-[70px] p-8 ">
+    <div className="mt-[70px] p-8">
+      <Seo title="MyGround" />
       <div className="w-full text-center mb-12">
         <h1 className="text-4xl font-extrabold mb-4">MyGround</h1>
         <span>  
@@ -22,7 +25,7 @@ const MyGround: NextPage = (): ReactElement => {
       </div>
 
       
-    </main>
+    </div>
     )
 };
 
