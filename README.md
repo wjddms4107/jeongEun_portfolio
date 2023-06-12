@@ -45,122 +45,112 @@ Framer-motion으로 스크롤 이벤트와 모달 animating을 구현했습니�
 - MyGround (사용해보고 싶은 라이브러리나 기술 등을 연습하고 정리하는 공간)
 
 
-## 4. 핵심 문제 해결 경험
-### 4-1. 라이브러리 없이 Carousel 구현하기 🔗[코드로 이동](https://github.com/wjddms4107/MagazineK_jeongeun/blob/41aa15fe2dc5bb8b730c0e20bbcbbfde1365031c/src/pages/Main/Main.js#L7)
+## 4. 트러블 슈팅
+### 4-1. Prisma, Cloudinary 활용하여 Project 섹션 구현 🔗[코드로 이동](https://github.com/wjddms4107/MagazineK_jeongeun/blob/41aa15fe2dc5bb8b730c0e20bbcbbfde1365031c/src/pages/Main/Main.js#L7)
 <img width="700" alt="메인" src="https://user-images.githubusercontent.com/78889402/192104195-8fe153f6-babc-40cc-984f-e9c9f60c3868.gif">
 
-- 메인 페이지 최상단에 3초마다 이미지와 데이터가 자동 변환되고 또한 이미지의 오른쪽, 왼쪽을 누르면 이미지와 데이터가 바뀌는 Carousel를 구현했습니다. 
-
-- setinterval 함수 사용하여 3초마다 슬라이드 이미지가 자동 변환되도록 구현했고 useState로 숫자 3이 넘어가면 1부터 다시 시작하도록 설정했습니다. 
-
-- 이는 `useEffect()의 두번째 인자에 디펜던시`를 주지 않으면 다른 요소들이 렌더될 때도 같이 렌더되어 3이상의 값도 가지기 때문에 `slide` 디펜던시를 주었고 기존의 state값이 중요하니 `setSlide(slide => slide + 1)`의 `함수형 업데이트`를 하여 렌더되는 과정에서 더 안전하게 확실히 전의 값을 가져올 수 있도록 하였습니다.
-
-- 슬라이드 이미지의 오른쪽을 누르면 앞의 이미지로, 왼쪽을 누르면 뒤의 이미지로 변환하는데 이는 button태그로 오른쪽 반, 왼쪽 반 각각 넓이를 50%씩 주고 `opacity: 0`으로 안 보이게 처리하였습니다. 또한 `const isFirstSlide = slide === 1; const isLastSlide = slide === 3;`로 1과 3에서는 버튼을 눌러도 안 넘어가도록 `disabled`에 할당해 주었습니다.
-  
-- 또한 이미지에 맞는 데이터를 어떻게 입힐까 고민 끝에 fatch 받아온 데이터에 filter메서드를 걸어 data.id와 slide의 State 숫자가 같을 때만 리턴하도록 해서 구현할 수 있었습니다.
- 
+- Prisma 모델 파일에서 데이터베이스 모델을 정의한 후 Prisma Studio를 실행하여 데이터를 추가했습니다.
+- 개발한 기능, 트러블 슈팅과 같이 한 줄씩 띄어쓰기 위해 div태그에 text를 넣었는데
+배열 타입을 지원하지 않는 Prisma의 필드에서 문자열 배열 구현하기위해서 문자열을 구분자로 이어붙이는 방법을 택했습니다. 
+각 문자열을 구분하기 위해 특정 구분자 ‘+’ 사용하여 `const projectDscr = infos.projectDscr.split("+")` 이처럼 가공하여 구현할 수 있었습니다.
+- 또한 노트북에 저장된 이미지를 url로 만들어서 image slider를 구현하기 위해 무료로 이미지를 올릴 수 있는 Cloudinary를 활용했습니다. 
+Cloudinary 홈페이지에서 이미지를 업로드하여 URL을 얻을 수 있었고 이후 복사한 URL을 Prisma Studio에서 Project 모델의 src 필드에 넣어 
+next.config.js 파일에 res.cloudinary.com을 추가했습니다. 
+- 더불어 image slider를 구현하기 위해 URL을 배열에 넣어야 했습니다. 
+project 모델의 src 속성을 ','를 기준으로 분리하여 배열로 변환한 후 각각의 요소에서 맨 앞과 맨 뒤의 `"`를 제거하고 새로운 배열을 생성했습니다. 
 
 <details>
-<summary><b>구현한 코드</b></summary>
+<summary><b>코드 보기 : Prisma 모델 정의, projects 모델 src 속성 배열로 변환</b></summary>
 <div markdown="1">
 
+- Prisma 모델 정의
  ~~~javascript
-  const [slide, setSlide] = useState(1);
-  const [mainSlideData, setMainSlideData] = useState([]);
-
-  const getSlideData = async () => {
-    const res = await fetch('/data/MainSlideData.json').then(res => res.json());
-    const sameNumData = res.filter(data => {
-      return data.id === slide;
-    });
-    setMainSlideData(sameNumData);
-  };
-
-  useEffect(() => {
-    getSlideData();
-    const interval = setInterval(() => {
-      setSlide(slide => (slide > 2 ? 1 : slide + 1));
-    }, 3000);
-    return () => {
-      clearInterval(interval);
-    };
-  }, [slide]);
+ model Project {
+  id Int @id @default(autoincrement())
+  state Boolean
+  title String
+  period String
+  sort String
+  src String @db.VarChar(3000)
+  alt String
+  skill String
+  github String
+  url String
+  team String?
+  myRole String?
+  library String?
+  notes String?
+  shortDscr String
+  projectDscr String  @db.VarChar(1000)
+  featureDscr String  @db.VarChar(1000)
+  troubleeDscr String  @db.VarChar(1000)
+}
  ~~~
  
+ - projects 모델 src 속성 배열로 변환
+  ~~~javascript
+ export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
+  
+  const projects = await client.project.findMany();
+
+  const newData = projects.map((project) => {
+    const srcArray: string[] = project.src.split(',');
+    const newArray = srcArray.map((src:string) => src.replace(/^"(.*)"$/, '$1'));
+
+    return {
+      ...project,
+      src: newArray ,
+    };
+  });
+
+  res.json({
+    ok: true,
+    data: newData,
+  });
+}
+ ~~~
 </div>
 </details>
 
 
-### 4-2. 리뷰 별점 기능 구현하기 🔗[코드로 이동: 리뷰 추가](https://github.com/wjddms4107/MagazineK_jeongeun/blob/41aa15fe2dc5bb8b730c0e20bbcbbfde1365031c/src/pages/ProductDetail/Review.js#L36), [코드로 이동: 별점](https://github.com/wjddms4107/MagazineK_jeongeun/blob/41aa15fe2dc5bb8b730c0e20bbcbbfde1365031c/src/pages/ProductDetail/ReviewStar/ReviewStar.js#L10)
+### 4-2. ProjectDetailsModal 구현하기 : prisma 데이터 처리와 framer-motion 모달 애니메이션 효과 🔗[코드로 이동: 리뷰 추가](https://github.com/wjddms4107/MagazineK_jeongeun/blob/41aa15fe2dc5bb8b730c0e20bbcbbfde1365031c/src/pages/ProductDetail/Review.js#L36), [코드로 이동: 별점](https://github.com/wjddms4107/MagazineK_jeongeun/blob/41aa15fe2dc5bb8b730c0e20bbcbbfde1365031c/src/pages/ProductDetail/ReviewStar/ReviewStar.js#L10)
 <img width="700" alt="제품상세리뷰" src="https://user-images.githubusercontent.com/78889402/192104212-e11ef2c1-47fd-41de-b4bd-4a6f8d0cf115.gif">
 
-- 제품 상세 페이지에 제가 제일 애정을 가지고 있는 리뷰기능이 있습니다. 이는 원래의 Magazine B에는 없는 기능인데 구현하면 재미있을 것 같아 팀원들에게 제안하여 추가되었고 함께 합을 맞춰볼 backend 동기와 자주 소통하면서 기획, 데이터 구조, 요청 방식 등 모든 부분에 정성을 들여 탄생한 기능이기 때문입니다.
+- ProjectSection에는 프로젝트의 간단한 정보를 보여주는 ProjectBox와 상세정보를 보여주는 ProjectDetailsModal이 있습니다. 이를 위해 projectDetails라는 상태 변수를 사용하여 프로젝트의 상세 정보를 관리했습니다. projectDetails 배열을 map함수로 순회하여 각각의 ProjectBox에 데이터를 전달해주었습니다.
+- ProjectBox에서는 프로젝트의 제목, 기간, 기술스택 등과 같은 간단한 정보만을 보여줍니다. 처음에는 맨 앞의 ProjectBox만 보여지도록 설정되어 있고, 다른 ProjectBox를 클릭하면 기존에 열렸던 ProjectBox가 닫히고 클릭된 프로젝트의 간단한 정보를 볼 수 있도록 조건부 렌더링을 사용하여 구현했습니다.
+- 또한 사용자가 펼쳐진 ProjectBox를 클릭하면 프로젝트 상세정보를 보여주는 ProjectDetailsModal이 부드럽게 열리도록 구현했습니다. 이는 현재 currentId 상태에 따라 모달이 열리거나 닫히도록 구현되어 있습니다.
+- 부드러운 애니메이션 효과를 주기 위해 배경색을 애니메이션으로 조절하여 부드럽게 변화하도록 구현하였습니다. 또한, 모달 영역 외의 부분을 클릭하면 모달이 닫히도록 하기 위해 모달 컨테이너에 클릭 이벤트를 추가하였습니다.
+- 마지막으로, ProjectDetailsModal에는 현재 열려 있는 프로젝트의 currentId와 해당 프로젝트의 상세 정보를 전달하여 모달 내부에서 필요한 데이터를 표시할 수 있도록 하였습니다.
 
-- 리뷰 기능은 해당 제품을 구매하였다는 것이 확인되면 리뷰 등록 가능한 구조입니다. 이는 로컬스토리지의 토큰으로 인증인가를 받을 수 있었습니다.
 
-- 또한 '리뷰 등록' 버튼을 누르면 선택한 별점, 입력한 댓글이 담긴 객체 데이터를 backend에게 보내는데 기존에 배열로 된 한 줄 댓글만 구현해 보아서 처음에 헤맸던 기억이 납니다. 결국 당연하게도 key와 value를 담은 객체 데이터로 구현할 수 있었는데 이 고민을 통해 수많은 생각을 하면서 코딩에 감을 불어 넣어 준 코드이기에 매우 인상 깊습니다.
-
-- 별점은 [...Array(5)].map으로 빈배열을 만들고 index가 hover state, rating state보다 작거나 같을 시 className이 on이 되며 별이 채워지게해서 구현할 수 있었습니다.
-
-- 위의 작업을 마친 후 backend에게 데이터를 전송하면 리뷰 기능이 성공적으로 구현될 줄 알았는데 별점이 제대로 표시되지 않는 문제가 발생했습니다. 분명히 데이터를 잘 보내주고 있는데 말입니다. 해결을 위해 차근차근 코드를 분석해 보았고 그 결과 backend에서 주는 rating은 '1.0', '2.0'과 같은 `string`이고, 클라이언트가 별점을 누를 때는  1, 2와 같은 `number`여서 댓글에 별점이 표시되지 않던 것입니다. 이는 `Number(rating)`로 문자를 숫자 데이터로 바꿔주므로 해결할 수 있었지만 생각지도 못한 곳에서 문제가 생겨 '역시 끝까지 긴장을 늦출 수 없는 것이 코딩이구나'하는 깨달음을 얻었습니다.
 <details>
 <summary><b>구현한 코드</b></summary>
 <div markdown="1">
  
- ~~~javascript
- // '리뷰등록' 버튼을 눌렀을 때 리뷰 추가
-  if (commentText.length < 6) {
-      alert('5글자 이상을 입력해주세요');
-      setCommentText('');
-    } else if (rating === 0) {
-      alert('별점을 선택해주세요.');
-    } else {
-      const textareaObj = {
-        content: commentText,
-        rating: rating,
-      };
-      fetch(`http://10.58.3.49:8000/products/${product_id}/reviews`, {
-        method: 'POST',
-        headers: {
-          Authorization: token,
-        },
-        body: JSON.stringify({
-          content: commentText,
-          rating: rating,
-        }),
-      })
-        .then(res => res.json())
-        .then(data => {
-          if (data.MESSAGE === 'SUCCESS') {
-            const copyComment = [...commentObj, textareaObj];
-            setCommentObj(copyComment);
-            setCommentText('');
-          } else {
-            alert('구매하셔야 리뷰등록 가능합니다!');
-            setCommentText('');
-          }
-        });
-    }
-  };
-
+ - projectDetails map 돌려서 ProjectBox에 데이터 전달하기
  
- // 별점 채우기
- {[...Array(5)].map((star, index) => {
-  index += 1;
-  return (
-    <button
-      type="button"
-      id={index}
-      key={index}
-      className={index <= (hover || rating) ? 'on' : 'off'}
-      onClick={() => setRating(index)}
-      onMouseEnter={() => setHover(index)}
-      onMouseLeave={() => setHover(rating)}
-    >
-      <span className="star">&#9733;</span>
-    </button>
-  );
-})}
+ ~~~javascript
+   const [projectDetails, setProjectDetails] = useState<Project[]>(projects);
+
+  const ClickProjectBox = (index: number) => {
+    setProjectDetails(projectDetails?.map((info, i) => ({
+      ...info,
+      state: i === index
+    })));
+  };
+  
+  const projectBoxs = projectDetails?.map((details) => (
+    <ProjectBox
+      key={details.id}
+      isClicked={details.state}
+      details={details}
+      onClick={() => ClickProjectBox(details.id - 1)}
+      layoutId={details.id}
+    />
+  ));
  ~~~
  
 </div>
