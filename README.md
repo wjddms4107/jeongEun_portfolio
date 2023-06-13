@@ -60,10 +60,9 @@ next.config.js 파일에 res.cloudinary.com을 추가했습니다.
 project 모델의 src 속성을 ','를 기준으로 분리하여 배열로 변환한 후 각각의 요소에서 맨 앞과 맨 뒤의 `"`를 제거하고 새로운 배열을 생성했습니다. 
 
 <details>
-<summary><b>코드 보기 : Prisma 모델 정의, projects 모델 src 속성 배열로 변환</b></summary>
+<summary><b>Prisma 모델 정의</b></summary>
 <div markdown="1">
 
-- Prisma 모델 정의
  ~~~javascript
  model Project {
   id Int @id @default(autoincrement())
@@ -86,8 +85,14 @@ project 모델의 src 속성을 ','를 기준으로 분리하여 배열로 변�
   troubleeDscr String  @db.VarChar(1000)
 }
  ~~~
- 
- - projects 모델 src 속성 배열로 변환
+
+</div>
+</details>
+
+<details>
+<summary><b>projects 모델 src 속성 배열로 변환</b></summary>
+<div markdown="1">
+
   ~~~javascript
  export default async function handler(
   req: NextApiRequest,
@@ -116,7 +121,7 @@ project 모델의 src 속성을 ','를 기준으로 분리하여 배열로 변�
 </details>
 
 
-### 4-2. ProjectDetailsModal 구현하기 : prisma 데이터 처리와 framer-motion 모달 애니메이션 효과 🔗[코드로 이동: 리뷰 추가](https://github.com/wjddms4107/MagazineK_jeongeun/blob/41aa15fe2dc5bb8b730c0e20bbcbbfde1365031c/src/pages/ProductDetail/Review.js#L36), [코드로 이동: 별점](https://github.com/wjddms4107/MagazineK_jeongeun/blob/41aa15fe2dc5bb8b730c0e20bbcbbfde1365031c/src/pages/ProductDetail/ReviewStar/ReviewStar.js#L10)
+### 4-2. ProjectDetailsModal 구현하기 : prisma 데이터 처리와 framer-motion 모달 애니메이션 효과  <br /> 🔗[코드로 이동: 리뷰 추가](https://github.com/wjddms4107/MagazineK_jeongeun/blob/41aa15fe2dc5bb8b730c0e20bbcbbfde1365031c/src/pages/ProductDetail/Review.js#L36), [코드로 이동: 별점](https://github.com/wjddms4107/MagazineK_jeongeun/blob/41aa15fe2dc5bb8b730c0e20bbcbbfde1365031c/src/pages/ProductDetail/ReviewStar/ReviewStar.js#L10)
 <img width="700" alt="제품상세리뷰" src="https://user-images.githubusercontent.com/78889402/192104212-e11ef2c1-47fd-41de-b4bd-4a6f8d0cf115.gif">
 
 - ProjectSection에는 프로젝트의 간단한 정보를 보여주는 ProjectBox와 상세정보를 보여주는 ProjectDetailsModal이 있습니다. 이를 위해 projectDetails라는 상태 변수를 사용하여 프로젝트의 상세 정보를 관리했습니다. projectDetails 배열을 map함수로 순회하여 각각의 ProjectBox에 데이터를 전달해주었습니다.
@@ -127,10 +132,8 @@ project 모델의 src 속성을 ','를 기준으로 분리하여 배열로 변�
 
 
 <details>
-<summary><b>구현한 코드</b></summary>
+<summary><b>projectDetails map 돌려서 ProjectBox에 데이터 전달하기</b></summary>
 <div markdown="1">
- 
- - projectDetails map 돌려서 ProjectBox에 데이터 전달하기
  
  ~~~javascript
    const [projectDetails, setProjectDetails] = useState<Project[]>(projects);
@@ -155,6 +158,89 @@ project 모델의 src 속성을 ','를 기준으로 분리하여 배열로 변�
  
 </div>
 </details>
+ 
+ <details>
+<summary><b>모달 애니메이션</b></summary>
+<div markdown="1">
+
+ ~~~javascript
+  <AnimatePresence>
+    {currentId ? (
+       <motion.div
+         className="fixed z-20 top-0 right-0 left-0 w-[100vw] h-full flex items-center justify-center m-auto"
+         onClick={(e) => e.target === e.currentTarget && handleCloseBox()}
+         initial={{ backgroundColor: "rgba(0, 0, 0, 0)" }}
+         animate={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}
+         exit={{ backgroundColor: "rgba(0, 0, 0, 0)" }}
+       >
+         <ProjectDetailsModal currentId={currentId} details={details} />
+       </motion.div>
+     ) : null}
+  </AnimatePresence> 
+ ~~~
+ 
+</div>
+</details>
+
+### 4-3. 기능구현 후 rendering에 집중하여 성능향상 (getServerSideProps, Image, priority) 🔗[코드로 이동](https://github.com/wjddms4107/MagazineK_jeongeun/blob/41aa15fe2dc5bb8b730c0e20bbcbbfde1365031c/src/pages/Main/Main.js#L7)
+<img width="700" alt="메인" src="https://user-images.githubusercontent.com/78889402/192104195-8fe153f6-babc-40cc-984f-e9c9f60c3868.gif">
+
+- Prisma에서 Project 데이터를 받아오는 로직을 수정했습니다. 이전에는 useEffect를 사용하여 API 연결을 수행하였으나, 이로 인해 ProjectSection에 도달할 때마다 데이터 패칭이 발생하여 성능에 이슈가 있었습니다. 이를 해결하기 위해 next.js의 기능 중 하나인 getStaticProps를 활용하여 구현했습니다.
+- getStaticProps는 페이지를 미리 렌더링하여 정적인 HTML 파일로 생성하는 방식으로 동작합니다. 따라서 사용자의 요청에 상관없이 미리 생성된 정적 파일을 제공하므로 데이터 패칭의 빈도를 줄일 수 있어 성능 향상에 기여할 수 있었습니다.
+- 그러나 이 과정에서 undefined가 찍히는 에러가 발생했습니다. 이 문제를 해결하기 위해 getStaticProps를 최상위 파일에서만 사용해야 한다는 사실을 깨달았습니다. 최상위 파일로 로직을 이동시킴으로써 에러를 해결하였고, getStaticProps의 사용 범위에 대한 이해를 높일 수 있었습니다. 이러한 경험을 통해 next.js의 특징과 사용 방법을 더 깊이 이해하고, 성능 최적화를 위한 올바른 구현 방법을 배울 수 있었습니다.
+
+<details>
+<summary><b>getStaticProps 활용 코드</b></summary>
+<div markdown="1">
+
+ ~~~javascript
+ 
+export async function getStaticProps() {
+  const projects = await client.project.findMany();
+
+  const newData = projects.map((project) => {
+    const srcArray: string[] = project.src.split(',');
+    const newArray = srcArray.map((src:string) => src.replace(/^"(.*)"$/, '$1'));
+
+    return {
+      ...project,
+      src: newArray ,
+    };
+  });
+  
+  return {
+    props: {
+      projects: newData,
+    },
+  };
+}
+
+}
+ ~~~
+
+</div>
+</details>
+
+<details>
+<summary><b>이전 useEffect 코드</b></summary>
+<div markdown="1">
+
+  ~~~javascript
+  useEffect(()=>{
+    axios.get('/api/project')
+  .then(function (response:any) {
+    setProjectBoxStates(response.data.data)
+  })
+  .catch(function (error:any) {
+    console.log(error, "project api 연결 에러");
+  })
+  }
+  ,[])
+ ~~~
+</div>
+</details>
+
+
 
 <br/>
 
