@@ -46,8 +46,9 @@ Framer-motion으로 스크롤 이벤트와 모달 animating을 구현했습니�
 
 
 ## 4. 트러블 슈팅
-### 4-1. Prisma, Cloudinary 활용하여 Project 섹션 구현 🔗[코드로 이동](https://github.com/wjddms4107/MagazineK_jeongeun/blob/41aa15fe2dc5bb8b730c0e20bbcbbfde1365031c/src/pages/Main/Main.js#L7)
-<img width="700" alt="메인" src="https://user-images.githubusercontent.com/78889402/192104195-8fe153f6-babc-40cc-984f-e9c9f60c3868.gif">
+### Project 섹션 구현하기
+<img width="700" alt="제품상세리뷰" src="https://github.com/wjddms4107/jeongEun_portfolio/assets/78889402/4b789071-d503-40a4-8102-9ad632c2057c.gif" /> <br />
+#### (1). Prisma, Cloudinary 활용하여 Project 섹션 구현 🔗[코드로 이동](https://github.com/wjddms4107/MagazineK_jeongeun/blob/41aa15fe2dc5bb8b730c0e20bbcbbfde1365031c/src/pages/Main/Main.js#L7)
 
 - Prisma 모델 파일에서 데이터베이스 모델을 정의한 후 Prisma Studio를 실행하여 데이터를 추가했습니다.
 - 개발한 기능, 트러블 슈팅과 같이 한 줄씩 띄어쓰기 위해 div태그에 text를 넣었는데
@@ -121,8 +122,8 @@ project 모델의 src 속성을 ','를 기준으로 분리하여 배열로 변�
 </details>
 
 
-### 4-2. ProjectDetailsModal 구현하기 : prisma 데이터 처리와 framer-motion 모달 애니메이션 효과  <br /> 🔗[코드로 이동: 리뷰 추가](https://github.com/wjddms4107/MagazineK_jeongeun/blob/41aa15fe2dc5bb8b730c0e20bbcbbfde1365031c/src/pages/ProductDetail/Review.js#L36), [코드로 이동: 별점](https://github.com/wjddms4107/MagazineK_jeongeun/blob/41aa15fe2dc5bb8b730c0e20bbcbbfde1365031c/src/pages/ProductDetail/ReviewStar/ReviewStar.js#L10)
-<img width="700" alt="제품상세리뷰" src="https://user-images.githubusercontent.com/78889402/192104212-e11ef2c1-47fd-41de-b4bd-4a6f8d0cf115.gif">
+#### (2). ProjectDetailsModal 구현하기 : prisma 데이터 처리와 framer-motion 모달 애니메이션 효과 <br />
+ 🔗[코드로 이동: 리뷰 추가](https://github.com/wjddms4107/MagazineK_jeongeun/blob/41aa15fe2dc5bb8b730c0e20bbcbbfde1365031c/src/pages/ProductDetail/Review.js#L36), [코드로 이동: 별점](https://github.com/wjddms4107/MagazineK_jeongeun/blob/41aa15fe2dc5bb8b730c0e20bbcbbfde1365031c/src/pages/ProductDetail/ReviewStar/ReviewStar.js#L10)
 
 - ProjectSection에는 프로젝트의 간단한 정보를 보여주는 ProjectBox와 상세정보를 보여주는 ProjectDetailsModal이 있습니다. 이를 위해 projectDetails라는 상태 변수를 사용하여 프로젝트의 상세 정보를 관리했습니다. projectDetails 배열을 map함수로 순회하여 각각의 ProjectBox에 데이터를 전달해주었습니다.
 - ProjectBox에서는 프로젝트의 제목, 기간, 기술스택 등과 같은 간단한 정보만을 보여줍니다. 처음에는 맨 앞의 ProjectBox만 보여지도록 설정되어 있고, 다른 ProjectBox를 클릭하면 기존에 열렸던 ProjectBox가 닫히고 클릭된 프로젝트의 간단한 정보를 볼 수 있도록 조건부 렌더링을 사용하여 구현했습니다.
@@ -182,8 +183,7 @@ project 모델의 src 속성을 ','를 기준으로 분리하여 배열로 변�
 </div>
 </details>
 
-### 4-3. 기능구현 후 rendering에 집중하여 성능향상 (getServerSideProps, Image, priority) 🔗[코드로 이동](https://github.com/wjddms4107/MagazineK_jeongeun/blob/41aa15fe2dc5bb8b730c0e20bbcbbfde1365031c/src/pages/Main/Main.js#L7)
-<img width="700" alt="메인" src="https://user-images.githubusercontent.com/78889402/192104195-8fe153f6-babc-40cc-984f-e9c9f60c3868.gif">
+#### (3). 기능구현 후 rendering에 집중하여 성능향상 (getServerSideProps, Image, priority) 🔗[코드로 이동](https://github.com/wjddms4107/MagazineK_jeongeun/blob/41aa15fe2dc5bb8b730c0e20bbcbbfde1365031c/src/pages/Main/Main.js#L7)
 
 - Prisma에서 Project 데이터를 받아오는 로직을 수정했습니다. 이전에는 useEffect를 사용하여 API 연결을 수행하였으나, 이로 인해 ProjectSection에 도달할 때마다 데이터 패칭이 발생하여 성능에 이슈가 있었습니다. 이를 해결하기 위해 next.js의 기능 중 하나인 getStaticProps를 활용하여 구현했습니다.
 - getStaticProps는 페이지를 미리 렌더링하여 정적인 HTML 파일로 생성하는 방식으로 동작합니다. 따라서 사용자의 요청에 상관없이 미리 생성된 정적 파일을 제공하므로 데이터 패칭의 빈도를 줄일 수 있어 성능 향상에 기여할 수 있었습니다.
