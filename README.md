@@ -48,7 +48,7 @@ Framer-motion으로 스크롤 이벤트와 모달 animating을 구현했습니�
 ## 4. 트러블 슈팅
 ### Project 섹션 구현하기
 <img width="700" alt="제품상세리뷰" src="https://github.com/wjddms4107/jeongEun_portfolio/assets/78889402/4b789071-d503-40a4-8102-9ad632c2057c.gif" /> <br />
-#### (1) Prisma, Cloudinary 활용하여 Project 섹션 구현 <br /> 🔗[Prisma handler 코드](https://github.com/wjddms4107/jeongEun_portfolio/blob/67837b687b55e90b8d19b34bdd2643a62e149c63/pages/api/project.tsx#LL4C31-L4C38),  🔗[구분자 가공 코드](https://github.com/wjddms4107/jeongEun_portfolio/blob/67837b687b55e90b8d19b34bdd2643a62e149c63/pages/components/BigProjectBox.tsx#L18)
+#### (1) Prisma, Cloudinary 활용하여 Project 섹션 구현 🔗[Prisma handler 코드](https://github.com/wjddms4107/jeongEun_portfolio/blob/67837b687b55e90b8d19b34bdd2643a62e149c63/pages/api/project.tsx#LL4C31-L4C38),  🔗[구분자 가공 코드](https://github.com/wjddms4107/jeongEun_portfolio/blob/67837b687b55e90b8d19b34bdd2643a62e149c63/pages/components/BigProjectBox.tsx#L18)
 
 - Prisma 모델 파일에서 데이터베이스 모델을 정의한 후 Prisma Studio를 실행하여 데이터를 추가했습니다.
 - 개발한 기능, 트러블 슈팅과 같이 한 줄씩 띄어쓰기 위해 div태그에 text를 넣었는데
@@ -122,8 +122,8 @@ project 모델의 src 속성을 ','를 기준으로 분리하여 배열로 변�
 </details>
 
 
-#### (2). ProjectDetailsModal 구현하기 : prisma 데이터 처리와 framer-motion 모달 애니메이션 효과 <br />
- 🔗[ProjectSection 코드](https://github.com/wjddms4107/jeongEun_portfolio/blob/67837b687b55e90b8d19b34bdd2643a62e149c63/pages/ProjectSection.tsx#L13), 🔗[ProjectBox 코드](https://github.com/wjddms4107/jeongEun_portfolio/blob/67837b687b55e90b8d19b34bdd2643a62e149c63/pages/components/ProjectBox.tsx#L20), 🔗[ProjectDetailsModal 코드](https://github.com/wjddms4107/jeongEun_portfolio/blob/67837b687b55e90b8d19b34bdd2643a62e149c63/pages/components/BigProjectBox.tsx#L15)
+#### (2) ProjectDetailsModal 구현하기 : prisma 데이터 처리와 framer-motion 모달 애니메이션 효과 <br />
+ 🔗[ProjectSection 코드](https://github.com/wjddms4107/jeongEun_portfolio/blob/1bdf5d74a3315b6a864698d175ba770a9ec1de6c/pages/ProjectSection.tsx#L13), 🔗[ProjectBox 코드](https://github.com/wjddms4107/jeongEun_portfolio/blob/1bdf5d74a3315b6a864698d175ba770a9ec1de6c/pages/components/ProjectBox.tsx#L20), 🔗[ProjectDetailsModal 코드](https://github.com/wjddms4107/jeongEun_portfolio/blob/1bdf5d74a3315b6a864698d175ba770a9ec1de6c/pages/components/ProjectDetailsModal.tsx#L14)
 
 - ProjectSection에는 프로젝트의 간단한 정보를 보여주는 ProjectBox와 상세정보를 보여주는 ProjectDetailsModal이 있습니다. 이를 위해 projectDetails라는 상태 변수를 사용하여 프로젝트의 상세 정보를 관리했습니다. projectDetails 배열을 map함수로 순회하여 각각의 ProjectBox에 데이터를 전달해주었습니다.
 - ProjectBox에서는 프로젝트의 제목, 기간, 기술스택 등과 같은 간단한 정보만을 보여줍니다. 처음에는 맨 앞의 ProjectBox만 보여지도록 설정되어 있고, 다른 ProjectBox를 클릭하면 기존에 열렸던 ProjectBox가 닫히고 클릭된 프로젝트의 간단한 정보를 볼 수 있도록 조건부 렌더링을 사용하여 구현했습니다.
@@ -183,7 +183,7 @@ project 모델의 src 속성을 ','를 기준으로 분리하여 배열로 변�
 </div>
 </details>
 
-#### (3). 기능구현 후 rendering에 집중하여 성능향상 (getServerSideProps, Image, priority) 🔗[코드로 이동](https://github.com/wjddms4107/MagazineK_jeongeun/blob/41aa15fe2dc5bb8b730c0e20bbcbbfde1365031c/src/pages/Main/Main.js#L7)
+#### (3) 기능구현 후 렌더링 성능향상 (getServerSideProps) 🔗[getServerSideProps 코드](https://github.com/wjddms4107/jeongEun_portfolio/blob/1bdf5d74a3315b6a864698d175ba770a9ec1de6c/pages/index.tsx#L46)
 
 - Prisma에서 Project 데이터를 받아오는 로직을 수정했습니다. 이전에는 useEffect를 사용하여 API 연결을 수행하였으나, 이로 인해 ProjectSection에 도달할 때마다 데이터 패칭이 발생하여 성능에 이슈가 있었습니다. 이를 해결하기 위해 next.js의 기능 중 하나인 getStaticProps를 활용하여 구현했습니다.
 - getStaticProps는 페이지를 미리 렌더링하여 정적인 HTML 파일로 생성하는 방식으로 동작합니다. 따라서 사용자의 요청에 상관없이 미리 생성된 정적 파일을 제공하므로 데이터 패칭의 빈도를 줄일 수 있어 성능 향상에 기여할 수 있었습니다.
@@ -247,14 +247,11 @@ export async function getStaticProps() {
 ## 5. 그 외 문제 해결 경험
 
 <details>
-<summary>컴포넌트 최적화</summary>
+<summary>이미지 최적화</summary>
 <div markdown="1">
-
-- main페이지는 MainSlide, MainSectionMenu, MainSectionVideo 컴포넌트로 이루어져 있습니다.
-- MainSlide에만 영향을 주는 count state가 바뀔 때마다  MainSectionMenu, MainSectionVideo 컴포넌트도 계속 재렌더링되는 문제가 있었고
-- 이는 React.memo로 컴포넌트를 감싸줌으로 해결할 수 있었습니다.
-- Review 기능도 마찬가지로 ReviewStar, ReviewTextarea, Comment 컴포넌트로 이루어져있는데 이 또한 영향을 주지 않는 state에 의해 재렌더링 되지 않게 React.memo로 컴포넌트를 감싸주었습니다.
-- `export default React.memo(MainSectionMenu);`
+- 성능과 속도가 중요하다면 이미지 넣을 때 <Image /> 태그를 써야합니다.
+- lazy loading, 사이즈최적화, layout shift 방지해주기 때문입니다.
+- 또한 최적화된 이미지를 넣으려면 이미지를 Import해서 경로를 넣어야합니다.
 
 </div>
 </details>
