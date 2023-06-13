@@ -9,12 +9,11 @@
 
 ## 2. 사용 기술
 - Next.js
-- React
 - TypeScript
 - Taliwind CSS
 - Prisma
-- PlanetScale
 - Vercel
+- PlanetScale
 - Framer-motion
 
 ## 3. 핵심 기술
@@ -33,7 +32,6 @@
 또한 TailwindCSS의 제공 기능과 next-themes을 활용하여 반응형 및 다크모드를 구현했고<br />
 Framer-motion으로 스크롤 이벤트와 모달 animating을 구현했습니다.<br />
 모든 기능을 구현한 후에는 Next.js의 rendering 방법과 캐싱기능에 집중하여 성능향상을 진행했습니다.
-
 
 #### `개발 내용`
 - About me
@@ -247,56 +245,100 @@ export async function getStaticProps() {
 ## 5. 그 외 문제 해결 경험
 
 <details>
-<summary>이미지 최적화</summary>
-<div markdown="1">
-- 성능과 속도가 중요하다면 이미지 넣을 때 <Image /> 태그를 써야합니다.
-- lazy loading, 사이즈최적화, layout shift 방지해주기 때문입니다.
-- 또한 최적화된 이미지를 넣으려면 이미지를 Import해서 경로를 넣어야합니다.
+<summary>nextJS 제공기능으로 최적화 : Layout 컴포넌트, Head 태그, Image 태그, </summary>
+<div markdown="1"> 
+<br />
+
+- Layout 컴포넌트로 웹 사이트의 레이아웃을 잡아주었습니다.
+
+~~~javascript
+ import Header from "./Header";
+
+ export default function Layout({children}: React.PropsWithChildren) {
+   return (
+     <>
+      <Header />
+      <main className="w-[100vw] flex flex-col items-center justify-center mt-[70px]">
+        {children}
+      </main>
+    </>
+   )
+ }
+~~~
+
+
+- 이미지 최적화를 위해 lazy loading, 사이즈최적화, layout shift 방지해기 위해 <Image /> 태그를 사용했습니다.
+
+~~~javascript
+  <Image src="/jeongeun1.jpg" alt="jeongeun" width={500} height={500} className="rounded-2xl shadow-lg mt-12 lg:w-2/5 lg:ml-10 lg:mt-0" />
+ ~~~
+
+- 웹사이트의 head 부분 생성하기위해 head 태그를 사용했습니다.
+
+~~~javascript
+  import Head from 'next/head';
+
+interface IProps {
+  title : string;
+}
+
+export default function Seo({title}:IProps) {
+  return (
+    <Head>
+      <title>{title} | JeongEun</title>
+    </Head>
+  )
+  
+}
+ ~~~
 
 </div>
 </details>
 
 <details>
-<summary>main의 Slide, Video 레이아웃</summary>
+<summary>next-themes와 TailwindCSS의 제공 기능 활용</summary>
 <div markdown="1">
+<br />
+- 전에는 recoil과 같은 전역 상태 관리 도구를 사용하여 다크 모드와 라이트 모드를 전역적으로 적용하려고 했습니다. 그러나 next.js에는 편리하게 다크 모드를 사용할 수 있는 next-themes 라이브러리가 있었습니다. next-themes를 활용하여 다크 모드를 쉽게 구현할 수 있었습니다.  <br />
+_App : https://github.com/wjddms4107/jeongEun_portfolio/blob/1a9231c9847c2c675eec1bd84fb041ee91524b69/pages/_app.tsx#L10 
+다크모드 변환 : https://github.com/wjddms4107/jeongEun_portfolio/blob/1a9231c9847c2c675eec1bd84fb041ee91524b69/components/HeaderUl.tsx#L45
+<br />
 
-- 화면에 꽉 차게하기 위해 `object-fit: cover;` 
-- [https://github.com/wjddms4107/MagazineK_jeongeun/blob/41aa15fe2dc5bb8b730c0e20bbcbbfde1365031c/src/pages/Main/MainSectionVideo/MainSectionVideo.scss#L4](https://github.com/wjddms4107/MagazineK_jeongeun/blob/41aa15fe2dc5bb8b730c0e20bbcbbfde1365031c/src/pages/Main/MainSectionVideo/MainSectionVideo.scss#L4)
-- 텍스트가 상단에 있게 하기 위해 `position` 속성 주기
-- [https://github.com/wjddms4107/MagazineK_jeongeun/blob/41aa15fe2dc5bb8b730c0e20bbcbbfde1365031c/src/pages/Main/MainSectionVideo/MainSectionVideo.scss#L17](https://github.com/wjddms4107/MagazineK_jeongeun/blob/41aa15fe2dc5bb8b730c0e20bbcbbfde1365031c/src/pages/Main/MainSectionVideo/MainSectionVideo.scss#L17)
+- TailwindCSS의 제공 기능을 활용하여 반응형을 구현했습니다. TailwindCSS의 lg, md와 같은 선택자를 사용하여 미디어 쿼리 없이도 반응형 스타일링을 간편하게 적용할 수 있었습니다. 이를 통해 브라우저의 크기에 따라 적절한 스타일을 자동으로 적용할 수 있었습니다.   <br />
+반응형 : https://github.com/wjddms4107/jeongEun_portfolio/blob/1a9231c9847c2c675eec1bd84fb041ee91524b69/pages/HomeSection.tsx#L17
+<br />
+
+ - TailwindCSS의 클래스 중 하나인 space-y-1과 같은 클래스를 사용하여 요소 사이에 간격을 쉽게 조절할 수 있었습니다. 
+
+~~~javascript
+ <div className='space-y-4'>
+  {troubleDscrArray.map(({title, dscr, code}) => (
+    <div className='text-lg' key={title}>
+      <div className='font-bold mb-1'>📌 {title}</div>
+        <div className='text-middleGray300 dark:text-darkMiddleGray200 break-all whitespace-pre-line' >
+         {dscr}
+         {code && 
+           <div className='mt-2'>
+             <code>{code}</code>
+           </div>
+         }       
+      </div>
+    </div>
+  ))}
+ </div>
+~~~
 
 </div>
 </details>
 
 <details>
-<summary>처음 마운팅 될 때는 빈 값인 useEffect</summary>
+<summary>타이핑 애니메이션 구현</summary>
 <div markdown="1">
 
-- mainSlideData는 처음 마운팅 될 때는 빈 배열이기에 조건부 렌더링을 주어 오류를 해결할 수 있었습니다.
-- [https://github.com/wjddms4107/MagazineK_jeongeun/blob/41aa15fe2dc5bb8b730c0e20bbcbbfde1365031c/src/pages/Main/Main.js#L45](https://github.com/wjddms4107/MagazineK_jeongeun/blob/41aa15fe2dc5bb8b730c0e20bbcbbfde1365031c/src/pages/Main/Main.js#L45)
+- ['전체적인 아름다움을 중요시하는', '성취 중독자', '적응력이 뛰어나 협업에 자신있는'] 프론트엔드 개발자 노정은입니다. 를 표현하기 위해 타이핑 애니메이션을 구현했습니다.
 
-</div>
-</details>
-
-<details>
-<summary>mainVideo 동영상 자동재생</summary>
-<div markdown="1">
-
-- GIF처럼 해당 동영상에 도달했을 때 자동으로 동영상이 재생되게 했습니다.
-- autoplay 속성을 추가해도 되지만 useRef로 구현해 보았습니다.
-- [https://github.com/wjddms4107/MagazineK_jeongeun/blob/41aa15fe2dc5bb8b730c0e20bbcbbfde1365031c/src/pages/Main/MainSectionVideo/MainSectionVideo.js#L4](https://github.com/wjddms4107/MagazineK_jeongeun/blob/41aa15fe2dc5bb8b730c0e20bbcbbfde1365031c/src/pages/Main/MainSectionVideo/MainSectionVideo.js#L4)
-
-</div>
-</details>
-
-
-<details>
-<summary>장바구니 모달에 상품담기(post요청)</summary>
-<div markdown="1">
-
-- 제품의 수량을 선택하고 'add to cart'버튼을 누르면 서버로 총수량을 보내서 최종적으로 장바구니 모달에 담기는 기능입니다.
-- body에 총수량을 담은 post 요청으로 구현할 수 있었습니다.
-- [https://github.com/wjddms4107/MagazineK_jeongeun/blob/41aa15fe2dc5bb8b730c0e20bbcbbfde1365031c/src/pages/ProductDetail/Detail/Detail.js#L73](https://github.com/wjddms4107/MagazineK_jeongeun/blob/41aa15fe2dc5bb8b730c0e20bbcbbfde1365031c/src/pages/ProductDetail/Detail/Detail.js#L73)
+useTypingAnimation : https://github.com/wjddms4107/jeongEun_portfolio/blob/1a9231c9847c2c675eec1bd84fb041ee91524b69/libs/client/useTypingAnimation.ts#L3
+useCursorBlink : https://github.com/wjddms4107/jeongEun_portfolio/blob/1a9231c9847c2c675eec1bd84fb041ee91524b69/libs/client/useCursorBlink.ts#L3
 
 </div>
 </details>
