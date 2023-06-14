@@ -31,7 +31,7 @@
 데이터가 많은 섹션은 Prisma로 데이터를 넣어 구현하였고 Cloudinary로 노트북에 저장된 이미지를 url로 만들어서 image slider를 구현했습니다.<br />
 또한 TailwindCSS의 제공 기능과 next-themes을 활용하여 반응형 및 다크모드를 구현했고<br />
 Framer-motion으로 스크롤 이벤트와 모달 animating을 구현했습니다.<br />
-모든 기능을 구현한 후에는 Next.js의 rendering 방법과 캐싱기능에 집중하여 성능향상을 진행했습니다.
+모든 기능을 구현한 후에는 Next.js에서 제공하는 렌더링과 최적화에 집중하여 성능향상을 진행했습니다.
 
 #### `개발 내용`
 - About me
@@ -40,7 +40,7 @@ Framer-motion으로 스크롤 이벤트와 모달 animating을 구현했습니�
 - Projects
 - Education
 - Etc
-- MyGround (사용해보고 싶은 라이브러리나 기술 등을 연습하고 정리하는 공간)
+- MyGround (사용해보고 싶은 라이브러리나 기술 등을 연습하고 정리하는 공간) ()
 
 
 ## 4. 트러블 슈팅
@@ -245,7 +245,7 @@ export async function getStaticProps() {
 ## 5. 그 외 문제 해결 경험
 
 <details>
-<summary>nextJS 제공기능으로 최적화 : Layout 컴포넌트, Head 태그, Image 태그, </summary>
+<summary>nextJS 제공기능으로 최적화 : Layout 컴포넌트, Head 태그, Image 태그 </summary>
 <div markdown="1"> 
 <br />
 
@@ -296,10 +296,10 @@ export default function Seo({title}:IProps) {
 </details>
 
 <details>
-<summary>next-themes와 TailwindCSS의 제공 기능 활용</summary>
+<summary>next-themes와 TailwindCSS의 제공 기능 활용하기</summary>
 <div markdown="1">
 <br />
-- 전에는 recoil과 같은 전역 상태 관리 도구를 사용하여 다크 모드와 라이트 모드를 전역적으로 적용하려고 했습니다. 그러나 next.js에는 편리하게 다크 모드를 사용할 수 있는 next-themes 라이브러리가 있었습니다. next-themes를 활용하여 다크 모드를 쉽게 구현할 수 있었습니다.  <br />
+- 원래는 recoil과 같은 전역 상태 관리 도구를 사용하여 다크 모드와 라이트 모드를 전역적으로 적용하려고 했습니다. 그러나 next.js에는 편리하게 다크 모드를 사용할 수 있는 next-themes 라이브러리가 있었습니다. 그래서 next-themes와 TailwindCSS의 dark 활용하여 다크 모드를 쉽게 구현할 수 있었습니다.  <br />
 _App : https://github.com/wjddms4107/jeongEun_portfolio/blob/1a9231c9847c2c675eec1bd84fb041ee91524b69/pages/_app.tsx#L10 
 다크모드 변환 : https://github.com/wjddms4107/jeongEun_portfolio/blob/1a9231c9847c2c675eec1bd84fb041ee91524b69/components/HeaderUl.tsx#L45
 <br />
@@ -342,184 +342,3 @@ useCursorBlink : https://github.com/wjddms4107/jeongEun_portfolio/blob/1a9231c98
 
 </div>
 </details>
-
-<br/>
-
-## 6. 각 페이지별 View
-> [유튜브 데모 영상](https://www.youtube.com/watch?v=f-sBWaB70Ck)
-
-<table>
-  <thead>
-    <tr>
-      <th>
-        메인페이지
-      </th>
-      <th>
-        메인페이지
-      </th>
-      <th>
-        메인페이지
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td align="center">
-        <img width="789" alt="image" src="https://user-images.githubusercontent.com/78889402/190124386-da1019e1-a03f-48f3-9221-1824a03713b3.png">
-      </td>
-      <td align="center">
-       <img width="789" alt="image" src="https://user-images.githubusercontent.com/78889402/190124410-edc57de2-051f-4126-bbe4-7e52b07acb9d.png">
-      </td>
-      <td align="center">
-       <img width="789" alt="image" src="https://user-images.githubusercontent.com/78889402/190124387-2d1dcdf6-081e-422f-b21c-81204720220c.png">
-      </td>    
-    </tr>
-  </tbody>
-</table>
-<table>
-  <thead>
-    <tr>
-      <th>
-        회원가입 페이지
-      </th>
-      <th>
-        로그인 페이지
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td align="center">
-        <img width="789" alt="image" src="https://user-images.githubusercontent.com/78889402/190124804-43200f9a-1e97-48f9-9942-660af5011b4c.png">
-      </td>
-      <td align="center">
-          <img width="789" alt="image" src="https://user-images.githubusercontent.com/78889402/190124830-845e2134-a8d1-48ca-81ae-43661dfb4cc9.png">
-      </td>
-    </tr>
-  </tbody>
-</table>
-<table>
-  <thead>
-    <tr>
-      <th>
-        제품 리스트 페이지
-      </th>
-      <th>
-        제품 상세 페이지
-      </th>
-      <th>
-        제품 상세 리뷰 기능
-      </th
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td align="center">
-        <img width="789" alt="image" src="https://user-images.githubusercontent.com/78889402/190124862-286c1def-fd34-41cd-9a77-d9431832c1a8.png">
-      </td>
-      <td align="center">
-       <img width="789" alt="제품상세" src="https://user-images.githubusercontent.com/78889402/190124886-b11ce346-4223-450f-91a1-21f820773755.png">
-      </td>
-     <td align="center">
-      <img width="789" alt="제품상세리뷰" src="https://user-images.githubusercontent.com/78889402/190124908-9c884cc4-9305-4168-bba2-8fde6b039f4a.png">
-      </td>
-    </tr>
-  </tbody>
-</table>
-<table>
-  <thead>
-    <tr>
-      <th>
-        장바구니 모달
-      </th>
-      <th>
-        장바구니 메인, 결제 페이지
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-     <td align="center">
-        <img width="789" alt="image" src="https://user-images.githubusercontent.com/78889402/190126089-03205ddb-9f3f-4f78-963b-bebbd4d5d360.png">
-      </td>
-      <td align="center">
-        <img width="789" alt="image" src="https://user-images.githubusercontent.com/78889402/190125001-3fff2734-9f00-408a-b134-f4be9ea28e87.png">
-      </td>
-    </tr>
-  </tbody>
-</table>
-<table>
-  <thead>
-    <tr>
-      <th>
-        네비게이션 바 검색기능
-      </th>
-      <th>
-        푸터
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-     <td align="center">
-        <img width="789" alt="image" src="https://user-images.githubusercontent.com/78889402/190125776-0e62894d-0cde-46f3-8f03-b2036283b656.png">
-      </td>
-      <td align="center">
-       <img width="789" alt="푸터" src="https://user-images.githubusercontent.com/78889402/190125639-2bd36ada-9e43-42c9-aa68-aa2c8ca02387.png">
-      </td>
-    </tr>
-  </tbody>
-</table>
-
-
-
-## 7. 프로젝트 협업 도구
-### 1. Trello
-- 기능 단위로 카드를 생성하여 프로젝트가 sprint 미팅대로 잘 이루어졌는지 파악하고 stand up 미팅 활용한 도구로 활용
-### 2. Slack
-- 팀원간의 실시간 소통 창구
-### 3. Notion
- - 회의정리 기록, 오늘의 공유/질문 사항, 현재 진행 사항, blocker 공유, 기능 단위 페이지 셍성 후 공유 및 기록
-
-<table>
-  <tbody>
-    <tr>
-      <td align="center">
-        <img width="789" alt="image" src="https://user-images.githubusercontent.com/97422072/181877342-8c063ea9-3554-477b-b2b8-31b9fd5ba3bc.png">      
-      </td>
-      <td align="center">
-        <img width="789" alt=image" src="https://user-images.githubusercontent.com/83544570/184545339-9336d126-243e-4daa-85b1-fb4044844dbd.jpg">      
-       </td>
-    </tr>
-      <tr>
-      <td align="center">
-        <img width="789" alt="image" src="https://user-images.githubusercontent.com/78889402/182009668-6eae4b48-6a83-4108-8bd5-4804c922e40b.png">      
-      </td>
-      <td align="center">
-        <img width="789" alt="image" src="https://user-images.githubusercontent.com/78889402/182009676-f1ad22d5-6cc0-4696-9f16-eeb9fb5e3d80.png">      
-      </td>
-      </tr>
-                                                                                                                                                 <tr>
-  <td align="center">
-        <img width="789" alt="image" src="https://user-images.githubusercontent.com/78889402/182009685-15ed7167-ab01-40f6-9c9e-50b1d0dab04f.png">      
-      </td>
-                                                                                                                                                <td align="center">
-        <img width="789" alt="image" src="https://user-images.githubusercontent.com/78889402/182009689-a6b7a855-8c35-4576-a473-566983dad21a.png">      
-      </td>
-                                                                                                                                                 </tr>
-    
-  </tbody>
-</table>
-
-
-## 8. 프로젝트 회고
-- [노정은님 회고록(1) - 기능 구현에 대한 회고](https://jeongeuni.tistory.com/47?category=1103401)  <br />
-- [노정은님 회고록(2) - 팀 프로젝트에 대한 회고](https://jeongeuni.tistory.com/48?category=1103401)  <br />
-
-#
-
-### Reference
-
-- 이 프로젝트는 Magazine B 참조하여 학습목적으로 만들었습니다.
-- 학습용으로 만들었기 때문에 이 코드를 활용하여 이득을 취하거나 무단 배포할 경우 법적으로 문제될 수 있습니다.
-- 이 프로젝트에서 사용하고 있는 사진 대부분은 위코드에서 구매한 것이므로 해당 프로젝트 외부인이 사용할 수 없습니다.
