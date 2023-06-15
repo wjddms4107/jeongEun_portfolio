@@ -29,7 +29,8 @@
   이 프로젝트를 통해 기존의 기술 스택을 넘어서는 도전을 하였으며, 새로운 기술들을 학습하고 실제 프로젝트에 적용하는 경험을 얻었습니다.<br /> 
 
   포트폴리오 웹사이트에서 저의 개발 스킬과 프로젝트 경험을 효과적으로 전달하기 위해 심혈을 기울였습니다. <br /> 
-  제 이력과 업적을 자유롭게 소개할 수 있는 공간으로 웹사이트를 제작하게 되어 매우 기쁩니다!
+  제 이력과 업적을 자유롭게 소개할 수 있는 공간으로 웹사이트를 제작하게 되어 매우 기쁩니다. <br /> 
+  추후 간단한 블로깅 기능도 추가하여 고도화하려고 합니다. <br /> 
 
 
 #### `구현 기능`
@@ -349,6 +350,25 @@ _App : https://github.com/wjddms4107/jeongEun_portfolio/blob/1a9231c9847c2c675ee
 
 useTypingAnimation : https://github.com/wjddms4107/jeongEun_portfolio/blob/1a9231c9847c2c675eec1bd84fb041ee91524b69/libs/client/useTypingAnimation.ts#L3
 useCursorBlink : https://github.com/wjddms4107/jeongEun_portfolio/blob/1a9231c9847c2c675eec1bd84fb041ee91524b69/libs/client/useCursorBlink.ts#L3
+
+</div>
+</details>
+
+<details>
+<summary>컴포넌트 재활용</summary>
+<div markdown="1">
+
+- ImgSlide: 이미지 슬라이드
+https://github.com/wjddms4107/jeongEun_portfolio/blob/adf70c7cd421ce26be0a3ee68305b7453c6712f6/components/ImgSlide.tsx#L15
+
+- MyRoleDscr: Work Experience 역할 설명 
+https://github.com/wjddms4107/jeongEun_portfolio/blob/adf70c7cd421ce26be0a3ee68305b7453c6712f6/components/MyRoleDscr.tsx#L21
+
+- SkillBox : Skill에서 기술스택 UI
+https://github.com/wjddms4107/jeongEun_portfolio/blob/adf70c7cd421ce26be0a3ee68305b7453c6712f6/components/skillBox.tsx#L13
+
+- 이외에도 다양한 컴포넌트를 재활용 했습니다.
+
 
 </div>
 </details>
