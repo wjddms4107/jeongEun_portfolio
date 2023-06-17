@@ -18,9 +18,19 @@ import profile3 from '@/public/profile3.png';
 import asset1 from '@/public/asset1.png';
 import asset2 from '@/public/asset2.png';
 import asset3 from '@/public/asset3.png';
+import asset4 from '@/public/asset4.png';
+import asset5 from '@/public/asset5.png';
 import lending1 from '@/public/lending1.png';
+import lending2 from '@/public/lending2.png';
+import lending3 from '@/public/lending3.png';
+import lending4 from '@/public/lending4.png';
 import staking1 from '@/public/staking1.png';
 import staking2 from '@/public/staking2.png';
+import staking3 from '@/public/staking3.png';
+import futures1 from '@/public/futures1.png';
+import futures2 from '@/public/futures2.png';
+import futures3 from '@/public/futures3.png';
+import futures4 from '@/public/futures4.png';
 
 export default function ExperienceSection(){
   const PurpleTitle = "relative right-[1px] text-2xl font-semibold text-bluePurple border-l-[2px] border-bluePurple pl-4 mt-4 mb-2"
@@ -29,9 +39,10 @@ export default function ExperienceSection(){
   const mainImages = [main1, main2, main3];
   const headerImages = [header1, header2, header3];
   const profileImages = [profile1, profile2, profile3];
-  const assetImages = [asset1, asset2, asset3];
-  const stakingImages = [staking1, staking2, staking2];
-  const lendingImages = [lending1, lending1, lending1];
+  const assetImages = [asset1, asset2, asset3, asset4, asset5];
+  const stakingImages = [staking1, staking2, staking3];
+  const lendingImages = [lending1, lending2, lending3, lending4];
+  const futuresImages = [futures1, futures2, futures3, futures4];
 
   return (
     <motion.div
@@ -93,15 +104,15 @@ export default function ExperienceSection(){
               <div className="mb-8">
                 <h5 className='text-2xl'>- 나의 기여</h5>
                 <div className='text-lg text-middleGray900 dark:text-darkMiddleGray200'>
-                  헤더, 메인 페이지, 프로필 페이지 (sms 인증, googleOTP 인증, KYC-2 인증, API 관리) <br />
+                  메인 페이지, 헤더, 프로필 페이지 (sms 인증, googleOTP 인증, KYC-2 인증, API 관리) <br />
                   자산 페이지 (나의 자산(전체), 이체, 교환, 상환), 스테이킹 페이지, 랜딩서비스 페이지 <br />
-                  선물거래 페이지 (포지션 오픈 및 포지션 청산)
+                  선물거래 USDT-M,COIN-M 페이지 (포지션 오픈 및 청산, 자산, 증거금 )
                 </div>
               </div>
 
               <div>
                 <MyRoleDscr
-                  Roletitle="1. 메인 페이지"
+                  Roletitle="1. 메인 페이지 (페이지 기여도: 100%)"
                   RoleUrl="https://bydoxe.com/"
                   RoleUrlDscr="메인 페이지 보러가기"
                   imgArray={mainImages}
@@ -111,17 +122,17 @@ export default function ExperienceSection(){
                       title: "framer-motion, react-slick을 통해 생동감 있고 유창한 인터페이스 구현",
                       dscr:
                         `메인 페이지는 사용자가 처음 접하는 페이지로, 사용자를 사로잡는 인터페이스를 구현하기 위해 framer-motion과 react-slick을 도입했습니다. \n` +
-                        `framer-motion을 사용하여 지구 이미지가 좌우로 무한히 움직이며, 중간 중간에 스크롤 fade 이벤트를 적용했습니다. \n` +
+                        `framer-motion을 사용하여 중간 중간에 스크롤 fade 이벤트를 적용했습니다. \n` +
                         `또한, react-slick을 활용하여 거래소의 이벤트 배너를 소개하는 이미지 슬라이드를 구현했는데 \n`+ 
                         `디자이너의 의도에 맞게 센터에 오는 배너는 밝아지고, 양 옆의 배너는 서서히 어둡게 변하도록 커스텀했습니다. \n`+
-                        `이처럼 디자이너와 끊임없는 소통을 통해 의도와 컨셉을 정확히 이해하고, 그것을 코드로 구현하기 위해 노력했습니다. \n` + 
+                        `이처럼 디자이너와의 소통을 통해 의도와 컨셉을 정확히 이해하고, 그것을 코드로 구현하기 위해 노력했습니다. \n` + 
                         `이에 UI 요소의 디자인, 애니메이션 효과, 컬러 팔레트 등을 조율하고 조정하여 사용자에게 직관적이고 매력적인 인터페이스를 제공할 수 있었습니다.`
                     },
                   ]}
                 />
 
                 <MyRoleDscr
-                  Roletitle="2. 헤더"
+                  Roletitle="2. 헤더 (페이지 기여도: 100%)"
                   RoleUrl="https://bydoxe.com/"
                   RoleUrlDscr="헤더 보러가기"
                   imgArray={headerImages}
@@ -149,7 +160,7 @@ export default function ExperienceSection(){
                 />
 
                 <MyRoleDscr
-                  Roletitle="3. 프로필 페이지 : sms 인증, googleOTP 인증, KYC-2 인증, API 관리"
+                  Roletitle="3. 프로필 페이지 : sms 인증, googleOTP 인증, KYC-2 인증, API 관리 (페이지 기여도: 50%)"
                   RoleUrl="https://bydoxe.com/mypage/profile"
                   RoleUrlDscr="프로필 페이지 보러가기"
                   imgArray={profileImages}
@@ -161,7 +172,8 @@ export default function ExperienceSection(){
                         `SMS 인증 및 KYC 인증을 구현하는 과정에서 국가 선택을 위한 드롭다운 및 국가 검색 기능을 구현하였습니다. \n` +
                         `자료 조사를 통해 Material UI 라이브러리에서 제공하는 객체 배열을 활용했습니다. \n` + 
                         `사용자가 국가를 선택하면 e.currentTarget으로 해당 국가의 이미지, 국가 전화 코드, 국가명이 화면에 동적으로 표시되도록 구현했습니다. \n` +
-                        `또한, 사용자들이 원하는 국가를 빠르게 찾을 수 있도록 국가 검색 기능도 추가했습니다.`
+                        `또한, 사용자들이 원하는 국가를 빠르게 찾을 수 있도록 국가 검색 기능도 추가했고 \n` +
+                        `여러곳에서 사용할 수 있도록 컴포넌트화 햤습니다.`
                     },
                     {
                       title: "KYC-2 인증 - 신분증 이미지 프리뷰 및 업로드 기능",
@@ -170,7 +182,7 @@ export default function ExperienceSection(){
                         `사용자는 신분증 이미지를 선택하여 업로드할 수 있으며, 수정 및 삭제도 가능하도록 했습니다. \n` +
                         `업로드하면 MAX_FILE_SIZE를 초과하는지 검사하고 FileReader를 사용하여 이미지 파일을 미리보기용 데이터 URL로 변환하여 상태를 업데이트합니다. \n` +
                         `이후 최종 확인 버튼을 누르면 FormData를 생성하여 파일을 POST 요청으로 서버로 전송되어 인증 과정에서 사용됩니다. \n` +
-                        `또한, 이 기능은 컴포넌트화되어 이미지 업로드가 필요한 여러 곳에서 사용할 수 있도록 구현했습니다.`
+                        `또한, 컴포넌트화되어 이미지 업로드가 필요한 여러 곳에서 사용할 수 있도록 구현했습니다.`
                     },
                     {
                       title: "googleOTP 인증",
@@ -188,7 +200,7 @@ export default function ExperienceSection(){
                 />
 
                 <MyRoleDscr
-                  Roletitle="4. 자산 페이지 : 나의 자산(전체), 이체, 교환, 상환"
+                  Roletitle="4. 자산 페이지 : 나의 자산(전체), 이체, 교환, 상환 (페이지 기여도: 70%)"
                   RoleUrl="https://bydoxe.com/asset/myassets/spot"
                   RoleUrlDscr="자산 페이지 보러가기"
                   imgArray={assetImages}
@@ -202,7 +214,8 @@ export default function ExperienceSection(){
                         `백엔드로부터 받아오는 각 자산의 데이터 키 값이 다양하여 테이블 로직을 컴포넌트화하기 어려웠지만 \n` + 
                         `현물 계좌, 선물 계좌, 스테이킹 계좌 등에 사용되는 테이블은 모두 동일한 레이아웃을 가지고 있었기에 \n` + 
                         `효율적인 관리를 위해 공통된 테이블 스타일을 src > styles > tableStyles.ts에서 관리하여 일관된 스타일을 적용할 수 있었습니다. \n` + 
-                        `이를 통해 테이블 컴포넌트의 관리와 유지보수를 용이하게 했고 계좌 테이블의 구현과 커스터마이징을 통해 다양한 자산의 시각화를 가능하게 하였습니다.` 
+                        `이를 통해 테이블 컴포넌트의 관리와 유지보수를 용이하게 했고 계좌 테이블의 구현과 커스터마이징을 통해 다양한 자산의 시각화를 가능하게 하였습니다.\n` + 
+                        `더불어 모든 자산 테이블에서 쓰이는 필터기능은 hook으로 만들어 재사용성을 높였습니다.` 
                     },
                     {
                       title: "이체 페이지 진입 flow에 따른 드롭다운 default",
@@ -221,7 +234,7 @@ export default function ExperienceSection(){
                 />
 
                 <MyRoleDscr
-                  Roletitle="5. 스테이킹 페이지"
+                  Roletitle="5. 스테이킹 페이지 (페이지 기여도: 100%)"
                   RoleUrl="https://bydoxe.com/staking"
                   RoleUrlDscr="스테이킹 페이지 보러가기"
                   imgArray={stakingImages}
@@ -259,43 +272,43 @@ export default function ExperienceSection(){
                 />
 
                 <MyRoleDscr
-                  Roletitle="6. 랜딩서비스 페이지"
+                  Roletitle="6. 랜딩서비스 페이지 (페이지 기여도: 100%)"
                   RoleUrl="https://bydoxe.com/landing"
                   RoleUrlDscr="랜딩서비스 페이지 보러가기"
                   imgArray={lendingImages}
-                  troubleTitle="트러블 슈팅 : progress bar에 상태 전달하여 진행도 보여주기"
+                  troubleTitle="트러블 슈팅 : 랜딩서비스 구현을 위한 API 연결과 로직 설계"
                   troubleDscrArray={[
                     {
-                      title: "로그인 유뮤 및 자산 유무에 따른 스테이킹 페이지 구현하기",
+                      title: "랜딩서비스 구현을 위한 API 연결과 로직 설계",
                       dscr:
-                        `헤더는 웹 전반에 걸쳐 중요한 역할을 담당하고 있으며, 로그인 여부와 언어 선택과 같은 상태 관리를 다루고 있습니다. \n` +
-                        `모바일과 웹 환경에서 다르게 보여져야 했기 때문에 react-responsive을 사용하여 모바일에는 MobileHeader, 웹에는 DesktopHeader를 보여주었습니다.  \n` +
-                        `이렇게 함으로써 사용자에게 최적화된 UI/UX를 제공할 수 있었습니다. \n` +
-                        `또한 로그인 여부와 언어 선택은 Recoil 상태를 활용하여 관리하였는데 \n` +
-                        `Recoil 상태가 새로고침되지 않도록 로컬 스토리지에 해당 상태를 저장하여 유지하였습니다. \n` +
-                        `이로인해 사용자는 로그인 상태를 유지하고 이전에 선택한 언어 설정도 유지할 수 있었습니다.`
-                    },
-                    {
-                      title: "stacked card slider 구현하기",
-                      dscr:
-                        `헤더의 subMenu는 여러번 사용되는 UI 요소로서, 이를 재활용하기 위해 해당 부분을 컴포넌트화하였습니다. \n` +
-                        `이에 변경 또는 업데이트가 필요한 경우에도 한 곳에서 수정하여 모든 사용처에 적용할 수 있게 했고 \n` +
-                        `컴포넌트화된 subMenu는 필요한 props를 받아서 동적으로 데이터를 표시하고 이벤트를 처리할 수 있도록 했습니다. \n` +
-                        `이를 통해 유연하게 다양한 상황에 맞춰서 subMenu를 활용할 수 있게 되었습니다.`
-                    },
+                        `랜딩서비스 페이지에 접속하면, 로그인 상태와 스테이킹 여부를 확인하여 랜딩서비스를 받을 수 있는지 판단하는 기능을 구현했습니다. \n` +
+                        `이를 위해 recoil을 사용하여 로그인 상태를 확인하고, API 연결을 통해 스테이킹 여부를 판단했습니다. \n\n` +
+                        `이후 랜딩서비스를 받을 수 없는 유저에게는 "토큰없음"이라는 메시지를 표시하고, \n` +
+                        `받을 수 있는 유저에게는 "스테이킹 심볼 목록 API"를 호출하여 심볼을 선택할 수 있는 드롭다운을 제공했습니다. \n` +
+                        `스테이킹 담보 심볼을 선택하면, 해당 심볼을 사용하여 "랜딩 토큰 선택을 위한 API"를 호출할 수 있게 됩니다.  \n` +
+                        `이를 통해 유저가 선택한 토큰의 정보를 가져와서 setState를 통해 상태를 업데이트하고, \n` +
+                        `랜딩 가능 금액이나 최대 랜딩 가능 기간과 같은 정보를 화면에 표시했습니다. \n\n` +
+                        `프로젝트 진행 과정에서 기획자, 디자이너, 백엔드 개발자와 협업하며 \n` +
+                        `API에 필요한 정보와 데이터 구조를 논의하고 각 API에 전달되어야 할 데이터를 구체화하여 구현에 반영할 수 있었습니다. \n` +
+                        `또한, useQuery를 활용한 API 호출은 개발 과정에서 큰 도움이 되었습니다. \n` +
+                        `enable 옵션을 사용하여 API 호출과 관련된 작업을 간소화하고 데이터를 캐싱하여 코드를 단순화하고 효율적으로 처리할 수 있었습니다. \n` +
+                        `로직상으로는 다양한 상태와 컴포넌트 간의 상호작용에 대한 고민이 필요했습니다. \n` +
+                        `효율적인 로직을 구현하기 위해 상태의 변화와 업데이트를 어떤 컴포넌트에서 처리해야 하는지를 고민하고, \n` +
+                        `필요한 정보를 recoil 또는 부모 컴포넌트에서 자식 컴포넌트로 전달하는 방식으로 데이터 흐름을 관리했습니다. ` 
+                    }
                   ]}
                 />
 
                 <MyRoleDscr
                   isBorder={false}
-                  Roletitle="7. 선물거래 페이지 : 포지션 오픈 및 포지션 청산"
+                  Roletitle="7. 선물거래 페이지 : 포지션 오픈 및 포지션 청산 (페이지 기여도: 30%)"
                   RoleUrl="https://bydoxe.com/landing"
                   RoleUrlDscr="선물거래 페이지 보러가기"
-                  imgArray={mainImages}
+                  imgArray={futuresImages}
                   troubleTitle="트러블 슈팅 : 선물거래 포지션 오픈 및 포지션 청산"
                   troubleDscrArray={[
                     {
-                      title: "선물거래 포지션 오픈 및 포지션 청산 구현",
+                      title: "선물거래 포지션 오픈 및 청산 구현",
                       dscr:
                         `백엔드로부터 받아온 데이터와 함께 증거금 등의 다양한 계산식을 거래수량 단위가 USDT인지 %에 따라 \n` +
                         `지정가, 시장가, 트리거마다 따로 상태를 관리해야 했습니다. 또한 각 포지션에 따라 다양한 예외처리를 고려해야 했습니다. \n` +
