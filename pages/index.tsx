@@ -19,7 +19,6 @@ export default function Home({projects}:IProps) {
         <Seo title="Portfolio" />
         <div className="w-screen h-auto flex flex-col p-8 lg:w-[1440px]">
           <HomeSection />
-          <IntroduceSection />
           <div id="skill" >
             <SkillSection />
           </div>
