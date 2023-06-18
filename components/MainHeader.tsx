@@ -10,7 +10,7 @@ import darkCloseIcon from "@/public/darkCloseIcon.svg";
 import MobileHeader from "./MobileHeader";
 import HeaderUl from "./HeaderUl";
 
-export default function Header() {
+export default function MainHeader() {
   const { theme } = useTheme();
   const router = useRouter();
   const { pathname } = router;
