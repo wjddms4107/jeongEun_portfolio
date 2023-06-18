@@ -5,7 +5,7 @@ import "@/styles/globals.css";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <ThemeProvider attribute="class">
+    <ThemeProvider attribute="light">
       <Layout>
         <Component {...pageProps} />
       </Layout>
