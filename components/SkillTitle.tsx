@@ -24,7 +24,7 @@ export default function SkillTitle({
     <div style={containerStyle}>
       <motion.div
         whileHover={{ scale: 1.2 }}
-        className="flex items-center justify-center cursor-default"
+        className="flex items-center justify-center cursor-default text-sm lg:text-base"
       >
         {isImg ? (
           <Image src={src!} alt={alt!} width={width} height={width} />

@@ -4,7 +4,7 @@ interface IProps {
 
 export default function IntroduceSection({ setIsOpen }: IProps) {
   return (
-    <div className="introduceSection absolute top-0 right-0 h-full w-full bg-white p-10 flex flex-col justify-between dark:bg-darkLightGray200">
+    <div className="introduceSection absolute top-0 right-0 h-full w-full bg-white p-5 lg:p-10 flex flex-col justify-between dark:bg-darkLightGray200">
       <svg
         onClick={setIsOpen}
         xmlns="http://www.w3.org/2000/svg"
@@ -12,7 +12,7 @@ export default function IntroduceSection({ setIsOpen }: IProps) {
         viewBox="0 0 24 24"
         stroke-width="1.5"
         stroke="currentColor"
-        className="introduce w-10 h-10 absolute top-[10px] right-[10px] cursor-pointer"
+        className="introduce w-6 lg:w-10 h-6 lg:h-10 absolute top-[10px] right-[10px] cursor-pointer"
       >
         <path
           stroke-linecap="round"
@@ -21,14 +21,14 @@ export default function IntroduceSection({ setIsOpen }: IProps) {
         />
       </svg>
       <div className="introduce break-normal">
-        <div className="text-[20px] mb-1">
+        <div className="text-[14px] lg:text-[20px] mb-1">
           첫째, UI/UX뿐만 아니라{" "}
           <span className="text-purple dark:text-lightBluePurple">
             ‘전체적인 개발의 아름다움을 중요시하는’
           </span>
           개발자입니다.
         </div>
-        <div className="text-[17px]">
+        <div className="text-[13px] lg:text-[17px]">
           의도와 컨셉을 정확히 이해하고 디자이너가 제시한 디자인을 웹 인터페이스로 표현하기 위해
           끊임없이 소통합니다. 또한 변수명과 코드의 구성에 깊게 신경을 쓰며, 개발 로직을 문서화하여
           동료 개발자가 코드를 이해하는데 도움이 되도록 배려합니다. 반복적인 UI는 컴포넌트화하고
@@ -38,11 +38,11 @@ export default function IntroduceSection({ setIsOpen }: IProps) {
         </div>
       </div>
       <div className="introduce break-normal">
-        <div className="text-[20px] mb-1">
+        <div className="text-[14px] lg:text-[20px] mb-1">
           둘째, <span className="text-purple dark:text-lightBluePurple">‘성취 중독인’</span> 개발자
           입니다.
         </div>
-        <div className="text-[17px]">
+        <div className="text-[13px] lg:text-[17px]">
           대학교 4학년 때, 확실한 결과물을 보여주며 모든 영역에 막대한 영향을 끼치는 개발의 매력에
           빠져들었습니다. 독학을 하며 몰입하는 모습을 보고 개발자로의 확신이 생겨서 위코드
           부트캠프를 수료했습니다. 현재는 글로벌 자산 거래소 'BYDOXE'의 개발과 운영에 참여하고
@@ -53,14 +53,14 @@ export default function IntroduceSection({ setIsOpen }: IProps) {
         </div>
       </div>
       <div className="introduce break-normal">
-        <div className="text-[20px] mb-1">
+        <div className="text-[14px] lg:text-[20px] mb-1">
           셋째,{" "}
           <span className="text-purple dark:text-lightBluePurple">
             ‘적응력이 뛰어나 협업에 자신있는’
           </span>{" "}
           개발자입니다.{" "}
         </div>
-        <div className="text-[17px]">
+        <div className="text-[13px] lg:text-[17px]">
           대학 시절부터 학생회, 응원단 등 다양한 대내외 활동과 이집트 유학 경험을 통해 다양한 상황에
           적응해 왔습니다. 부트캠프에서도 세 가지 팀 프로젝트를 성공적으로 수행하였으며 현재도
           팀원들과의 원활한 소통을 통해 즐거운 협업을 이뤄내는 중 입니다. 또한 이해가 되지 않거나

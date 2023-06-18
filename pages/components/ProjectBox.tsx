@@ -37,8 +37,10 @@ export default function ProjectBox({ isClicked, onClick, details, layoutId }: IP
     <>
       <motion.div
         className={cls(
-          "h-full mr-6 bg-gray-50 dark:bg-darkMiddleGray100 rounded-2xl transition-all duration-[900ms] ease-in-out cursor-pointer",
-          isClicked ? "sm:min-w-[540px]" : "sm:min-w-[130px] sm:hover:min-w-[150px]",
+          "h-full mr-3 lg:mr-6 bg-gray-50 dark:bg-darkMiddleGray100 rounded-2xl transition-all duration-[900ms] ease-in-out cursor-pointer",
+          isClicked
+            ? "min-w-[300px] lg:min-w-[540px]"
+            : "min-w-[70px] lg:min-w-[130px] hover:min-w-[90px] lg:hover:min-w-[150px]",
         )}
         onClick={onClick}
         layoutId={layoutId + ""}
@@ -51,24 +53,24 @@ export default function ProjectBox({ isClicked, onClick, details, layoutId }: IP
             <Image
               src={details?.src[0]}
               alt={details?.alt}
-              className="h-[50%] border-8 rounded-t-2xl border-LightGray dark:border-darkMiddleGray100 "
+              className="lg:h-[50%] border-8 rounded-t-2xl border-LightGray dark:border-darkMiddleGray100 "
               width={555}
               height={400}
             />
             <div className="h-[auto] flex flex-col justify-between p-4 pt-2 overflow-y-scroll  sm:overflow-y-hidden">
               <div className="">
                 <div className="flex items-center justify-between">
-                  <h1 className="text-[20px] font-bold sm:text-[25px]">{details?.title}</h1>
+                  <h1 className="lg:text-[20px] font-bold">{details?.title}</h1>
                   <button
                     onClick={() => handleOpenBox(details?.id)}
                     className="text-base text-middleGray200 dark:text-middleGray900 hover:text-middleGray300 hover:dark:text-darkMiddleGray900 flex items-center"
                   >
-                    <span>자세히보기</span>
+                    <span className="text-base">자세히보기</span>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 24 24"
                       fill="currentColor"
-                      className="w-6 h-6 ml-[3px]"
+                      className="w-4 h-4 lg:w-6 lg:h-6 ml-[3px]"
                     >
                       <path
                         fillRule="evenodd"
@@ -81,7 +83,7 @@ export default function ProjectBox({ isClicked, onClick, details, layoutId }: IP
                 <div className="text-[14px] font-normal text-middleGray100 dark:text-darkMiddleGray900 mb-[4px] sm:text-[17px]">
                   {details?.period} ({details?.sort})
                 </div>
-                <div className="text-[13px] font-medium mb-[16px] w-full flex flex-wrap gap-y-1 sm:text-[16px]">
+                <div className="text-[13px] font-medium mb-2 lg:mb-[16px] w-full flex flex-wrap gap-y-1 sm:text-[16px]">
                   {skills.map(item => (
                     <ProjectSkill
                       key={item}
@@ -93,7 +95,7 @@ export default function ProjectBox({ isClicked, onClick, details, layoutId }: IP
               </div>
 
               <div className="sm:overflow-y-auto">
-                <div className="text-[13px] text-middleGray900 dark:text-darkMiddleGray900 mb-[6px] sm:text-[17px]">
+                <div className="hidden lg:block text-[15px] text-middleGray900 dark:text-darkMiddleGray900 mb-[6px]">
                   📌 github :{" "}
                   <Link
                     href={details?.github}
@@ -105,7 +107,7 @@ export default function ProjectBox({ isClicked, onClick, details, layoutId }: IP
                     {details?.github}
                   </Link>
                 </div>
-                <div className="text-[13px] text-middleGray900 dark:text-darkMiddleGray900 sm:text-[17px]">
+                <div className="text-[13px] lg:text-[15px] text-middleGray900 dark:text-darkMiddleGray900">
                   📌 url :{" "}
                   <Link
                     href={details?.url}
@@ -117,14 +119,14 @@ export default function ProjectBox({ isClicked, onClick, details, layoutId }: IP
                     {details?.url}
                   </Link>
                 </div>
-                <div className="text-[13px] text-middleGray900 dark:text-darkMiddleGray900 mt-3 sm:text-[17px]">
+                <div className="text-[13px] lg:text-base mt-1 lg:mt-3 text-middleGray900 dark:text-darkMiddleGray900">
                   {details?.shortDscr}
                 </div>
               </div>
             </div>
           </div>
         ) : (
-          <div className="h-full flex items-center justify-center text-deepGray dark:text-darkMiddleGray300 text-xl font-semibold text-center p-2">
+          <div className="h-full lg:text-xl break-all flex items-center justify-center text-deepGray dark:text-darkMiddleGray300 font-semibold text-center p-2">
             {details?.title}
           </div>
         )}

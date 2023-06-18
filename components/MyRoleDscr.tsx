@@ -39,10 +39,10 @@ export default function MyRoleDscr({
   };
 
   return (
-    <div className="flex flex-col mb-5 pb-5">
-      <div className="flex flex-grow items-center space-x-3">
-        <h5 className="text-xl font-extrabold relative -top-[3px]">{Roletitle}</h5>
-        <Link href={RoleUrl} target="_blank" className="w-[fit-content]">
+    <div className="flex flex-col lg:mb-5 pb-5">
+      <div className="flex flex-col lg:flex-row flex-grow items-start lg:items-center lg:space-x-3">
+        <h5 className="text-lg lg:text-xl font-extrabold relative -top-[3px]">{Roletitle}</h5>
+        <Link href={RoleUrl} target="_blank" className="text-sm lg:text-base w-[fit-content]">
           📣 {RoleUrlDscr}
         </Link>
       </div>
@@ -57,13 +57,13 @@ export default function MyRoleDscr({
         />
       </div>
 
-      <details className="mb-5">
-        <summary className="text-[1.2rem] mb-2 cursor-pointer">{troubleTitle}</summary>
+      <details className="mb-3 lg:mb-5">
+        <summary className="lg:text-[1.2rem] mb-2 cursor-pointer">{troubleTitle}</summary>
         <div className="space-y-4">
           {troubleDscrArray.map(({ title, dscr, code }) => (
-            <div className="text-lg" key={title}>
-              <div className="font-bold mb-1">📌 {title}</div>
-              <div className="text-middleGray300 dark:text-darkMiddleGray200 break-all whitespace-pre-line">
+            <div key={title}>
+              <div className="text-base lg:text-lg font-bold mb-1">📌 {title}</div>
+              <div className="text-sm lg:text-lg text-middleGray300 dark:text-darkMiddleGray200 break-all whitespace-pre-line">
                 {dscr}
                 {code && (
                   <div className="mt-2">

@@ -9,7 +9,7 @@ interface IEducationBox {
 
 export default function EducationBox({ period, title, dscr, isMargin }: IEducationBox) {
   return (
-    <div className="flex lg:whitespace-pre-line">
+    <div className="text-sm lg:text-base flex lg:whitespace-pre-line">
       <div className={cls(greyLine, "pr-6 max-w-[150px] lg:max-w-[250px]")}>
         <div className={cls(purpleLine, isMargin ? "mt-10" : "")}>{period}</div>
       </div>

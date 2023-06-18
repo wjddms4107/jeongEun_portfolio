@@ -9,7 +9,7 @@ export default function ProjectSkill({ skill, bgColor = "bg-white" }: IProps) {
   return (
     <span
       className={cls(
-        "w-fit px-3 py-1 rounded-md text-bluePurple dark:text-lightBluePurple mr-1",
+        "text-sm lg:text-base w-fit mr-1 px-2 lg:px-3 py-1 rounded-md text-bluePurple dark:text-lightBluePurple",
         bgColor,
       )}
     >

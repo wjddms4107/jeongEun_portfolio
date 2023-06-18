@@ -7,7 +7,7 @@ interface IProps {
 
 export default function AboutMe({ about, me }: IProps) {
   return (
-    <div className="flex text-xl">
+    <div className="flex text-base lg:text-xl">
       <div className="flex">
         <div>{about}</div>
         <div className="text-purple text-[23px] mx-2">|</div>

@@ -34,7 +34,7 @@ import futures4 from "@/public/futures4.png";
 
 export default function ExperienceSection() {
   const PurpleTitle =
-    "relative right-[1px] text-2xl font-semibold text-bluePurple border-l-[2px] border-bluePurple pl-4 mt-4 mb-2";
+    "relative right-[1px] text-xl lg:text-2xl font-semibold text-bluePurple border-l-[2px] border-bluePurple pl-3 lg:pl-4 lg:mt-4 lg:mb-2";
   const ProjectSkillBgColor = "bg-lightGrayWhite dark:bg-darkLightGray200";
 
   const mainImages = [main1, main2, main3];
@@ -51,9 +51,9 @@ export default function ExperienceSection() {
       whileInView="onscreen"
       viewport={{ once: false, amount: 0.1 }}
       id="experience"
-      className="w-full mb-20 p-8 lg:w-[1440px]"
+      className="w-full mb-5 lg:mb-20 p-4 lg:p-7 lg:w-[1440px]"
     >
-      <motion.h2 variants={variants} className="text-5xl font-extrabold my-12">
+      <motion.h2 variants={variants} className="text-2xl lg:text-5xl font-extrabold my-12">
         Work Experience
       </motion.h2>
 
@@ -80,18 +80,18 @@ export default function ExperienceSection() {
           />
 
           <div className="mb-8">
-            <div className="flex flex-row items-center">
+            <div className="flex flex-col lg:flex-row lg:items-center">
               <h4 className={PurpleTitle}>BYDOZE 코인 거래소</h4>
               <Link
                 href="https://bydoxe.com/"
                 target="_blank"
-                className="text-2xl font-semibold mt-4 mb-2 ml-2"
+                className="text-base lg:text-2xl font-semibold mt-4 mb-2 ml-2"
               >
                 📣 BYDOZE 거래소 보러가기
               </Link>
             </div>
-            <div className="ml-6">
-              <div className="text-xl text-middleGray200 dark:text-darkMiddleGray200 mb-2">
+            <div className="ml-3 lg:ml-6">
+              <div className="text-base lg:text-xl text-middleGray200 dark:text-darkMiddleGray200 mb-2">
                 2023.02 ~ 2023.06 (프론트엔드 2명, 백엔드 3명, 디자이너 2명, 기획자 1명)
               </div>
               <div className="flex flex-wrap gap-y-1 max-w-[900px] mb-4">
@@ -113,9 +113,9 @@ export default function ExperienceSection() {
                 <ProjectSkill skill="react-toastify" bgColor={ProjectSkillBgColor} />
               </div>
 
-              <div className="mb-8">
-                <h5 className="text-2xl">- 나의 기여</h5>
-                <div className="text-lg text-middleGray900 dark:text-darkMiddleGray200">
+              <div className="mb-4 lg:mb-8">
+                <h5 className="text-xl lg:text-2xl">- 나의 기여</h5>
+                <div className="text-base lg:text-lg text-middleGray900 dark:text-darkMiddleGray200">
                   메인 페이지, 헤더, 프로필 페이지 (sms 인증, googleOTP 인증, KYC-2 인증, API 관리){" "}
                   <br />
                   자산 페이지 (나의 자산(전체), 이체, 교환, 상환), 스테이킹 페이지, 랜딩서비스

@@ -5,7 +5,11 @@ import EducationBox from "@/components/EducationBox";
 export default function EducationSection() {
   return (
     <motion.div initial="offscreen" whileInView="onscreen" viewport={{ once: false, amount: 0.2 }}>
-      <motion.h2 variants={variants} id="education" className="text-5xl font-extrabold my-12">
+      <motion.h2
+        variants={variants}
+        id="education"
+        className="text-2xl lg:text-5xl font-extrabold my-12"
+      >
         Education
       </motion.h2>
 

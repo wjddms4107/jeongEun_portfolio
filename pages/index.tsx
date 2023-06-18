@@ -16,23 +16,23 @@ export default function Home({ projects }: IProps) {
   return (
     <>
       <Seo title="Portfolio" />
-      <div className="w-screen h-auto flex flex-col p-8 lg:w-[1440px]">
+      <div className="w-screen h-auto flex flex-col p-3 lg:p-8 lg:w-[1440px]">
         <HomeSection />
         <div id="skill">
           <SkillSection />
         </div>
       </div>
 
-      <div className="w-[100vw] flex items-center justify-center bg-white dark:bg-black">
+      <div className="w-screen flex items-center justify-center bg-white dark:bg-black">
         <ExperienceSection />
       </div>
 
-      <div id="project" className="w-screen h-auto flex flex-col p-8 lg:w-[1440px]">
+      <div id="project" className="w-screen h-auto flex flex-col p-3 lg:p-8 lg:w-[1440px]">
         <ProjectSection projects={projects} />
       </div>
 
-      <div className="w-[100vw] flex items-center justify-center bg-white dark:bg-black">
-        <div className="w-screen mb-20 p-8 lg:w-[1440px]">
+      <div className="w-screen flex items-center justify-center bg-white dark:bg-black">
+        <div className="mb-20 p-8 lg:w-[1440px]">
           <EducationSection />
           <EtcSection />
         </div>
