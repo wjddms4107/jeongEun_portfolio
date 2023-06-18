@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { variants } from "@/libs/client/utils";
-import SkillBox from "@/components/SkillBox";
+import SkillBox from "../components/SkillBox";
 
 export default function SkillSection() {
   const skillSortRoundBox =
