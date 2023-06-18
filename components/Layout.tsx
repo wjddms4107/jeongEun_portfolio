@@ -1,6 +1,6 @@
 import Header from "./Header";
 
-export default function Layout({children}: React.PropsWithChildren) {
+export default function Layout({ children }: React.PropsWithChildren) {
   return (
     <>
       <Header />
@@ -8,5 +8,5 @@ export default function Layout({children}: React.PropsWithChildren) {
         {children}
       </main>
     </>
-  )
+  );
 }

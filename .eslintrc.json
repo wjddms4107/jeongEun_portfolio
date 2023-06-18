@@ -5,10 +5,10 @@
     "jest": true
   }, 
   "extends": [ 
-    "plugin:react/recommended", 
+    "plugin:prettier/recommended", 
     "plugin:react-hooks/recommended", 
     "plugin:@typescript-eslint/recommended", 
-    "plugin:prettier/recommand" 
+    "plugin:prettier/recommended" 
   ], 
   "parser": "@typescript-eslint/parser", 
   "parserOptions": { 
@@ -30,6 +30,7 @@
     "prefer-arrow-callback": "off", 
     "no-var": "error", 
     "no-dupe-keys": "error", 
-    "react/prop-types": "off" 
+    "react/prop-types": "off" ,
+    "prettier/prettier": "error"
   } 
 }

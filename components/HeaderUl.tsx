@@ -1,25 +1,34 @@
 import { useTheme } from "next-themes";
 import { scrollUp } from "@/libs/client/utils";
-import { useRouter } from 'next/router';
+import { useRouter } from "next/router";
 
 interface IHeaderUlProps {
-  isClickHamberger : boolean;
+  isClickHamberger: boolean;
   serIsClickHamberger?: () => void;
 }
 
-export default function HeaderUl({isClickHamberger, serIsClickHamberger}: IHeaderUlProps) {
+export default function HeaderUl({ isClickHamberger, serIsClickHamberger }: IHeaderUlProps) {
   const { theme, setTheme } = useTheme();
   const router = useRouter();
   const { pathname } = router;
 
   const goToHomePage = pathname === "/" ? undefined : () => router.push("/");
-  
-  const UlStyle = isClickHamberger ? "flex flex-col items-center w-full" : "flex items-center space-x-10";
-  const liStyle = isClickHamberger ? "w-full h-[50px] flex items-center justify-center hover:text-middleGray200 hover:bg-lightGrayWhite" : "hover:text-middleGray200 hover:dark:text-darkLightGray";
+
+  const UlStyle = isClickHamberger
+    ? "flex flex-col items-center w-full"
+    : "flex items-center space-x-10";
+  const liStyle = isClickHamberger
+    ? "w-full h-[50px] flex items-center justify-center hover:text-middleGray200 hover:bg-lightGrayWhite"
+    : "hover:text-middleGray200 hover:dark:text-darkLightGray";
 
   return (
     <ul className={UlStyle} onClick={() => serIsClickHamberger?.()}>
-      <li onClick={() => {pathname === "/" ? scrollUp() : router.push("/")}} className={liStyle}>
+      <li
+        onClick={() => {
+          pathname === "/" ? scrollUp() : router.push("/");
+        }}
+        className={liStyle}
+      >
         About me
       </li>
       <li className={liStyle} onClick={goToHomePage}>
@@ -40,10 +49,7 @@ export default function HeaderUl({isClickHamberger, serIsClickHamberger}: IHeade
       <li className={liStyle} onClick={() => router.push("/my-ground")}>
         MyGround
       </li>
-      <li
-        className={liStyle}
-        onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-      >
+      <li className={liStyle} onClick={() => setTheme(theme === "dark" ? "light" : "dark")}>
         {theme === "dark" ? (
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -78,7 +84,6 @@ export default function HeaderUl({isClickHamberger, serIsClickHamberger}: IHeade
           </svg>
         )}
       </li>
-
-  </ul>
-  )
+    </ul>
+  );
 }

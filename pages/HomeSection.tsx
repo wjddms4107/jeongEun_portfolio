@@ -1,6 +1,5 @@
 import { useState, useRef } from "react";
 import { motion, useAnimationFrame } from "framer-motion";
-import Image from "next/image";
 import { useTypingAnimation } from "@/libs/client/useTypingAnimation";
 import { useCursorBlink } from "@/libs/client/useCursorBlink";
 import { useMenuAnimation } from "@/libs/client/useMenuAnimation";
@@ -9,8 +8,12 @@ import AboutMe from "@/components/AboutMe";
 import PinkBtn from "@/components/PinkBtn";
 import IntroduceSection from "./IntroduceSection";
 
-export default function HomeSection(){
-  const texts = ['전체적인 아름다움을 중요시하는', '성취 중독자', '적응력이 뛰어나 협업에 자신있는'];
+export default function HomeSection() {
+  const texts = [
+    "전체적인 아름다움을 중요시하는",
+    "성취 중독자",
+    "적응력이 뛰어나 협업에 자신있는",
+  ];
   const speed = 120;
   const currentText = useTypingAnimation(texts, speed);
   const isCursorVisible = useCursorBlink(300);
@@ -18,9 +21,9 @@ export default function HomeSection(){
   const [isOpen, setIsOpen] = useState(false);
   const scope = useMenuAnimation(isOpen);
 
-  const ref = useRef<HTMLDivElement>(null); 
-  
-  useAnimationFrame((t) => {
+  const ref = useRef<HTMLDivElement>(null);
+
+  useAnimationFrame(t => {
     const y = (1 + Math.sin(t / 1000)) * -10;
     if (ref.current) {
       ref.current.style.transform = `translateY(${y}px)`;
@@ -48,8 +51,7 @@ export default function HomeSection(){
             <div className="group cursor-pointer">
               <div>소개글 전체보기</div>
               <span className="opacity-0 group-hover:opacity-100">
-                '전체적인 아름다움을 중요시하는', '성취 중독자', '적응력이
-                뛰어나 협업에 자신있는'
+                '전체적인 아름다움을 중요시하는', '성취 중독자', '적응력이 뛰어나 협업에 자신있는'
               </span>
             </div>
           </div>
@@ -66,7 +68,7 @@ export default function HomeSection(){
               height={400}
               className={cls(
                 "img rounded-2xl cursor-pointer mt-12 lg:m-0",
-                isOpen ? "" : "shadow-lg"
+                isOpen ? "" : "shadow-lg",
               )}
             />
             <div

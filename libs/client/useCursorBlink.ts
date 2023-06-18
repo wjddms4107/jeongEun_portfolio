@@ -1,11 +1,11 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
 export const useCursorBlink = (speed: number) => {
   const [isCursorVisible, setIsCursorVisible] = useState(true);
 
   useEffect(() => {
     const blinkTimer = setInterval(() => {
-      setIsCursorVisible((prev) => !prev);
+      setIsCursorVisible(prev => !prev);
     }, speed);
 
     return () => clearInterval(blinkTimer);

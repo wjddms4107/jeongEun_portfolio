@@ -1,14 +1,13 @@
-import Head from 'next/head';
+import Head from "next/head";
 
 interface IProps {
-  title : string;
+  title: string;
 }
 
-export default function Seo({title}:IProps) {
+export default function Seo({ title }: IProps) {
   return (
     <Head>
       <title>{title} | JeongEun</title>
     </Head>
-  )
-  
+  );
 }
