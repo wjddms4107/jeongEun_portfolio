@@ -10,7 +10,7 @@ interface ISkillBox {
   width?: number;
 }
 
-export default function SkillBox({
+export default function SkillTitle({
   src,
   lang,
   alt,

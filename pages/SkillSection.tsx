@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { variants } from "@/libs/client/utils";
-import SkillBox from "../components/SkillBox";
+import SkillTitle from "@/components/SkillTitle";
 
 export default function SkillSection() {
   const skillSortRoundBox =
@@ -22,27 +22,27 @@ export default function SkillSection() {
       <div className="mb-14">
         <h3 className={skillSortRoundBox}>Front</h3>
         <div className={skillBorder}>
-          <SkillBox src="/html.svg" alt="html 아이콘" lang="HTML/CSS" />
-          <SkillBox src="/js.svg" alt="js 아이콘" lang="Javascript" />
-          <SkillBox src="/ts.svg" alt="ts 아이콘" lang="Typescript" />
-          <SkillBox src="/react.svg" alt="react 아이콘" lang="React" />
-          <SkillBox src="/next.svg" alt="next 아이콘" lang="Next.js" />
-          <SkillBox src="/sass.svg" alt="sass 아이콘" lang="Sass" width={35} />
-          <SkillBox lang="Styled-component" isImg={false} isBorderNone />
-          <SkillBox src="/tailwind.svg" alt="tailwind 아이콘" lang="Tailwild CSS" />
-          <SkillBox src="/mui.png" alt="mui 아이콘" lang="Material UI" />
-          <SkillBox src="/redux.svg" alt="redux 아이콘" lang="Redux" />
-          <SkillBox src="/recoil.svg" alt="recoil 아이콘" lang="Recoil" width={50} />
-          <SkillBox src="/reactQuery.svg" alt="reactQuery 아이콘" lang="React-query" />
+          <SkillTitle src="/html.svg" alt="html 아이콘" lang="HTML/CSS" />
+          <SkillTitle src="/js.svg" alt="js 아이콘" lang="Javascript" />
+          <SkillTitle src="/ts.svg" alt="ts 아이콘" lang="Typescript" />
+          <SkillTitle src="/react.svg" alt="react 아이콘" lang="React" />
+          <SkillTitle src="/next.svg" alt="next 아이콘" lang="Next.js" />
+          <SkillTitle src="/sass.svg" alt="sass 아이콘" lang="Sass" width={35} />
+          <SkillTitle lang="Styled-component" isImg={false} isBorderNone />
+          <SkillTitle src="/tailwind.svg" alt="tailwind 아이콘" lang="Tailwild CSS" />
+          <SkillTitle src="/mui.png" alt="mui 아이콘" lang="Material UI" />
+          <SkillTitle src="/redux.svg" alt="redux 아이콘" lang="Redux" />
+          <SkillTitle src="/recoil.svg" alt="recoil 아이콘" lang="Recoil" width={50} />
+          <SkillTitle src="/reactQuery.svg" alt="reactQuery 아이콘" lang="React-query" />
         </div>
       </div>
 
       <div>
         <h3 className={skillSortRoundBox}>Back</h3>
         <div className={skillBorder}>
-          <SkillBox src="/prisma.svg" alt="prisma 아이콘" lang="Prisma" />
-          <SkillBox src="/firebase.svg" alt="firebase 아이콘" lang="Firebase" />
-          <SkillBox src="/mongodb.svg" alt="mongodb 아이콘" lang="Mongodb" />
+          <SkillTitle src="/prisma.svg" alt="prisma 아이콘" lang="Prisma" />
+          <SkillTitle src="/firebase.svg" alt="firebase 아이콘" lang="Firebase" />
+          <SkillTitle src="/mongodb.svg" alt="mongodb 아이콘" lang="Mongodb" />
         </div>
       </div>
     </motion.div>
