@@ -31,6 +31,8 @@
     "no-var": "error", 
     "no-dupe-keys": "error", 
     "react/prop-types": "off" ,
-    "prettier/prettier": "error"
+    "prettier/prettier": "error",
+    "react/no-unescaped-entities": "off",
+    "@next/next/no-page-custom-font": "off"
   } 
 }
