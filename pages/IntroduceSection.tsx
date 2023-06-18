@@ -26,7 +26,7 @@ export default function IntroduceSection({ setIsOpen }: IProps) {
           <span className="text-purple dark:text-lightBluePurple">
             ‘전체적인 개발의 아름다움을 중요시하는’
           </span>{" "}
-          개발자입니다.{" "}
+          개발자입니다.
         </div>
         <div className="text-[17px]">
           의도와 컨셉을 정확히 이해하고 디자이너가 제시한 디자인을 웹 인터페이스로 표현하기 위해
