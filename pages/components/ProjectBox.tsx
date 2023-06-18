@@ -48,7 +48,7 @@ export default function ProjectBox({ isClicked, onClick, details, layoutId }: IP
         {isClicked ? (
           <div
             onClick={() => handleOpenBox(details?.id)}
-            className="rounded-2xl h-full bg-neutral-100 dark:bg-darkMiddleGray200"
+            className="min-h-[480px] lg:min-h-full h-full rounded-2xl  bg-neutral-100 dark:bg-darkMiddleGray200"
           >
             <Image
               src={details?.src[0]}
@@ -126,7 +126,7 @@ export default function ProjectBox({ isClicked, onClick, details, layoutId }: IP
             </div>
           </div>
         ) : (
-          <div className="h-full lg:text-xl break-all flex items-center justify-center text-deepGray dark:text-darkMiddleGray300 font-semibold text-center p-2">
+          <div className="min-h-[480px] lg:h-[auto] lg:text-xl break-all flex items-center justify-center text-deepGray dark:text-darkMiddleGray300 font-semibold text-center p-2">
             {details?.title}
           </div>
         )}

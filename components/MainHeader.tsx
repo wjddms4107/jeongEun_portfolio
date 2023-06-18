@@ -49,6 +49,14 @@ export default function MainHeader() {
   }, []);
 
   useEffect(() => {
+    if (window.innerWidth <= 900) {
+      setIsMobile(true);
+    } else {
+      setIsMobile(false);
+    }
+  }, []);
+
+  useEffect(() => {
     const mode = localStorage.getItem("theme");
 
     if (mode === "light" || mode === "dark") {

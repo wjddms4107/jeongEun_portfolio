@@ -47,7 +47,7 @@ export default function ProjectSection({ projects }: IProps) {
         트러블 슈팅 등의 내용이 담겨있고 '자세히보기'를 클릭하시면 더 많은 정보를 보실 수 있습니다.
       </h3>
 
-      <div className="h-[500px] lg:h-[700px] pt-10 lg:pb-5 flex snap-mandatory snap-x overflow-x-scroll lg:scrollbar-hide">
+      <div className="lg:h-[700px] pt-10 lg:pb-5 flex snap-mandatory snap-x overflow-x-scroll lg:scrollbar-hide">
         {projectBoxs}
       </div>
     </motion.div>
