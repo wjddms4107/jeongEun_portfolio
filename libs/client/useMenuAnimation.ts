@@ -29,7 +29,7 @@ export function useMenuAnimation(isOpen: boolean) {
         delay: isOpen ? staggerMenuItems : 0,
       },
     );
-  }, [isOpen]);
+  }, [isOpen, animate]);
 
   return scope;
 }

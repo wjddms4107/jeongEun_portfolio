@@ -1,10 +1,17 @@
 interface IProps {
   setIsOpen: () => void;
+  isOpen: boolean;
 }
 
-export default function IntroduceSection({ setIsOpen }: IProps) {
+export default function IntroduceSection({ setIsOpen, isOpen }: IProps) {
   return (
-    <div className="introduceSection absolute top-0 right-0 h-full w-full bg-white p-5 lg:p-10 flex flex-col justify-between dark:bg-darkLightGray200">
+    <div
+      className="introduceSection absolute top-0 right-0 h-full w-full bg-white p-5 pt-7 lg:p-10 flex flex-col justify-between dark:bg-darkLightGray200"
+      style={{
+        pointerEvents: isOpen ? "auto" : "none",
+        clipPath: "inset(10% 50% 90% 50% round 10px)",
+      }}
+    >
       <svg
         onClick={setIsOpen}
         xmlns="http://www.w3.org/2000/svg"
@@ -12,7 +19,7 @@ export default function IntroduceSection({ setIsOpen }: IProps) {
         viewBox="0 0 24 24"
         strokeWidth="1.5"
         stroke="currentColor"
-        className="introduce w-6 lg:w-10 h-6 lg:h-10 absolute top-[10px] right-[10px] cursor-pointer"
+        className="introduce w-7 lg:w-10 h-7 lg:h-10 absolute top-[5px] lg:top-[10px] right-[5px] lg:right-[10px] cursor-pointer"
       >
         <path
           strokeLinecap="round"

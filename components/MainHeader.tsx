@@ -11,7 +11,7 @@ import MobileHeader from "./MobileHeader";
 import HeaderUl from "./HeaderUl";
 
 export default function MainHeader() {
-  const { theme } = useTheme();
+  const { theme, setTheme } = useTheme();
   const router = useRouter();
   const { pathname } = router;
 
@@ -46,6 +46,14 @@ export default function MainHeader() {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", handleResize);
     };
+  }, []);
+
+  useEffect(() => {
+    const mode = localStorage.getItem("theme");
+
+    if (mode === "light" || mode === "dark") {
+      setTheme(mode);
+    }
   }, []);
 
   return (

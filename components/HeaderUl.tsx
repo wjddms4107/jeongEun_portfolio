@@ -8,7 +8,9 @@ interface IHeaderUlProps {
 }
 
 export default function HeaderUl({ isClickHamberger, serIsClickHamberger }: IHeaderUlProps) {
-  const { theme, setTheme } = useTheme();
+  const { theme, setTheme, systemTheme } = useTheme();
+  const currentTheme = theme === "system" ? systemTheme : theme;
+
   const router = useRouter();
   const { pathname } = router;
 
@@ -49,7 +51,10 @@ export default function HeaderUl({ isClickHamberger, serIsClickHamberger }: IHea
       <li className={liStyle} onClick={() => router.push("/my-ground")}>
         MyGround
       </li>
-      <li className={liStyle} onClick={() => setTheme(theme === "dark" ? "light" : "dark")}>
+      <li
+        className={liStyle}
+        onClick={() => (theme == "dark" ? setTheme("light") : setTheme("dark"))}
+      >
         {theme === "dark" ? (
           <svg
             xmlns="http://www.w3.org/2000/svg"

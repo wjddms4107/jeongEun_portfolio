@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion, useAnimationFrame } from "framer-motion";
 import { useTypingAnimation } from "@/libs/client/useTypingAnimation";
 import { useCursorBlink } from "@/libs/client/useCursorBlink";
@@ -78,7 +78,7 @@ export default function HomeSection() {
               개발자 노정은을 소개합니다! <br /> 사진을 클릭해주세요!
             </div>
           </div>
-          <IntroduceSection setIsOpen={() => setIsOpen(false)} />
+          <IntroduceSection isOpen={isOpen} setIsOpen={() => setIsOpen(false)} />
         </div>
       </div>
 
