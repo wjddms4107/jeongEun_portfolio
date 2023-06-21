@@ -150,7 +150,7 @@ export default function ExperienceSection() {
                   RoleUrl="https://bydoxe.com/"
                   RoleUrlDscr="헤더 보러가기"
                   imgArray={headerImages}
-                  troubleTitle="트러블 슈팅 : recoil로 헤더에서 로그인유무 및 언어 상태관리, subMenu UI 재활용"
+                  troubleTitle="트러블 슈팅 : recoil, localStorage로 로그인유무 및 언어 상태관리, subMenu UI 재활용"
                   troubleDscrArray={[
                     {
                       title: "recoil로 헤더에서 로그인유무 및 언어 상태관리",

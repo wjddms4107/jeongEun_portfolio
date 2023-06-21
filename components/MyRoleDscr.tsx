@@ -42,9 +42,9 @@ export default function MyRoleDscr({
     <div className="flex flex-col lg:mb-5 pb-5">
       <div className="flex flex-col lg:flex-row flex-grow items-start lg:items-center lg:space-x-3">
         <h5 className="text-lg lg:text-xl font-extrabold relative -top-[3px]">{Roletitle}</h5>
-        <Link href={RoleUrl} target="_blank" className="text-sm lg:text-base w-[fit-content]">
+        {/* <Link href={RoleUrl} target="_blank" className="text-sm lg:text-base w-[fit-content]">
           📣 {RoleUrlDscr}
-        </Link>
+        </Link> */}
       </div>
 
       <div className="my-3 overflow-y-hidden lg:w-[1000px]">

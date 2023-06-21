@@ -6,7 +6,7 @@ interface IProps {
 export default function IntroduceSection({ setIsOpen, isOpen }: IProps) {
   return (
     <div
-      className="introduceSection absolute top-0 right-0 h-full w-full bg-white p-5 pt-7 lg:p-10 flex flex-col justify-between dark:bg-darkLightGray200"
+      className="introduceSection absolute top-0 right-0 h-full w-full bg-white p-5 pt-7 lg:p-10 flex flex-col justify-between dark:bg-darkLightGray200 overflow-auto"
       style={{
         pointerEvents: isOpen ? "auto" : "none",
         clipPath: "inset(10% 50% 90% 50% round 10px)",
