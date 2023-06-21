@@ -93,7 +93,7 @@ export default function HomeSection() {
             About me
           </motion.h2>
           <div>
-            <PinkBtn text="이력서 다운로드" />
+            <PinkBtn text="이력서 다운로드" url="/resume.pdf" />
           </div>
         </motion.div>
 
