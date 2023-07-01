@@ -25,7 +25,7 @@ export default function SkillSection() {
           <SkillTitle src="/html.svg" alt="html 아이콘" lang="HTML/CSS" />
           <SkillTitle src="/js.svg" alt="js 아이콘" lang="Javascript" />
           <SkillTitle src="/ts.svg" alt="ts 아이콘" lang="Typescript" />
-          <SkillTitle src="/react.svg" alt="react 아이콘" lang="React" />
+          <SkillTitle src="/react.png" alt="react 아이콘" lang="React" />
           <SkillTitle src="/next.svg" alt="next 아이콘" lang="Next.js" />
           <SkillTitle src="/sass.svg" alt="sass 아이콘" lang="Sass" width={35} />
           <SkillTitle lang="Styled-component" isImg={false} isBorderNone />
