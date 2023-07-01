@@ -1,7 +1,6 @@
 # 포트폴리오 웹 사이트
 > 개발자 노정은을 소개하는 포트폴리오 웹 사이트입니다. </br>
-> [포트폴리오 웹 사이트 영상](https://www.youtube.com/watch?v=f-sBWaB70Ck) </br>
-> [포트폴리오 웹 사이트](https://magazinek.netlify.app) </br>
+> [포트폴리오 웹 사이트](https://jeong-eun-portfolio.vercel.app/) </br>
 : 웹 페이지는 Vercel로 배포했습니다.
 
 ## 1. 제작 기간
