@@ -69,58 +69,58 @@ export default function ExperienceSection() {
         </div>
         <div className="border-l border-middleGray100 border-dashed dark:border-darkMiddleGray100 ">
           <CompanyDscrWrapper
-            company="(주) MRP Soft"
+            company="MRP Partners [MRP Soft]"
             period="2023.11 ~ 현재"
             companyDscr={`MRP Partners는 블록체인 사업을 진행하고 있으며, 안전성과 효율성을 보장하기 위한 기술 개발에 블록체인 기술을 활용하고 있습니다.`}
             myRoleDscr={
-              `저는 신사업 개발팀에서 프론트엔드 개발자로서의 첫 걸음을 내딛었습니다. 신사업으로 시작된 거래소 프로젝트의 초기 멤버로 기술 선정부터 거래소 구축 후 운영까지 전 과정에 참여하였습니다. 이 과정에서 주니어 개발자로서의 한계를 넘어서며 주도적인 역할을 맡아 선물거래, 랜딩서비스, 스테이킹, 메인페이지 등 다양한 서비스를 개발하였습니다. \n\n` +
-              `특히, 프론트엔드 개발자로서 반응형 디자인, 다크모드, 재사용 가능한 UI 컴포넌트, 언어에 따른 UI 변화, 데이터 캐싱 등의 다양한 기술을 구현하면서 사용자 친화적이고 직관적인 인터페이스를 개발하기 위해 늘 기획자와 디자이너와 긴밀히 대화하며 UI/UX를 개선해나갔습니다. \n\n` +
-              `Styled-component의 theme 기능을 활용하여 일관된 디자인 시스템을 구축하고 Storybook을 활용하여 UI 컴포넌트를 효과적으로 관리하였습니다. 또한, React-Query를 사용하여 데이터 요청과 응답을 최적화하고 캐싱을 통해 사용자 경험을 향상시켰습니다. 뿐만 아니라, i18next를 이용하여 언어에 따른 UI 변화를 구현하고 Framer Motion을 활용하여 부드러운 애니메이션 효과를 적용하였습니다. 이와 함께 React-Responsive을 도입하여 다양한 기기에서도 일관된 레이아웃을 제공하고 사용자의 편의성을 고려한 반응형 디자인을 구현하였습니다.`
+              `선물거래, 스테이킹, 랜딩서비스 등 다양한 서비스를 제공하는 ‘BYDOXE' 거래소 프로젝트의 프론트엔드 개발자로 참여했습니다. 신사업으로 시작된 거래소 프로젝트는 프론트엔드 3명, 백엔드 4명으로 구성되어 개발을 진행하였고 초기 멤버로서 설계, 개발, 운영, 유지보수까지 전 과정에 함께했습니다.\n\n` +
+              `주요 업무로는 메인페이지, 헤더, SMS 인증, Google OTP 인증, KYC 인증, 자산 이체 및 교환, 랜딩 서비스, 스테이킹 서비스의 개발을 맡았으며, \n` +
+              `거래소 오픈 이후에도 추가된 이벤트 페이지들과 유지보수를 책임지고 있습니다. 또한, 더욱 글로벌한 플랫폼을 지향하기에 나스닥, 현물거래, 런치패드 등의 서비스도 개발 중에 있는데 저는 현물거래를 담당하여 현재 개발 마무리 단계에 있습니다.`
             }
           />
 
           <div className="mb-8">
             <div className="flex flex-col lg:flex-row lg:items-center">
-              <h4 className={PurpleTitle}>BYDOZE 코인 거래소</h4>
+              <h4 className={PurpleTitle}>글로벌 가상자산 거래소 'BYDOXE'</h4>
               <Link
                 href="https://bydoxe.com/"
                 target="_blank"
                 className="text-base lg:text-2xl font-semibold mt-4 mb-2 ml-2"
               >
-                📣 BYDOZE 거래소 보러가기
+                📣 BYDOXE 보러가기
               </Link>
             </div>
             <div className="ml-3 lg:ml-6">
               <div className="text-base lg:text-xl text-middleGray200 dark:text-darkMiddleGray200 mb-2">
-                2023.02 ~ 2023.06 (프론트엔드 2명, 백엔드 3명, 디자이너 2명, 기획자 1명)
+                2023.02 ~ 현재 (프론트엔드 3명, 백엔드 4명, 디자이너 2명, 기획자 1명)
               </div>
               <div className="flex flex-wrap gap-y-1 max-w-[900px] mb-4">
-                <ProjectSkill skill="react v18 " bgColor={ProjectSkillBgColor} />
-                <ProjectSkill skill="typescript" bgColor={ProjectSkillBgColor} />
-                <ProjectSkill skill="react-router-dom" bgColor={ProjectSkillBgColor} />
-                <ProjectSkill skill="styled-component" bgColor={ProjectSkillBgColor} />
-                <ProjectSkill skill="material-ui" bgColor={ProjectSkillBgColor} />
-                <ProjectSkill skill="storyBook" bgColor={ProjectSkillBgColor} />
-                <ProjectSkill skill="recoil" bgColor={ProjectSkillBgColor} />
-                <ProjectSkill skill="react-query" bgColor={ProjectSkillBgColor} />
-                <ProjectSkill skill="axios" bgColor={ProjectSkillBgColor} />
-                <ProjectSkill skill="react-query" bgColor={ProjectSkillBgColor} />
-                <ProjectSkill skill="i18next" bgColor={ProjectSkillBgColor} />
-                <ProjectSkill skill="react-apexcharts" bgColor={ProjectSkillBgColor} />
-                <ProjectSkill skill="framer-motion" bgColor={ProjectSkillBgColor} />
-                <ProjectSkill skill="react-responsive" bgColor={ProjectSkillBgColor} />
-                <ProjectSkill skill="react-slick" bgColor={ProjectSkillBgColor} />
-                <ProjectSkill skill="react-toastify" bgColor={ProjectSkillBgColor} />
+                {[
+                  "react v18",
+                  "next.js",
+                  "typescript",
+                  "styled-component",
+                  "material-ui",
+                  "web-socket",
+                  "tradingView",
+                  "i18next",
+                  "react-query",
+                  "recoil",
+                  "framer-motion",
+                ].map(v => (
+                  <ProjectSkill key={v} skill={v} bgColor={ProjectSkillBgColor} />
+                ))}
               </div>
 
               <div className="mb-4 lg:mb-8">
                 <h5 className="text-xl lg:text-2xl">- 나의 기여</h5>
                 <div className="text-base lg:text-lg text-middleGray900 dark:text-darkMiddleGray200">
-                  메인 페이지, 헤더, 프로필 페이지 (sms 인증, googleOTP 인증, KYC-2 인증, API 관리){" "}
+                  메인 페이지, 헤더, 푸터, <br />
+                  프로필 페이지 (sms 인증, googleOTP 인증, KYC 인증), 자산 페이지 (나의 자산(전체),
+                  이체, 교환, 상환),
                   <br />
-                  자산 페이지 (나의 자산(전체), 이체, 교환, 상환), 스테이킹 페이지, 랜딩서비스
-                  페이지 <br />
-                  선물거래 USDT-M,COIN-M 페이지 (포지션 오픈 및 청산, 자산, 증거금 )
+                  스테이킹 페이지, 랜딩서비스 페이지, 각종 이벤트 페이지 및 팝업 <br />
+                  현물거래 페이지(현재 진행중)
                 </div>
               </div>
 
@@ -174,7 +174,7 @@ export default function ExperienceSection() {
                 />
 
                 <MyRoleDscr
-                  Roletitle="3. 프로필 페이지 : sms 인증, googleOTP 인증, KYC-2 인증, API 관리 (페이지 기여도: 50%)"
+                  Roletitle="3. 프로필 페이지 : sms 인증, googleOTP 인증, KYC 인증 (페이지 기여도: 50%)"
                   RoleUrl="https://bydoxe.com/mypage/profile"
                   RoleUrlDscr="프로필 페이지 보러가기"
                   imgArray={profileImages}
@@ -190,7 +190,7 @@ export default function ExperienceSection() {
                         `여러곳에서 사용할 수 있도록 컴포넌트화 햤습니다.`,
                     },
                     {
-                      title: "KYC-2 인증 - 신분증 이미지 프리뷰 및 업로드 기능",
+                      title: "KYC 인증 - 신분증 이미지 프리뷰 및 업로드 기능",
                       dscr:
                         `프로필 페이지에서 KYC-2 인증을 위해 신분증 이미지 업로드 기능을 구현하였습니다. \n` +
                         `사용자는 신분증 이미지를 선택하여 업로드할 수 있으며, 수정 및 삭제도 가능하도록 했습니다. \n` +
@@ -309,46 +309,6 @@ export default function ExperienceSection() {
                         `로직상으로는 다양한 상태와 컴포넌트 간의 상호작용에 대한 고민이 필요했습니다. \n` +
                         `효율적인 로직을 구현하기 위해 상태의 변화와 업데이트를 어떤 컴포넌트에서 처리해야 하는지를 고민하고, \n` +
                         `필요한 정보를 recoil 또는 부모 컴포넌트에서 자식 컴포넌트로 전달하는 방식으로 데이터 흐름을 관리했습니다. `,
-                    },
-                  ]}
-                />
-
-                <MyRoleDscr
-                  isBorder={false}
-                  Roletitle="7. 선물거래 페이지 : 포지션 오픈 및 포지션 청산 (페이지 기여도: 30%)"
-                  RoleUrl="https://bydoxe.com/landing"
-                  RoleUrlDscr="선물거래 페이지 보러가기"
-                  imgArray={futuresImages}
-                  troubleTitle="트러블 슈팅 : 제한된 리소스 횐경에서 선물거래 포지션 오픈 및 청산 구현, 다양한 케이스를 고려한 격리와 교차 레버리지 설정"
-                  troubleDscrArray={[
-                    {
-                      title: "제한된 리소스 횐경에서 선물거래 포지션 오픈 및 청산 구현",
-                      dscr:
-                        `선물거래의 포지션 설정에서는 백엔드로부터 받아온 데이터와 함께 증거금 등의 다양한 계산식을 등 다양한 계산식을 처리해야 했습니다. \n` +
-                        `또한 거래 수량 단위가 USDT인지 %에 따라 다른 계산을 해야 했고 지정가, 시장가, 트리거 등 각각의 상태로 관리해야 했습니다.\n` +
-                        `이와 더불어 각 포지션에 따른 다양한 예외처리도 고려해야 했습니다. \n\n` +
-                        `당시 계산식 및 예외처리가 명확하게 기획되지 않았기 때문에, \n` +
-                        `기획자와 함께 mexc, 바이낸스, bitget 등의 래퍼런스를 참고하여 이를 함께 기획하고 구현 방향을 정했습니다. \n` +
-                        `더불어 프론트와 서버에서 처리해야 할 데이터를 정의하기 위해 백엔드 개발자와 회의도 자주 진행했습니다. \n` +
-                        `또한 선물거래에 대한 도메인 이해를 높이기 위해 유튜브 영상 시청, 데모 선물거래 직접 시도, 애널리스트와의 상담 등을 통해 많은 시간을 투자했습니다. \n` +
-                        `리소스의 한계로 인해 이해에 많은 시간을 들였지만, 도메인을 명확히 이해하고 개발함으로써 구현에 대한 확신을 얻을 수 있었습니다. \n\n` +
-                        `구현에는 recoil, useState, react-query, useEffect, useCallback 등의 기술을 적절하게 활용하였으며, \n` +
-                        `input, dropdow, 주문요청 모달 등 재사용 가능한 UI 요소들을 효율적으로 활용하여 코드의 효율성을 높이는데 주력했습니다. \n` +
-                        `위와 같은 노력을 통해 선물거래 포지션 오픈 및 포지션 청산 기능을 성공적으로 구현할 수 있었고, \n` +
-                        `이를 통해 프론트엔드 개발자로서 협력의 중요성을 다시 한번 깨닫게 되었습니다. `,
-                    },
-                    {
-                      title: "다양한 케이스를 고려한 격리와 교차 레버리지 설정",
-                      dscr:
-                        `선물거래에서 격리와 교차에 따른 레버리지 설정은 사용자의 포지션 여부, 선택한 모드, \n` +
-                        `그리고 이전에 설정한 레버리지 등 다양한 케이스를 고려하여 상태를 관리해야 했습니다. \n\n` +
-                        `포지션이 없는 유저는 격리모드와 교차모드 중 어떤 모드든 선택하고 레버리지 설정도 자유롭게 변경할 수 있습니다. \n` +
-                        `격리 포지션이 있는 유저는 청산하지 않으면 교차 모드로 변경할 수 없으며, 교차 포지션이 있는 유저도 청산하지 않으면 격리 모드로 변경할 수 없습니다.\n` +
-                        `레버리지 설정은 이전에 선택한 값보다 높게 설정할 수 있지만 낮게 변경하는 것은 허용되지 않습니다.  \n` +
-                        `이러한 조건들을 고려하여 사용자의 선택과 현재 상태를 비교하고 조건문을 활용하여 적절한 처리를 수행하는 로직을 구현했습니다. \n` +
-                        `이를 통해 사용자가 선택한 모드와 레버리지를 실시간으로 반영하여 일관성 있는 거래 환경을 제공할 수 있었습니다. \n\n` +
-                        `또한 사용자의 편의성과 안전성을 고려하여 올바른 모드와 레버리지 설정을 유도하기 위한\n` +
-                        `UI/UX 요소를 고민하면서 사용자 중심의 개발과 상태 관리의 중요성을 깨달을 수 있었습니다.`,
                     },
                   ]}
                 />
